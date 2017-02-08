@@ -1,0 +1,4 @@
+.idea
+npm-debug*
+.DS*
+node_modules

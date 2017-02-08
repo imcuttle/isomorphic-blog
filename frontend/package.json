@@ -1,0 +1,25 @@
+{
+  "name": "isomorphic-blog-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "open http://localhost:8080/webpack-dev-server/ && node index.js",
+    "build": "webpack -p --mini --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "cdev": "webpack-dev-server --devtool source-map --hot --progress --colors --content-base build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack-dev-server": "^1.16.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moyuyc/react-chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/moyuyc/react-chat/issues"
+  },
+  "homepage": "https://github.com/moyuyc/react-chat#readme"
+}

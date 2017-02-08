@@ -1,0 +1,23 @@
+.next__link, .profile, .nav, article + section {
+    display: none!important;
+}
+header * {
+    display: none;
+}
+header::after{
+    display: none;
+}
+header, mast__container {
+    height: auto!important;
+    background-color: transparent!important;
+    padding: 2em 0 0!important;
+}
+.mast__container h1 {
+    display: initial;
+    text-align: center;
+    color: #000;
+}
+
+article pre code{
+    white-space: pre-wrap!important;
+}
