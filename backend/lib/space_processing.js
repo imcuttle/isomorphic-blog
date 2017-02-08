@@ -41,7 +41,7 @@ watch(SPACE_CONFIG_PATH, (type, filename) => {
 
 watch(SPACE_ARTICLES_PATH, function(eventType, filename) {
     if (config.skipRegExp.test(filename)) {
-        console.log(`filename provided: ${filename}`);
+        console.log(`filename provided: ${filename} => ${eventType}`);
         try {
             updateDB(DataBase, filename, SPACE_ARTICLES_PATH, markedPure, config.skipRegExp, config.returnRaw, config.timeFormat);
         } catch (ex) {
