@@ -18,11 +18,11 @@ tags: [express,jade,markdown,highlight]
 # 效果预览
 
 - `json`文件查看
-![](/images/package.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FnOfRikfqt_hiOB-pvRJkRglHOrG?imageslim)
 - `md`文件查看
-![](/images/md.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fm8FxD4yT4EN6cWR2PcGhzJRKA6s?imageslim)
 - `html`文件查看
-![](/images/html.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fn4xKf6bLySUZs2uNfQr6yo1GtOu?imageslim)
 
 # 代码改进
 ## `root.txt`文件监控

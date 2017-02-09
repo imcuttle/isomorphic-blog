@@ -50,6 +50,7 @@ module.exports = {
                 res.on('data', chunk => all+=chunk)
                 res.on('end', () => {
                     all = JSON.parse(all);
+                    console.log(all);
                     resolve(all.code == 'success' && all.data && all.data.url)
                 })
             }).on('error', () => resolve(false));

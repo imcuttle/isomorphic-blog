@@ -13,41 +13,41 @@ const skipRegExp = require('../source/config').skipRegExp
 
 // const files = fs.readdirSync(articlesPath).filter(name=>!skipRegExp.test(name));
 
-const uploadForSrc = src => {
+const usedImages = []
+
+const uploadForSrc = (src, filename) => {
     if (isUrlString(src)) {
         return false;
     } else {
         const file = publicPath + (src.startsWith('/') ? src : '/'+src);
         if (fs.existsSync(file)) {
-            console.log(file, src)
-            const json = smms.uploadSync(fs.readFileSync(file));
-            if (! json <= 0 ) {
-                console.log(json);
-                return;
-            }
+            console.log(src, filename);
+            // console.log(file, src)
+            // const json = smms.uploadSync(fs.readFileSync(file));
+            usedImages.push(file);
         }
         return false;
     }
 }
 
-const setMarkDownImageUpload = (markdown) => {
-    return markdown.replace(/<img([\s\S]*?)>([\s\S]*?<\/\s*?img>)*/g, (m, c) => {
+const setMarkDownImageUpload = (markdown, file) => {
+    return markdown.replace(/<img([^=]*?)>([\s\S]*?<\/\s*?img>)*/g, (m, c) => {
         if ( /src=["']?([\s\S]+?)["']?/.test(c) ) {
             const src = RegExp.$1;
-            if (!uploadForSrc(src)) {
-                console.log(m);
+            if (!uploadForSrc(src, file)) {
                 return m;
             }
-
+            return m;
         } else {
             return m;
         }
     }).replace(/!\[([\s\S]*?)\]\(([\s\S]*?)\)/g, (m, alt, src) => {
         if (src) {
-            if (!uploadForSrc(src)) {
-                console.log(m);
+            if (!uploadForSrc(src, file)) {
+                // console.log(m);
                 return m;
             }
+            return m;
         }
         return m;
     })
@@ -60,6 +60,24 @@ const files = process.argv.filter(name=>!skipRegExp.test(name));
 files.forEach((file, i, all) => {
     console.log('[ING]', file, `${i+1}/${all.length}`);
     const str = fs.readFileSync(file).toString();
-    const after = setMarkDownImageUpload(str);
+    const after = setMarkDownImageUpload(str, file);
     fs.writeFileSync(file, after);
 })
+
+console.log('usedImages', usedImages, usedImages.length);
+
+const getAbsoluteFiles = dir => fs.readdirSync(dir).map(f => path.resolve(dir, f))
+
+const allImages = getAbsoluteFiles(publicPath+'/images').concat(getAbsoluteFiles(publicPath+'/upload'));
+
+console.log('Total', allImages.length);
+
+allImages.filter(file => !usedImages.includes(file))
+    .forEach(f => {
+        console.log('[RM] ', f);
+        try {
+            fs.unlinkSync(f);
+        } catch (ex) {
+            console.error(ex.message);
+        }
+    })

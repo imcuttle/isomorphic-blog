@@ -10,10 +10,10 @@ categories: [Studying]
 <!--more-->
 # 修改之处
 　　原版的主题中，有三种Schema（Muse/Mist/Pisces），在主题的配置文件`_config.yml`中，有sidebar:position属性，但是却反人类的**仅仅**只支持Pisces
-![git1_sidebar](/htm/images/git1_sidebar.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FmcBlZwsZRfTu76I0UBIKmZUTBqB?imageslim)
 
 　　Pisces设置sidebar:position为left后，效果如下(图片来自原作者博客)：
-![](/htm/images/git1_2.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FlfSqCEE9xdbhoX8ge8heScTRS1C?imageslim)
 
 　　于是乎，我便「一言不合，开始动手」，研究起其他两个主题的sidebar源码起来。
 有了原作者代码的参考，照葫芦画瓢，不一会儿也修改好了。
@@ -22,7 +22,7 @@ categories: [Studying]
 # Pull Request！
 ## Fork
 　　首先，找到你需要修改的项目，Fork It！
-![fork](/htm/images/git1_fork.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fo7IJxphHt6Kx1pBFlJ90ShA32pX?imageslim)
 
 ## Clone
 　　Fork完成之后，找到你Fork的项目。
@@ -39,11 +39,11 @@ categories: [Studying]
 	git push origin fix-bug
 ## Pull Request
 　　提交你的修改至github后，切换branch至fix-bug
-![git1_switchbranch.png](/htm/images/git1_switchbranch.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiW1kAXel6WqirDiUDWlIMiLGIBZ?imageslim)
 点击**Compare & pull request**按钮，然后写下你修改内容的说明就OK了
 ## Wait To Be Merged
 　　目前还没有同意Merge. = =
-![wait](/htm/images/git1_wait.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FthPzIG1sKMsA9YPt0fAuESHl73s?imageslim)
 
 参考资料
 [http://www.zhihu.com/question/21682976](http://www.zhihu.com/question/21682976)

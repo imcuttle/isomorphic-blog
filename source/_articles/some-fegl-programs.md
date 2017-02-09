@@ -493,7 +493,7 @@ HTMLCanvasElement.prototype.magicBg = function(){
 
 ![IMG](/images/bezier3.gif)
 <center>图：三次贝塞尔曲线动态绘制效果</center>
-![IMG](/htm/images/canvas1.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FqrMRZZXMInLzy27Mc6CCWwHrC_v?imageslim)
 <center>图：花瓣与其贝塞尔曲线控制点</center>
 - 怎么使用？
 1.	`<script src='drawflower.js'></script>`
@@ -691,7 +691,7 @@ function rePaint(ignores){
 [三维基本变换组合变换文档参考下载](/htm/4三维基本变换5组合变换.doc)
 
 1. 基本变换之平移变换
-    ![/htm/doc1.png](/htm/images/doc1.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FlInRAsxX_jMvJHaZQvaKK0vF2O8?imageslim)
 
     ```javascript
     var matD = new THREE.Matrix4();
@@ -702,7 +702,7 @@ function rePaint(ignores){
     ```
 
 2. 基本变换之比例变换
-    ![/htm/doc2.png](/htm/images/doc2.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FpnmgsA3Km1IRwmog3nOD45TsJRb?imageslim)
 
     ```javascript
     matD.makeScale(myctls[1].x,myctls[1].y,myctls[1].z);

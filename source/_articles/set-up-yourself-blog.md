@@ -14,9 +14,9 @@ Moka Toy Theme
 ![pic2](http://ww3.sinaimg.cn/mw690/a9c83d2dgw1f9121vhj49j213m0jm0zk.jpg)
 
 Moka Default Theme
-![ClipboardImage](/upload/1478072089882.png)
-![ClipboardImage](/upload/1478072131469.png)
-![ClipboardImage](/upload/1478072150076.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FrGF08rmJt2NF2LpmuAIRnxj2Nho?imageslim)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FloiRM0XupnS5LAgOUviDDeLps7u?imageslim)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FhNaO0_pVzZFWUaTH29o2i5MsmIv?imageslim)
 
 My topic is **The Easy Way to set up your own Blog** today.
 
@@ -30,7 +30,8 @@ And two choices, that is, command line and PC desktop.
 **if your operation is Windows, open git bash terminal(in right-click menu),** otherwise normal terminal.
 
 input `node -v` and `git --version`
-![ClipboardImage](/upload/1478075045504.png) ![ClipboardImage](/upload/1478075079922.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FmjrebInuh-WSbY9pWWoC4EdQvJV?imageslim)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fm7iSW9Oe-b5I9WdID1mM4f_p6jn?imageslim)
 if their version display successily, congratulation!
 
 OK! It's time that the leading role say hello to everyone.  
@@ -47,7 +48,7 @@ Steps:
         moka -h  # moka's usage
         # or
         moka --help
-![ClipboardImage](/upload/1478076304936.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FpEwQ9S4t-i83yHNTYzcOyjnU7xD?imageslim)
 4. create a empty directory as moka work directory
         cd /path/to/directory/
         mkdir mokaBlog
@@ -56,31 +57,31 @@ Steps:
         moka init # -f option means empty this directory before init
         # or
         moka i
-![ClipboardImage](/upload/1478076757018.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiL0TbYF2eMuI13SlXY5_FoONSu5?imageslim)
 6. list all files
         ls -R
-![ClipboardImage](/upload/1478077648968.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FrfIqOOx4wJnWG6c4q9lZ5jjG9-S?imageslim)
 7. as you can see, directory `static` is empty after initiation, so you need generate static resource
         moka generate
         # or
         moka g
 8. list static directory
-![ClipboardImage](/upload/1478080340315.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FsCQSqri2tfb0ryLkjFFwNQU5mRI?imageslim)
 yeah, the files in `themes/moka/build/` are copied to `static/`, and generate a new directory named `moka_api`, `./moka.config.json` and `./themes/moka/theme.config.json` copied here. and generate a new file named `db.json`.
 
 9. run static local server for watch `static/index.html`
         moka staticServer # -p option means the port of static server
         # or
         moka ss
-![ClipboardImage](/upload/1478078760611.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fq06Cni0I7TSd8plVByUijKChd3k?imageslim)
         open http://localhost:9888  # run in new terminal
-![ClipboardImage](/upload/1478078961569.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fszoa19TUtAb48yq1xxcw-1E9cs1?imageslim)
 
 10. OK! if the above steps passed, congratulation. then
     you need set up your own `Github Pages` named `{usename}.github.io`, more info see [User, Organization, and Project Pages](https://help.github.com/articles/user-organization-and-project-pages/)  
 and for deploying easily, you also need [Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) and [Adding a new SSH key to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/).
 11. update `moka.config.json`
-![ClipboardImage](/upload/1478079670467.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FoK3j0y82Ncw7VM293l9_yAFbzSh?imageslim)
 replace `deploy.url` to yourself, and if you want bakup your moka work directory, replace `bak.url`
 12. Deploy!
         moka d -g -b # -b option menus bakup, -g: generate

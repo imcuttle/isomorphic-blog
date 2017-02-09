@@ -30,7 +30,7 @@ categories: [Studying]
 - 测试与 GitHub 是否连接成功：
         SSH -v git@github.com
 ***这里我遇到了问题***
-在前面的文章[感受Hexo的强大与高效（搭建Blog至GitHub Page教程）](/2016/04/22/感受Hexo的强大与高效（搭建Blog至GitHub%20Page教程）/)中，
+在前面的文章感受Hexo的强大与高效（搭建Blog至GitHub Page教程）中，
 我提到了需要为你的username.github.io项目添加SSH Key，
 其实吧，这一步可以忽略，直接生成一个访问你github的ssh key即可。
 不然你再次添加ssh key时候，因为本地的ssh key文件已经被你的项目使用了，所以会出现错误。

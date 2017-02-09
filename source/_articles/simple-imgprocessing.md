@@ -16,25 +16,25 @@ tags: [图像处理,canvas]
  使用了前端HTML5 canvas API 以及后端Java Web搭建的后台服务。<br>
  也就是说，**图像处理功能既有使用JavaScript语言实现的，也有利用Java语言实现的，但是都将以网页形式展现**<br>
  具体技术说明如下图所示。
- ![](/images/imp.png)
+ ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FtExOgf-UTKT19vx6mmqWfBdqn_h?imageslim)
 
 # 使用说明
 1. Image Choose
-    ![](/images/imgp1.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FtJDetUzRzzIBewtLi0y718y0_oH?imageslim)
 2. 点击白色面板，选择图像起点
-    ![](/images/imgp2.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiHHgSEUm-t3GsBzEz7i5wIaTLwu?imageslim)
     右侧Message出现该图片灰度分布情况
 3. 操作面板解释
-    ![](/images/imgp3.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fgmb7FlStUCyQzc6RoYRWPYaO8gn?imageslim)
 4. 注意
     **对于Server操作，由于需要将图像传输给服务器，所以对于图像大小有要求，请使用下面的图片(较小)进行测试**
-    ![](/images/sea.jpg)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FuZpYAjB3V5XaFc-tKjpG0T2vzZR?imageslim)
 
 # 功能介绍
 
 ## 设置图像透明度(直接像素点操作)
 - 如图
-    ![imgpro1.png](/images/imgpro1.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiXgk80RJjYyPQe7ANO4uhAA-mTL?imageslim)
 - 代码
     ```javascript
     alphaHandle = function () {
@@ -60,7 +60,7 @@ tags: [图像处理,canvas]
 
 ## 图像灰化(直接像素点操作)
 - 如图
-    ![imgpro2.png](/images/imgpro2.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FvwSNwQGsLpUjptBT1NKs6IMq1Cc?imageslim)
 - 代码
     ```javascript
     imgGrayHandle = function () {
@@ -78,7 +78,7 @@ tags: [图像处理,canvas]
 
 ## 高对比度(直接像素点操作)
 - 如图
-    ![imgpro3.png](/images/imgpro3.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fq4fUyU60zSFY3EIEnx_WtlDD2EY?imageslim)
 - 代码
     ```javascript
     hgHandle = function () {
@@ -97,7 +97,7 @@ tags: [图像处理,canvas]
 
 ## 浮雕效果(锐化滤波器)
 - 如图
-    ![imgpro4.png](/images/imgpro4.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FkmvcJ6520vsm6HomvGwCWQbUsZf?imageslim)
 - 代码
     ```javascript
     function ConvolutionMatrix(input, matrix, divisor, offset) {
@@ -146,7 +146,7 @@ tags: [图像处理,canvas]
 
 ## 模糊效果(线性平滑滤波器)
 - 如图
-    ![imgpro6.png](/images/imgpro6.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fo05MIaOVxYft3uLkjZw7rgIgaVp?imageslim)![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FuhpGHFjE7Pzd5qZdrQZyI8YY9NL?imageslim)
 - 代码
     ```javascript
     blurHandle = function (){
@@ -178,7 +178,7 @@ tags: [图像处理,canvas]
 
 ## 马赛克效果(平滑滤波器)
 - 如图
-    ![imgpro7.png](/images/imgpro7.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FmhxBd8me8P8_Czqeh3BaPxnudM5?imageslim)
 - 代码
     ```javascript
     mosaicHandle = function (){
@@ -221,7 +221,7 @@ tags: [图像处理,canvas]
 ## KMenus算法(矢量量化)
 - 说明：KMenus算法是一个聚类算法，我们可以用该算法思想，找出图像中主要的rgb颜色。（可以将rgb想象为三维空间xyz，找出图像中rgb聚集的地方）然后把属于该聚类中的所有像素点全部赋值为聚类像素值，查看效果
 - 如图
-    ![imgpro8.png](/images/imgpro8.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FlxYpIXzpNyQE68RFGZuyxwWYfTM?imageslim)
 - 代码
     ```javascript
     kMeans : function(imgData){
@@ -290,7 +290,7 @@ tags: [图像处理,canvas]
 ## 直方图均衡化(空域点处理)
 - 说明：直方图均衡化：我们把一张图片对应的rgb像素点分成3个(对应rgb)256(0-255)等级，并且将等级绘制为直方图，我们把直方图变得分布均匀，这就是直方图均衡化。这样的图片往往具有高对比度。
 - 如图
-    ![imgpro9.png](/images/imgpro9.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FmwuGT6aQQupiOOGufUTs2qO4dsH?imageslim)
 - 代码
     ```javascript
     //http://blog.csdn.net/jia20003/article/details/8119563
@@ -338,8 +338,8 @@ tags: [图像处理,canvas]
 ## 图像复原
 - 说明：图像在形成、记录、处理和传输过程中，由于成像系统、记录设备、传输介质和处理方法的问题，导致图像质量下降，这种现象叫图像退化。而图像复原就是对退化的图像进行处理，尽可能的复原图像的本来面目。
 - 如图
-    ![imgpro10.png](/images/r1.png)
-    ![imgpro10.png](/images/r2.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FkLD1OdGi0WKdv26sK4ubCj3ov6B?imageslim)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FqQpRZv_Tzx54uHAREg7O9UPY8r3?imageslim)
 - 代码
     ```java
     //图像恢复
@@ -412,7 +412,7 @@ tags: [图像处理,canvas]
 - 说明：人们看一个物体是，首先感受的就是它的边缘，灰度或结构等信息的突变处称为边缘。边缘是一个区域的结束，也是另一个区域的开始，利用这种特征可以分割图像。
     物体边缘上的这种变化可以用微分算子检测出来，通常用一阶或二阶导数来检测边缘。
 - 如图
-    ![imgpro11.png](/images/imgpro11.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FtX_UjvlyHv3o98RvaXwh7gsihqP?imageslim)
 - 代码
     ```java
     //边界提取
@@ -458,7 +458,7 @@ tags: [图像处理,canvas]
 ## 素描效果(roberts边界检测)
 - 说明：上面说到边缘可以用微分算子检测，roberts算子就是基于一阶导数的边缘检测算子的一种。
 - 如图
-    ![imgpro12.png](/images/imgpro12.png)
+    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fk7ZRWXH81MM58St-T3chZiCay6-?imageslim)
 - 代码
     ```java
     //Roberts算法

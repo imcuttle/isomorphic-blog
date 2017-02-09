@@ -75,5 +75,5 @@ tags: [爬虫]
 
 ## 效果查看
 
-![](/images/sear1.png)
-![](/images/sear2.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiR3acOCoX2AYv7FSSnpEPfYXEOs?imageslim)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FoiPMH0e2DGk06Uw1olsMxeRBWfk?imageslim)
