@@ -16,8 +16,8 @@ class Pagination extends React.Component{
 
 	    return (
 	        <div className="pagination">
-	            {!!prev && <Link to={prev}>Prev</Link>}
-	            {!!next && <Link to={next}>Next</Link>}
+	            {!!prev && <Link rel="prev" to={prev}>Prev</Link>}
+	            {!!next && <Link rel="next" to={next}>Next</Link>}
 	        </div>
 	    )
     }
