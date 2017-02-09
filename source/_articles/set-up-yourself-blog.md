@@ -97,7 +97,7 @@ you can get it on [github release page](https://github.com/moyuyc/moka-desktop/r
 It's awesome that **Editor** which has synchronic preview and easy way to insert image, and **Directory Tree** are mixed in `Moka Desktop` too.
 
 ### Preview
-![](/upload/moka-desktop.gif)
+<img src="/upload/moka-desktop.gif" alt="" width="870" height="603" />
 
 
 ### Why Use it
@@ -111,7 +111,7 @@ Editor can read the image from clipboard or drag datatransfer, so paste (ctrl/cm
 ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fkt6F04f_TxFtNvlrd6Cfixz_Zsq?imageslim)
 
 a lot of editor's theme you can choose.
-![](/upload/moka-editor-theme.gif)
+<img src="/upload/moka-editor-theme.gif" alt="" width="1001" height="601" />
 
 Some accelerator key on editor are as follows.
 mac's key is `cmd`, otherwise `ctrl`
@@ -119,15 +119,15 @@ mac's key is `cmd`, otherwise `ctrl`
     toggle about save article automatically
 2. ctrl/cmd + B/M   
     font's size increase (B)/decrease (M)
-    ![](/upload/moka-font-size.gif)
+    <img src="/upload/moka-font-size.gif" alt="" width="1001" height="601" />
 3. ctrl/cmd + S   
     save
 4. ctrl/cmd + F   
     find word in editor
-![](/upload/moka-find-word.gif)
+<img src="/upload/moka-find-word.gif" alt="" width="1001" height="601" />
 
 Directory tree's operation
-![](/upload/moka-tree.gif)
+<img src="/upload/moka-tree.gif" alt="" width="1001" height="601" />
 
 ## Source Code
 - [Moka](https://github.com/moyuyc/moka)

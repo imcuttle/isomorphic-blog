@@ -7,7 +7,7 @@ cover: http://obu9je6ng.bkt.clouddn.com/FjcQLjCVCd6CuaU2UII4ZpM1hhsE?imageslim
 
 偶然的机会，发现了B站的点歌机器人，觉得挺好玩的就自己做了一个简易版点歌机器人，预览如下：
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FjcQLjCVCd6CuaU2UII4ZpM1hhsE?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FjcQLjCVCd6CuaU2UII4ZpM1hhsE?imageslim" alt="ClipboardImage" width="1440" height="733" />
 <!--more-->
 ## 功能
 
@@ -28,7 +28,7 @@ cover: http://obu9je6ng.bkt.clouddn.com/FjcQLjCVCd6CuaU2UII4ZpM1hhsE?imageslim
 
 ## 技术沉淀
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FjewUWc85RsP7nJjQ3e4KGEgsKFO?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FjewUWc85RsP7nJjQ3e4KGEgsKFO?imageslim" alt="ClipboardImage" width="1435" height="352" />
 如上图，网易云音乐的请求参数是做了加密处理的。  
 关于网易云音乐请求参数的加密方法，简单提下
 ```js
@@ -42,7 +42,7 @@ aesRsaEncrypt: function (text) {
 }
 ```
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fn_ldGpK_PAxokq0ZfW2CaDTPW2O?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/Fn_ldGpK_PAxokq0ZfW2CaDTPW2O?imageslim" alt="ClipboardImage" width="553" height="434" />
 
 `secKey`为本地随机生成的密文，通过rsa非对称加密算法加密，然后网易服务器通过约定好的与`pubKey`对应的另一个因数进行解密，得到`secKey`, 然后通过两次aes逆运算就能得到`text`，也就是真实的参数了。  
 
@@ -51,7 +51,7 @@ aesRsaEncrypt: function (text) {
 
 另外！网易还做了一点安全措施，调用接口得到音乐url是有时间限制的!!!
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fq-T4HHbU4OH-Yjq2mkFu7o0aCov?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/Fq-T4HHbU4OH-Yjq2mkFu7o0aCov?imageslim" alt="ClipboardImage" width="1435" height="342" />
 
 所以，不能够在点歌的时候就把音乐url抓取下来保存，必须得有用户需要播放的时候再抓取url  
 而且云音乐的mvurl不支持跨域访问，所以我只好做个代理，转发视频数据流了，但这样做的不好就是mv播放不能跳跃播放（如最上方动图所示），不知有没有大牛知道如何解决这个问题

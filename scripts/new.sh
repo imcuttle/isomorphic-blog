@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-#cd ../source/_article
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR
 
 [ -z "$1" ] && echo "no title" && exit;
 

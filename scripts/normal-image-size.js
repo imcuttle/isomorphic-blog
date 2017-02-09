@@ -1,17 +1,142 @@
 #!/usr/bin/env node
 const sizeOf = require('image-size');
+const request = require('sync-request');
 var url = require('url');
-var http = require('http');
+var path = require('path');
+var fs = require('fs');
 
-var imgUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAoCAYAAAAIeF9DAAADrElEQVRoQ+2Ze0yOURzHP7klicUkc8k1ajIm9/tyGZoxlzGGuWW14Q+XsWlIy22YjLlUQy5zG+kyEwpRWojM+6ZSaoaQaVksy06/NTOvsNmeY8756333e55zfs/383y/57x7naqXUI0Z2ijgZIBow6KmEQNELx4GiGY8DBADRDcFNOvH7CEGiGYKaNaOcYgBopkCmrVjHGKAaKaAZu0YhxggmimgWTvGIQaIAwVC4qD7KHCqD7FBELAcPLvDpwrYPhx8RsPUbeDsClWfIPsSHJwuE3n1g6DT0LIjVFfD8yzYNwXel4CbB6xMBc8eUrNfh10Bcl9dNQshWe+QLkNEtIp38MoOL20wdBG8eQZvCyEtBuZFw5fP8DBe4Li2gHNrIHU/hOdB01bwKB48vAVkThJEToCNNvluT4HmngLmwQXYP6Xu2n8LZHI4ePmDzxgofgD5aaAAdegDjxKgrERE7DYMtg6BZ+nQaSDMPSyiV5bDpI2QFAEX1omMq25B5Qe4cxQWxkJJNoT3BWc3CLNDYzeBOXOP41qoj7jLomGtQ1beELF/NlRkVVVCQxd4WwRtfODzR7h5CE6vgNVp0HmQCNvWT2LJlgx7xsOcAzBsCWSdgYMzZIU1t6HTAMhNlYh0VIuZDxnHLMKhwx9UfhNB7SGZpyBqNsyMhJEhcGQB3DsHW4qgiTt8LIP8O9B1KLg0E1eo+OrYD75UwZMr0MYXWnqJ4C9yZJ6L6yFxswi89q44Mu8mdBvuuHZqGaTsNUBqxFdv8qy9MCIYToZAeixsLYZGTWRzV5GlAAZfhFe5ssG37w1xoZAQJrGkrq/XQCLPfwZkHIfoOd8DUdGowDqqqXXV3mTRsDay1EPXOsQRkJpNuwDc28GGnvA6V/YYdQhQQErzwC8Qji2GtCgBElEoEXd5GwSGgu0q7B4j8m6yg3v7umthvWUdi4b+QJRjVPQUZUFGrHz26Aop+yAnUdxSXgrJO8F3rMRYYSbsDPh2AkveBa29oVfgr2sR/S1CIcvqAUSJev/8j5FVGx3LL4vYtcN27dvviWk7IGAF1Ksv1ddPITJQ3nLfcbD0LDg3lVppAewYIaeoumoWIrEeyO8+vPdIOUkVpENR5vd3qagaNA9K8+Fx0o8zDl4gp7W7J/6s9ru9/cXr/h0gf/GhdZ7KANGMjgFigGimgGbtGIcYIJopoFk7xiEGiGYKaNaOcYgBopkCmrVjHGKAaKaAZu0YhxggmimgWTvGIZoB+QrxWqvY4GbvQAAAAABJRU5ErkJggg==';
-var options = url.parse(imgUrl);
+const articlesPath = path.join(__dirname, '..', 'source', '_articles')
+const publicPath = path.join(__dirname, '..', 'source', 'public')
+const skipRegExp = require('../source/config').skipRegExp
 
-http.get(options, function (response) {
-    var chunks = [];
-    response.on('data', function (chunk) {
-        chunks.push(chunk);
-    }).on('end', function() {
-        var buffer = Buffer.concat(chunks);
-        console.log(sizeOf(buffer));
+// const files = fs.readdirSync(articlesPath).filter(name=>!skipRegExp.test(name));
+
+const setMarkDownImageSize = (markdown, p) => {
+    let matched = false;
+    markdown = markdown.replace(/<img([\s\S]*?)>([\s\S]*?<\/\s*?img>)*/g, (m, c) => {
+        if (c.includes('width=') && c.includes('height=')) {
+            console.log(`[SKIP] ${p} (had size) => ` + m);
+            return m;
+        }
+        if ( /src=["']([\s\S]+?)["']/.test(c) ) {
+            const src = RegExp.$1;
+            let size;
+            if (isUrlString(src)) {
+                size = getImageSizeFromUrl_PathSync(src);
+            } else {
+                size = getImgSizeFromPathSync(publicPath + (src.startsWith('/') ? src : '/'+src) );
+            }
+            if (!size) {
+                console.error(`[ERROR] from ${p}  ${m}`)
+            }
+            return size ? m.replace(/width=[\s\S]*?(\s?)/, 'width='+size.width+'$1')
+                    .replace(/height=[\s\S]*?(\s?)/, 'height='+size.height+'$1') : m;
+        } else {
+            console.log(`[SKIP] ${p} (no src) => ` + m);
+            return m;
+        }
     });
-});
+
+    return markdown.replace(/!\[([\s\S]*?)\]\(([\s\S]*?)\)/g, (m, alt, src) => {
+        if (src) {
+            let size;
+            if (isUrlString(src)) {
+                size = getImageSizeFromUrl_PathSync(src);
+            } else {
+                size = getImgSizeFromPathSync(publicPath + (src.startsWith('/') ? src : '/'+src) );
+            }
+            if (!size) {
+                console.error(`[ERROR] from ${p}  ${m}`)
+            }
+            return size ? `<img src="${src}" alt="${alt}" width="${size.width}" height="${size.height}" />` : m;
+        }
+        return m;
+    })
+}
+
+const isUrlString = str => url.parse(str).slashes
+
+const getImageSizeFromUrl_Path = (src) => {
+    const ops = url.parse(src);
+    return ops.slashes ? getImgSizeFromURL(src) : getImgSizeFromPath(src)
+}
+
+const getImageSizeFromUrl_PathSync = (src) => {
+    const ops = url.parse(src);
+    return ops.slashes ? getImgSizeFromURLSync(src) : getImgSizeFromPathSync(src);
+}
+
+const getImgSizeFromURL = (url) => {
+    const ops = url.parse(imgUrl);
+    const protocol = ops.protocol.replace(/:$/, '');
+    let protocolPackage;
+    if (protocol === 'http' || protocol === 'https') {
+        protocolPackage = require(protocol);
+    } else {
+        return Promise.reject("illegal protocol: " + protocol)
+    }
+
+    return new Promise( function (resolve, reject) {
+        protocolPackage.get(url, function (res) {
+            let statusCode = res.statusCode;
+            if (statusCode === 302 || statusCode === 301) {
+                console.log(url, statusCode, "=>", res.headers['location']);
+                return getImgSizeFromURL(res.headers['location'])
+            }
+            const chunks = []
+            res.on('data', function (chunk) {
+                chunks.push(chunk);
+            }).on('end', () => {
+                const buffer = Buffer.concat(chunks);
+                const size = sizeOf(buffer);
+                console.log(url, "<=>", size);
+                resolve(size);
+            })
+        }).on('error', (err) => reject(err.message))
+    })
+}
+
+const getImgSizeFromURLSync = (url) => {
+    try {
+        const res = request('GET', url);
+        const size = sizeOf(res.getBody());
+        console.log("[URL]", url, '<=>', size);
+        return size;
+    } catch (ex) {
+        console.error(ex.message);
+        return null;
+    }
+}
+
+const getImgSizeFromPath = (path) => {
+    return new Promise((resolve, reject) => {
+        sizeOf(path, (err, size) => {
+            if (err) reject(err.message);
+            else {
+                console.log(path, "<=>", reject)
+                resolve(size);
+            }
+        })
+    })
+}
+
+const getImgSizeFromPathSync = (path) => {
+    try {
+        const size = sizeOf(path);
+        console.log("[PATH]", path, '<=>', size);
+        return size;
+    } catch (ex) {
+        console.error(ex.message);
+        return null;
+    }
+}
+
+
+const files = process.argv.filter(name=>!skipRegExp.test(name));
+
+files.forEach((file, i, all) => {
+    console.log('[ING]', file, `${i+1}/${all.length}`);
+    const str = fs.readFileSync(file).toString();
+    const after = setMarkDownImageSize(str, path.resolve(file));
+    fs.writeFileSync(file, after);
+})

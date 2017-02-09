@@ -24,7 +24,7 @@ cover: /images/gif1.gif
 
 ### 演示图片
 
-![img](/images/gif1.gif)
+<img src="/images/gif1.gif" alt="img" width="1142" height="747" />
 
 ### 代码解释
 `Shape.js ： 主要包含一些图形类`
@@ -414,7 +414,7 @@ Tool = {
 
 ### 演示图片
 
-![img](/images/gif2.gif)
+<img src="/images/gif2.gif" alt="img" width="992" height="604" />
 
 ### 代码解释
 
@@ -491,7 +491,7 @@ HTMLCanvasElement.prototype.magicBg = function(){
 
 - 关于贝塞尔曲线，[参考资料](http://bbs.csdn.net/topics/390358020)
 
-![IMG](/images/bezier3.gif)
+<img src="/images/bezier3.gif" alt="IMG" width="240" height="100" />
 <center>图：三次贝塞尔曲线动态绘制效果</center>
 ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FqrMRZZXMInLzy27Mc6CCWwHrC_v?imageslim)
 <center>图：花瓣与其贝塞尔曲线控制点</center>
@@ -537,7 +537,7 @@ or
 
 ### 演示图片
 
-![img](/images/gif3.gif)
+<img src="/images/gif3.gif" alt="img" width="792" height="649" />
 
 ### 代码解释
 自己定义的`Pos` `Rect` `Circle` 类
@@ -685,7 +685,7 @@ function rePaint(ignores){
 
 ### 演示图片
 
-![img](/images/gif4.gif)
+<img src="/images/gif4.gif" alt="img" width="1920" height="995" />
 
 ### 代码解释
 [三维基本变换组合变换文档参考下载](/htm/4三维基本变换5组合变换.doc)

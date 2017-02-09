@@ -3,7 +3,7 @@
  */
 module.exports = {
 
-    skipRegExp: /^\.(md|markdown)$/,
+    skipRegExp: /[^\.(md|markdown)]$/,
     //http://momentjs.com/
     timeFormat: 'DD MMM YYYY',
 

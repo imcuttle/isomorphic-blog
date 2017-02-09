@@ -12,7 +12,7 @@ tags: [js,Web Worker,HTML5,定时器,事件循环]
 
 # JavaScript事件循环
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fi6SAvEO2F7QIveMXHvnKJpsDNlu?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/Fi6SAvEO2F7QIveMXHvnKJpsDNlu?imageslim" alt="ClipboardImage" width="626" height="252" />
 如图，EventEmitters为事件发起者，比如你点击按钮，异步请求完成触发回调函数，定时器时间到了，事件触发...（这些是由多线程的浏览器来实现的）；
 Events为事件队列，表示亟待处理的事件，Event Handlers表示从事件队列中取出队首的事件，在堆、栈中的进行函数调用，语句运行。
 明白了JavaScript的事件循环后，我们再来看看`setInterval`和`setTimeout`。
@@ -94,7 +94,7 @@ html5新增的api `requestAnimationFrame`，原理与`setTimeout`一致，详细
 选择Image Choose，选择图片，点击画板放置图片后，点击K-Menus后，你会发现好像没发生什么事情一样。
 其实在后台已经创建了一个Worker，处理冗长的K-Menus图像聚类算法了，而你能继续享受流畅的用户体验。
 耐心等待一段时间，处理的结果才会返回回来，显示在界面上。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FsZ_zH_gMSjd_JdVPTx_rUo2jHB0?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FsZ_zH_gMSjd_JdVPTx_rUo2jHB0?imageslim" alt="ClipboardImage" width="1544" height="868" />
 
 代码如下
 ```javascript

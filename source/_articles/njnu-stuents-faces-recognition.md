@@ -8,7 +8,7 @@ skip: false
 ---
 
 [毕设 👉 南师大刷脸签到系统 👉  face.moyuyc.xyz](https://face.moyuyc.xyz)
-![](https://ooo.0o0.ooo/2017/01/18/587eea50913fd.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/18/587eea50913fd.jpg" alt="" width="1200" height="627" />
 
 源码：[graduation-project](https://github.com/moyuyc/graduation-project)
 
@@ -20,26 +20,26 @@ skip: false
 
 # 技术栈（Technology Stack）
 
-![](https://ooo.0o0.ooo/2017/01/21/58826eb274d3a.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/21/58826eb274d3a.jpg" alt="" width="900" height="496" />
 
 下面进行一些较为粗略的介绍，蜻蜓点水说说涉及的技术
 
 ## 前端（Front-End）
 
 1. 单页Web应用（single page web application，SPA），就是只有一张Web页面的应用。单页应用程序 (SPA) 是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。 浏览器一开始会加载必需的HTML、CSS和JavaScript，所有的操作都在这张页面上完成，都由 JavaScript 来控制。因此，对单页应用来说模块化的开发和设计显得相当重要。
-![](https://ooo.0o0.ooo/2017/01/22/5884d672c4710.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/5884d672c4710.jpg" alt="" width="550" height="609" />
 
 2. 使用主流 [Webpack](https://webpack.github.io/) 构建，进行前端模块自动化管理。
 
-![](https://ooo.0o0.ooo/2017/01/22/5884d5ba0680b.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/5884d5ba0680b.jpg" alt="" width="2598" height="1299" />
 
 
 3. 使用Facebook提出的 [React](https://facebook.github.io/react/) 进行作为 View， 将 HTML DOM 进行上层抽象，提出 Virtual DOM 概念，一套理念，实现了Server render, Web UI, mobile UI 的统一。  Learn Once, Write Anywhere
-![ClipboardImage](https://ooo.0o0.ooo/2017/01/23/5884d71e7ed1d.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/23/5884d71e7ed1d.jpg" alt="ClipboardImage" width="623" height="396" />
 
 4. [Redux](https://github.com/reactjs/redux)，随着 JavaScript 单页应用开发日趋复杂，JavaScript 需要管理比任何时候都要多的 state (状态)，state 在什么时候，由于什么原因，如何变化已然不受控制。 当系统变得错综复杂的时候，想重现问题或者添加新功能就会变得举步维艰, Redux则是为了解决该痛点而产生。
 5. [React Router](https://github.com/ReactTraining/react-router) 是一个基于 React 之上的强大路由库，它可以让你向应用中快速地添加视图和数据流，既保证了单页应用的畅快，同时保持页面与 URL 间的同步。
-![](https://ooo.0o0.ooo/2017/01/23/5884d88d62dd5.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/23/5884d88d62dd5.jpg" alt="" width="622" height="341" />
 6. *[Babel](https://babeljs.io/) => 使用 JavaScript 实现的编译器，正如官网所说的那样 Use next generation JavaScript, today.
  ，可以利用 Babel 书写最新的 JavasScript 语法标准，如 ECMAScript 6 ，搭配 Webpack 使用更佳。
 7. *[ECMAScript6](http://es6-features.org/) => 2015 年提出的JavaScript标准，目标是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者的一种实现。ES 6 具有一系列简明的语法糖，更佳的书写体验。但为了保证浏览器, Node 环境兼容性，往往配合 Babel 书写。
@@ -53,14 +53,14 @@ skip: false
 这种设计的缺点是，如果不使用cluster、StrongLoop Process Manager或pm2等模块，Node.js就难以处理多核或多线程等情况。
 3. pm2 => https://segmentfault.com/a/1190000004621734
 4. isomorphic render（同构渲染）=> 指的是前后端使用同一份代码。前端通过 Webpack 实现 CommonJs 的模块规范（Node亦是 CommonJs ）+ React 提出的 JSX ，使得 NodeJs 通过解析请求的 URL，适配 react-router 中的前端路由规则，得到 routing Props，还可以 dispatch(action) 同步或异步（一般是 isomorphic-fetch ），又或是直接读取数据，从而更新 store ，最后 nodeJs 通过 store 中的 state 渲染 JSX ，产生静态的 HTML，从而实现了前后端的同构渲染。
-![isomorphic render](https://ooo.0o0.ooo/2017/01/23/5884dc559b020.jpg) 
-![isomorphic render](https://ooo.0o0.ooo/2017/01/29/588d9b8393522.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/23/5884dc559b020.jpg" alt="isomorphic render" width="640" height="400" /> 
+<img src="https://ooo.0o0.ooo/2017/01/29/588d9b8393522.jpg" alt="isomorphic render" width="610" height="412" />
 5. [nodeJs C++ Addons](https://nodejs.org/api/addons.html)，nodeJs 就是使用C++语言实现的，图像处理最强大的库 opencv 便是用 C++ 实现的，这就不得不需要 nodeJs 与 C++ 之前通信，通过 nodeJs 调用 opencv 的方法，[node-opencv](https://github.com/peterbraden/node-opencv) 便是利用 [nan](https://github.com/nodejs/nan) （解决平台间兼容性问题，将异步事件驱动封装）与 [v8](https://github.com/v8/v8) （javascript 对应的数据类型与 C++映射） ，通过 [node-gyp](https://github.com/nodejs/node-gyp) 工具，将 C++ 打包成 一个动态链接库 *.node，通过 require 即可调用。
 6. [node-mysql](https://github.com/mysqljs/mysql) ，由于 NodeJs 具有 non-blocking IO 与异步事件驱动的特性，所以很适合于 IO 密集型高并发业务，而访问数据库正是常用的 IO 操作。
 7. NPM（全称Node Package Manager，即node包管理器），是Node预设的，通过国内 taobao 镜像可以加快下载速度。
 8. [Express](http://expressjs.com/zh-cn/)（Node.js Web 应用程序框架），很方便的定义 restful api.
 9. Spider，网络爬虫，通过转发客户端的 HTTP 或 HTTPs 请求，得到远程服务器的响应数据，然后再一次转发至客户端中，也就是代理的意思
-![](https://ooo.0o0.ooo/2017/01/21/5882d1cb76d12.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/21/5882d1cb76d12.jpg" alt="" width="699" height="146" />
 关于[南师大的一些 API](http://njnu.chaiziyi.com.cn/) ，已经有前人用 Python 写过了，爬取教务系统数据，然后我只需要爬取对应的网站即可。
 10. nginx，使用 C++ 实现的 Web 服务器，通过简单的配置就可以反向代理至正确的端口和应用层协议。
 11. 由于浏览器安全性的考虑，对于外网地址使用摄像头需要在安全的HTTPs协议下，因此需要付费或免费地得到认可的证书，通过 nginx 配置，反向代理至 Node 进程即可。
@@ -319,8 +319,8 @@ gp-njnu-photos-backend/
 最后便是学生照片下载的代码书写了。
 采用的是 Bash Script 书写，具有较强的易用性，不需要复杂的平台、环境依赖。第一版是使用 `wget` 指令进行下载，但是该指令在 `windows/osx` 需要额外安装，所以最后改成了 `curl`。
 
-![](https://ooo.0o0.ooo/2017/01/22/5884923dd9155.jpg)
-![](https://ooo.0o0.ooo/2017/01/22/5884926960c79.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/5884923dd9155.jpg" alt="" width="770" height="436" />
+<img src="https://ooo.0o0.ooo/2017/01/22/5884926960c79.jpg" alt="" width="770" height="436" />
 
 ### 人脸识别理论学习
 
@@ -381,8 +381,8 @@ NAN_METHOD(Matrix::ToThreeChannels) {
 
 经过多次尝试后，对于学生证件照，最终比较得出，采用 LBP 级联分类器，窗口放大 1.95 倍左右效果较好。（测试数据在 `backend/data/summary.json`）
 
-![](https://ooo.0o0.ooo/2017/01/22/5884929797559.jpg)
-![](https://ooo.0o0.ooo/2017/01/22/588492ae5471e.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/5884929797559.jpg" alt="" width="770" height="436" />
+<img src="https://ooo.0o0.ooo/2017/01/22/588492ae5471e.jpg" alt="" width="770" height="436" />
 
 ### 识别算法测试与确定
 
@@ -418,11 +418,11 @@ NAN_METHOD(Matrix::ToThreeChannels) {
 对于页面路由的控制，使用的是 HTML5 的 [History API](https://developer.mozilla.org/en-US/docs/Web/API/History) ，交给 JavaScript 来控制，所以只要不进行页面的强制刷新（Ctrl/cmd + R），所有路径的跳转都是不会从服务器获取 HTML CSS 进行渲染，这就是单页 Web 应用的核心，这样一来，用户体验就更佳，服务器负载也更小，但对于浏览器要求更高了。
 
 结合 React Web Component 和 [CSS Module](https://github.com/css-modules/css-modules) 思想，将前端页面细分为若干个组件，在上层 Page 中进行数据的传输，组件的组合，在 Page 上层还有一层 App，把一些全局通用的组件放这。
-![](https://ooo.0o0.ooo/2017/01/22/58845e6781176.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/58845e6781176.jpg" alt="" width="986" height="558" />
 
 而且所有的数据控制都在 `reducer` 中，层次清晰，代码复用性高。
 
-![](https://ooo.0o0.ooo/2017/01/22/58845a7e4a302.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/58845a7e4a302.jpg" alt="" width="800" height="600" />
 ```
 app/
 ├── common/
@@ -471,7 +471,7 @@ app/
 
 其中 `workers/face.worker.js` 文件是利用 Web Worker 起的另一个进程代码，主要做的是输入图片数据，输出人脸的位置大小，就是 JavaScript 版的人脸检测，之所以起另一个线程，是因为对于视频的人脸检测，对于实时性要求也比较高，检测也比较耗时，为了效率考虑使用了 Web Worker。 
 
-![ClipboardImage](https://ooo.0o0.ooo/2017/01/23/5884dfc84c74c.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/23/5884dfc84c74c.jpg" alt="ClipboardImage" width="1395" height="470" />
 
 ### 后端
 
@@ -619,7 +619,7 @@ const store = configureStore(
 
 为了增强站点的曝光率，就需要做 SEO 了，添加 `robots.txt`，站点地图，同时在前端页面加入不可见的 `a` 标签，利于网页爬虫爬取其他链接
 
-![](https://ooo.0o0.ooo/2017/01/22/5884a45f49cae.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/5884a45f49cae.jpg" alt="" width="909" height="662" />
 
 ### PC Desktop
 
@@ -1024,25 +1024,25 @@ npm run retrain && npm run start
 ```
 ## 系统模块（System Module）
 
-![系统模块](https://ooo.0o0.ooo/2017/01/22/58848833b7414.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/58848833b7414.jpg" alt="系统模块" width="770" height="401" />
 
 # 系统截图（System Screenshot）
 
 - 学生签到
-![学生签到-1](https://ooo.0o0.ooo/2017/01/22/588485d5c5134.jpg)
-![学生签到-2](https://ooo.0o0.ooo/2017/01/22/58848618b06ff.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/588485d5c5134.jpg" alt="学生签到-1" width="1440" height="810" />
+<img src="https://ooo.0o0.ooo/2017/01/22/58848618b06ff.jpg" alt="学生签到-2" width="1440" height="810" />
 
 - 人脸录入
-![](https://ooo.0o0.ooo/2017/01/22/5884867e8c4f1.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/5884867e8c4f1.jpg" alt="" width="1440" height="810" />
 
 - 关于
-![](https://ooo.0o0.ooo/2017/01/22/588486cf622d8.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/588486cf622d8.jpg" alt="" width="1440" height="810" />
 
 - 管理员登录
-![](https://ooo.0o0.ooo/2017/01/22/588486ef8446d.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/588486ef8446d.jpg" alt="" width="1440" height="810" />
 
 - 管理员界面
-![](https://ooo.0o0.ooo/2017/01/22/5884873f1e625.jpg)
+<img src="https://ooo.0o0.ooo/2017/01/22/5884873f1e625.jpg" alt="" width="1440" height="810" />
 
 
 # 总结（Sum Up）
