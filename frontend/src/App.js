@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import {Link} from 'react-router'
 import { connect } from 'react-redux'
 import {Map} from 'immutable'
+import Loading from './components/Loading'
 
 import utils, {loaded, isBrowser} from './common/utils'
 
@@ -27,10 +28,10 @@ class App extends React.Component {
     componentDidMount() {
         const {actions, location: {pathname}, params, state: {base: fetchedConfig}} = this.props
         if (fetchedConfig) {
-            loaded();
+            loaded().then(() => this.setState({isFirst: false}));
         } else {
             actions.fetchConfig().then(() => {
-                loaded();
+                loaded().then(() => this.setState({isFirst: false}));
                 actions.pathUpdateEntry(pathname, params);
             })
         }
@@ -54,25 +55,27 @@ class App extends React.Component {
 
     }
     state = {
-
+        isFirst: true
     }
     static contextTypes = {
         router: React.PropTypes.object.isRequired
     }
 
     render() {
-        const {children, ...rest} = this.props
-        const {state: { config: {title} }} = rest
+        const {children, ...rest} = this.props;
+        const {isFirst} = this.state;
+        const {state: { config: {title}, base: {fetching} }} = rest
         return (
             <div>
-            {
-                React.Children.map(children, (child, i) =>
-                    React.cloneElement(child, Object.assign({
-                        key: i,
-                        title: title
-                    }, {...rest}))
-                )
-            }
+                <Loading show={!isFirst && fetching} />
+                {
+                    React.Children.map(children, (child, i) =>
+                        React.cloneElement(child, Object.assign({
+                            key: i,
+                            title: title
+                        }, {...rest}))
+                    )
+                }
             </div>
         )
     }

@@ -61,40 +61,46 @@ export const isIE = () => {
   return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
 }
 
+const transitionEvent = (function whichTransitionEvent() {
+    var t,
+        el = document.createElement('surface'),
+        transitions = {
+            'transition':'transitionend',
+            'OTransition':'oTransitionEnd',
+            'MozTransition':'transitionend',
+            'WebkitTransition':'webkitTransitionEnd'
+        }
+    for(t in transitions) {
+        if( el.style[t] !== undefined ){
+            return transitions[t];
+        }
+    }
+})()
+
 export const loaded = () => {
     var isie = isIE();
     // if (!isBrowser) return;
     loadEl = loadEl || document.getElementById(isie?'loading':'loading-container');
-    var transitionEvent = whichTransitionEvent();
-    if(!transitionEvent)
-        loadEl.style.display = 'none';
-    else {
-        loadEl.addEventListener(transitionEvent, function func(e) {
-            e.target.removeEventListener(transitionEvent, func, false);
+    return new Promise((resolve) => {
+        if(!transitionEvent)
             loadEl.style.display = 'none';
-        }, false);
-        if(isie) {
-            // ie, set loading element opacity, trigger transitionend event;
-            loadEl.style.opacity = 0;
-        } else {
-            // not ie, loading-container height=0, fadeOuted , then children will hide
-            // better performance
-            loadEl.classList.add('fadeOut');
-        }
-    }
-    function whichTransitionEvent() {
-        var t,
-            el = document.createElement('surface'),
-            transitions = {
-                'transition':'transitionend',
-                'OTransition':'oTransitionEnd',
-                'MozTransition':'transitionend',
-                'WebkitTransition':'webkitTransitionEnd'
+        else {
+            loadEl.addEventListener(transitionEvent, function func(e) {
+                e.target.removeEventListener(transitionEvent, func, false);
+                loadEl.style.display = 'none';
+                resolve();
+            }, false);
+            if(isie) {
+                // ie, set loading element opacity, trigger transitionEnd event;
+                loadEl.style.opacity = 0;
+            } else {
+                // not ie, loading-container height=0, fadeOuted , then children will hide
+                // better performance
+                loadEl.classList.add('fadeOut');
+                setTimeout(resolve.bind(), 400);
             }
-       for(t in transitions) {
-           if( el.style[t] !== undefined ){
-               return transitions[t];
-           }
-       }
-    }
+        }
+
+    })
+
 }
