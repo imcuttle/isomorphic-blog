@@ -31,7 +31,7 @@ clone[1].x=1;
 console.log(arr[1].x) // 1
 ```
 可以看到，`clone[1].x`改变导致`arr[1].x`改变，图示如下
-![img](/htm/images/simple_clone1.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FqCHIEcVbSalCKIPiUhEDlAcEnR8?imageslim)
 
 ## 深复制
 ```javascript
@@ -49,7 +49,7 @@ Object.prototype.clone = function () {
 
 ```
 利用递归来实现Object实例的深复制(重新开辟一份内存空间)，如图
-![img](/htm/images/deep_clone1.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FkJZyQCbjx-o38csKs5ky9Bhf1hP?imageslim)
 因为Array也属于Object，上面的代码也适用于Array
 
 **不足之处：不能对DOM元素结点进行复制**

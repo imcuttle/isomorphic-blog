@@ -30,8 +30,9 @@ function handleRender(req, res, next) {
         if (error) {
             res.status(500).send(error.stack);
         } else if (redirectLocation) {
-            if( fs.existsSync(path.join(fePath, url.parse(req.url).pathname))
-                || fs.existsSync(path.join(spacePath, url.parse(req.url).pathname)) ) {
+            const pathname = decodeURIComponent(url.parse(req.url).pathname)
+            if( fs.existsSync(path.join(fePath, pathname))
+                || fs.existsSync(path.join(spacePath, pathname)) ) {
                 next();
             } else {
                 res.redirect(302, redirectLocation.pathname + redirectLocation.search);

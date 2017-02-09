@@ -92,7 +92,7 @@ FALLBACK:
     2. 部署线上代码时更新manifest版本号与配置
     
 按照以上配置，这样就能实现静态资源缓存
-![ClipboardImage](/upload/1473259140599.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FvEkGfGFiqRIPaoqrCm-dvTET2Xp?imageslim)
 如上图，`from cache`的加载时间相比其他网络请求快得多！  
 其中的`fetch/ajax`请求不能够通过静态资源存储，因为响应结果是可能会变的.
 
@@ -246,9 +246,9 @@ fetch = function (url) {
 
 }
 ```
-![ClipboardImage](/upload/1478232236138.gif)
+
 可以在chrome的web tool中看到indexedDB  
-![ClipboardImage](/upload/1473260691273.png)  
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FmF0kN7KEA15rnXMaMMC-32EeTqg?imageslim)
 每次请求都缓存下来了
 
 在脱离网络后！依旧可以模拟异步请求！

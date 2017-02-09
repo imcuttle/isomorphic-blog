@@ -14,14 +14,14 @@ tags: [websocket,Java Web]
 通过websocket，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。
 websocket数据传输不是采用的http协议，而是自己定义的协议。具有传输数据量少的特点。
 chrome控制台中可以查看到这一次握手动作
-![img](/htm/images/chat1_console.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FnzzOxFxWO3ml_rhjA3NjPJuMrDw?imageslim)
 
 
 # 预览
 1. 实时好友聊天
-![img](/htm/images/chat1.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FqwbKy8OiMXzzRWhgsGueOHt1nem?imageslim)
 2. 实时消息推送
-![img](/htm/images/chat1_push.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FoEmG9UGsrhr_ZlRC1VGjhYPReKV?imageslim)
 
 # 实现
 ## 前端
@@ -213,7 +213,7 @@ public static void loadData(String path) throws IOException, ClassNotFoundExcept
 ```
 
 2. 用户在未进入考友互动模块时，应该也能实时地接受相关的添加好友请求，新的消息请求。
-![img](/htm/images/chat1_notify.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FpumBNDxUXAbs0Segq64KtgrQBk5?imageslim)
 首先，在其他非聊天界面，设置
         window.axTag="login";
 而在聊天界面中设置

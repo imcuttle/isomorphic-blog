@@ -13,42 +13,42 @@ Java 实现的数字验证码识别, ...准确率不是很高, 模式识别和�
 <!--more-->
 整体的流程结构
 
-![](/images/all.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FjF5YYLISm4gTezikrNep3RISdDW?imageslim)
 
 # 识别思路
 
 首先，得到图片数据，如
 
-![](/images/src.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fq0DWmDYGc-hjV-gW7UJArsx2ClO?imageslim)
 
 然后我试着对图片进行各种处理，比如...
 
 1. 变成灰化图
-![](/images/gray.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FubU9uTrN3cnPhPnuO5bOQykn5eG?imageslim)
 
 2. 去噪...好像效果不明显
-![](/images/reduceSrc.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Ft_mbtLqREICr8bOaFyi5zEC0W2b?imageslim)
 
 3. 对灰化图去噪
-![](/images/reduceGray.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FosHgQkXuW3B-xmlrhUK6aqYfeIC?imageslim)
 
 4. 灰化图转成二值图（阈值128）
-![](/images/grayBin.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fm7deFoygmibuLpMu3fD87I6_Pjn?imageslim)
 
 5. 原图转成二值图（阈值128）
-![](/images/srcBin.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fm7deFoygmibuLpMu3fD87I6_Pjn?imageslim)
 
 6. 对二值图膨胀运算
-![](/images/srcBinExpend.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FhITj_7bt_Wq_h1p8TeThRlaL3Wi?imageslim)
 
 7. 对二值图腐蚀运算
-![](/images/srcBinCorrode.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fjgst5D9y5GEDzhmDlyyn7EZomQs?imageslim)
 
 8. 对二值图开运算 (先腐蚀后膨胀)
-![](/images/srcBinOpen.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FhJ9RJll2ol5i2imagXHgvQSNPib?imageslim)
 
 9. 对二值图闭运算 (先膨胀后腐蚀)
-![](/images/srcBinClose.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FrdLH6OY1OsJ8v11HhpaiON_q43d?imageslim)
 
 多次实验对比后，发现还是对原图的二值化图最好处理。
 
@@ -60,19 +60,19 @@ Java 实现的数字验证码识别, ...准确率不是很高, 模式识别和�
 
 并且带标记（防止重复处理处理过的点），将八连通的集合分割出来
 
-![](/images/eight-line.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FkK1GV7Np4iV8QNWLqvupBvPD9S3?imageslim)
 
-![](/images/split.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fu5_Ay5Jkg1eiU6i4X5vpNOU3krr?imageslim)
 
 效果如下
 
-![](/images/srcBinSpilt1.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FgwUfefH7e0ruE-yCg4iVDnlNFwN?imageslim)
 
-![](/images/srcBinSpilt2.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FrQ5LqtTGxpX7vPTxSRkAtpYQUzV?imageslim)
 
-![](/images/srcBinSpilt3.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FkhARQBT0IdX6-S2euZ7i0pHH42X?imageslim)
 
-![](/images/srcBinSpilt4.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FlXueQN2XdLsPvHne09vp7Bczmo4?imageslim)
 
 当然二值图中的噪点会影响字符的划分
 
@@ -82,7 +82,7 @@ Java 实现的数字验证码识别, ...准确率不是很高, 模式识别和�
 
 效果如下
 
-![](/images/srcBinSpilt-1.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FkB74y5to0WAqFUxD9Ot8NiDmmd4?imageslim)
 
 ```
 0111111111
@@ -104,7 +104,7 @@ Java 实现的数字验证码识别, ...准确率不是很高, 模式识别和�
 
 ```
 
-![](/images/srcBinSpilt-2.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fh2IM_GGns3WCSWAQ_FKWEyiij5s?imageslim)
 
 ```
 0000000110
@@ -128,7 +128,7 @@ Java 实现的数字验证码识别, ...准确率不是很高, 模式识别和�
 
 将图像编码完成后，对比待识别图片与10种数字样本之间字符"1"的位置吻合度，最高的即为识别出来的数字
 
-![](/images/pattern.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fv0mcAA5fwfpfmtsEeuDVIccS3ev?imageslim)
 
 但是这种方法容易将3，5，8识别错误，或者因为分割的不成功而导致的识别错误。
 

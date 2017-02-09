@@ -11,7 +11,7 @@ tags: [nodejs,smtp,net]
 
 <!--more-->
 # 知识介绍
-![img](/images/smtp1.png)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fv9jmxVALM06sFrlJUAlys62qFjW?imageslim)
 > 如图,电子邮件服务的实现结构，我这里主要讲的是红色圆圈的内容。
 
 下面是一次客户端成功发送QQ邮件的服务器响应和客户端请求的全过程。**（数字开头的即为服务器响应）**
