@@ -44,15 +44,17 @@ app.use((req, res, next) => {
 
 
 const fePath = module.exports.fePath = path.resolve(__dirname, '..', 'frontend', 'build')
-const spacePath = path.resolve(__dirname, '..', 'source', 'public')
+const spacePath = module.exports.spacePath = path.resolve(__dirname, '..', 'source', 'public')
 
-app.use('/public', express.static(spacePath))
 app.all('/api', (req, res) => {
     res.end('By Moyu. <github.com/moyuyc> ');
 })
 app.use('/api', require('./routes/api').default)
 app.use('/__ctl', require('./routes/ctl').default)
+
+
 app.use('/', require('./routes/react-server').default);
+app.use('/', express.static(spacePath))
 app.use('/', express.static(fePath))
 
 app.listen(process.env.PORT, () => console.log("Server Run On http://localhost:%s", process.env.PORT));

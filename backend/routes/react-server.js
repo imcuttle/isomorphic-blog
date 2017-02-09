@@ -20,7 +20,7 @@ import {configureStore} from '../../frontend/src/main'
 
 
 const server = express();
-import {fePath} from '../server'
+import {fePath, spacePath} from '../server'
 
 server.use(handleRender);
 // This is fired every time the server side receives a request
@@ -30,7 +30,8 @@ function handleRender(req, res, next) {
         if (error) {
             res.status(500).send(error.stack);
         } else if (redirectLocation) {
-            if( fs.existsSync(path.join(fePath, url.parse(req.url).pathname)) ) {
+            if( fs.existsSync(path.join(fePath, url.parse(req.url).pathname))
+                || fs.existsSync(path.join(spacePath, url.parse(req.url).pathname)) ) {
                 next();
             } else {
                 res.redirect(302, redirectLocation.pathname + redirectLocation.search);

@@ -52,9 +52,9 @@ watch(SPACE_ARTICLES_PATH, function(eventType, filename) {
 })
 
 const summary_cover_cache = (item={}, summaryNumber, forcePure) => {
-    if ( (!item.summary && !isNaN(summaryNumber)) || (!item.head.cover && !item.noCover) ) {
+    if ( ( (!item.summary || item.summary.length != summaryNumber) && !isNaN(summaryNumber)) || (!item.head.cover && !item.noCover) ) {
 
-        if(!item.summary && !isNaN(summaryNumber)) {
+        if( (!item.summary || item.summary.length != summaryNumber) && !isNaN(summaryNumber)) {
             pureText_cache(item);
             item.summary = item.pureText.substr(0, summaryNumber);
         } else {
