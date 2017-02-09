@@ -14,6 +14,5 @@ git push origin "$BRANCH"
 
 #if [ $? = 0 ]; then
     HOST=$(cat scripts/host)
-    echo $HOST
     curl $HOST/__ctl/pull
 #fi
