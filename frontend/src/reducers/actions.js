@@ -184,7 +184,7 @@ export const fetchConfig = () =>
         const { config, base: { fetchedConfig} } = getState();
         if (fetchedConfig) return Promise.resolve(1);
         return dispatch([setPic(config.leftPic), setFetching(true)]) &&
-        fetch("/config.json")
+        fetch("/public/config.json")
         .then(r => r.json())
         .then(json =>
             dispatch(setConfig(json)) && dispatch(setPic(json.leftPic)) && dispatch(setFetching(false)) && dispatch(setFetchedConfig(true))

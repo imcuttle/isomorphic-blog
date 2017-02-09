@@ -74,7 +74,7 @@ class Article extends React.Component {
                                 <figure className="absolute-bg" style={{backgroundImage: profile.image&&"url("+profile.image+")"}}></figure>
                             </div>
                             <div className="profile__container">
-                                <p itemprop="description" dangerouslySetInnerHTML={{__html: profile.contentHtml}}></p>
+                                <p itemProp="description" dangerouslySetInnerHTML={{__html: profile.contentHtml}}></p>
                                 <ul className="profile__social">
                                     {
                                         Array.isArray(profile.icons) &&

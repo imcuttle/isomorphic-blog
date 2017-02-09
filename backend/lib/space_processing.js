@@ -18,7 +18,12 @@ const SUMMARY_NUMBER = 100;
 
 const clearCache = (modulepath) => delete require.cache[require.resolve(modulepath)]
 const getConfig = () => {
-    const conf = deepAssign(default_config, existsSync(SPACE_CONFIG_PATH) ? require(SPACE_CONFIG_PATH) : {} )
+    const customConfig = existsSync(SPACE_CONFIG_PATH) ? require(SPACE_CONFIG_PATH) : {};
+    const conf = deepAssign({}, default_config, customConfig)
+    if (customConfig && customConfig.marked && customConfig.marked.setup) {
+        conf.marked.setup = customConfig.marked.setup
+    }
+
     if (typeof conf.skipRegExp === 'string') {
         conf.skipRegExp = eval(conf.skipRegExp);
     }

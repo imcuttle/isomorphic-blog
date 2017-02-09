@@ -52,7 +52,9 @@ app.all('/api', (req, res) => {
 app.use('/api', require('./routes/api').default)
 app.use('/__ctl', require('./routes/ctl').default)
 
-
+app.all('/public/config.json', (req, res) => {
+    res.sendFile(spacePath+'/config.json')
+})
 app.use('/', require('./routes/react-server').default);
 app.use('/', express.static(spacePath))
 app.use('/', express.static(fePath))
