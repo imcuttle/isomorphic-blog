@@ -10,7 +10,7 @@ cover: http://www.appcoda.com.tw/wp-content/uploads/2015/04/react-native-1024x63
 
 ## 移动端App分类
 
-<img src="http://img.blog.csdn.net/20160326162834667" alt="" width="700" height="368" />
+![](http://img.blog.csdn.net/20160326162834667)
 
 - Web(正在用的): 
     - 优：开发效率高，成本低，纯前端就能搞定，跨平台

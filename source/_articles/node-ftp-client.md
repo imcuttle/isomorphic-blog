@@ -10,10 +10,10 @@ tags: [nodejs,ftp,net]
 
 <!--more-->
 # 知识介绍
-<img src="http://obu9je6ng.bkt.clouddn.com/Fh2Isz1kNHsZnFHywDXMroNr3GYY?imageslim" alt="ClipboardImage" width="1452" height="500" />
+![img](/images/ftp1.png)
 > 如图,FTP协议使用了2个tcp连接，一个是控制连接（服务器端默认端口为21），一个是数据传输连接（服务器端默认端口为20），客户端也需要对应的使用两个不同的端口进行连接。
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FhmMKeDvkx7dnFvjvVlhpILiVJK5?imageslim" alt="ClipboardImage" width="1133" height="899" />
+![img](/images/ftp2.png)
 > 如图
 > 1. 在服务器21端口有新的连接到来后，服务器发送220码响应
 > 2. 客户端利用该连接，向服务器21端口发送`USER`命令

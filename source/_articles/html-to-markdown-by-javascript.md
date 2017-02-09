@@ -58,7 +58,7 @@ html2md.html2mdFromPath("path/to/html/file", "#markdown").then(console.log).catc
 
 Cheerio 更侧重于 node 端，jsDom 则将 HTML 标准在 node 上实现了，所以在浏览器端不需要导入 jsDom，因为浏览器已经实现了 HTML 标准。故 **jsDom 版本加上环境的判断，可以在浏览器和服务器端使用同一套代码**
 
-<img src="https://ooo.0o0.ooo/2017/02/07/589954c09cc12.jpg" alt="" width="415" height="95" />
+![](https://ooo.0o0.ooo/2017/02/07/589954c09cc12.jpg)
 
 具体的转化思路大致是，递归遍历 dom 树。对于单个 node ，判断其 tagName 进行映射。
 
@@ -100,15 +100,15 @@ if (/^h([\d]+)$/i.test(tagName)) {
 
 同时还需要注意！对于代码块
 
-<img src="https://ooo.0o0.ooo/2017/02/07/58995661014f5.jpg" alt="ClipboardImage" width="472" height="513" />
+![ClipboardImage](https://ooo.0o0.ooo/2017/02/07/58995661014f5.jpg)
 
 其换行是被样式控制的，如下图 `<div>`
 
-<img src="https://ooo.0o0.ooo/2017/02/07/589956804fb84.jpg" alt="ClipboardImage" width="381" height="319" />
+![ClipboardImage](https://ooo.0o0.ooo/2017/02/07/589956804fb84.jpg)
 
 而且 Dom 中的属性 `innerText` 不属于 HTML 标准，是浏览器各自实现的。如下图，`innerText` 是带换行的，而 `textContent` 则不带（jQuery 中 text() 也是不带的）
 
-<img src="https://ooo.0o0.ooo/2017/02/07/589956d5916fe.jpg" alt="ClipboardImage" width="427" height="531" />
+![ClipboardImage](https://ooo.0o0.ooo/2017/02/07/589956d5916fe.jpg)
 
 所以就需要我们自己判断是否需要换行，即自己实现 innerText
 

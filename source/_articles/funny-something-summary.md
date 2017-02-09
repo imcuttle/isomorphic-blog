@@ -16,12 +16,12 @@ skip: false
 
 ### Pictures
 
-<img src="http://ww3.sinaimg.cn/mw690/006D2KSdjw1fbldl68ryhg30dw086nki.gif" alt="" width="500" height="294" />
-<img src="http://obu9je6ng.bkt.clouddn.com/FiO5oFV4MEL1pwm1GYad5tDFmeJw?imageslim" alt="ClipboardImage" width="200" height="181" />
+![](http://ww3.sinaimg.cn/mw690/006D2KSdjw1fbldl68ryhg30dw086nki.gif)
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiO5oFV4MEL1pwm1GYad5tDFmeJw?imageslim)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FiyQ9hLRXRhJsKYBs_vOW8pZw82m?imageslim" alt="ClipboardImage" width="269" height="143" />
+![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiyQ9hLRXRhJsKYBs_vOW8pZw82m?imageslim)
 
-<img src="http://ww4.sinaimg.cn/mw690/006D2KSdjw1fb8wvlp7rrg30dw06ph88.gif" alt="" width="500" height="241" />
+![](http://ww4.sinaimg.cn/mw690/006D2KSdjw1fb8wvlp7rrg30dw06ph88.gif)
 
 
 ### Videos

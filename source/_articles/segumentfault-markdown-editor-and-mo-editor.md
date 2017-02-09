@@ -37,7 +37,7 @@ tags: [markdown]
 4. diff_match_patch.js
 
 效果图
-<img src="http://obu9je6ng.bkt.clouddn.com/FtLU4iWnXe9aqXR2cYkJ-55l167u?imageslim" alt="ClipboardImage" width="1438" height="731" />
+![ClipboardImage](/upload/1471093544488.png)
 
 具有如下功能：
 1. markdown编辑，实时预览
@@ -54,11 +54,11 @@ tags: [markdown]
 
 其他交互说明：
 1. 编辑器左下角提示保存信息，右下角提示字数
- <img src="http://obu9je6ng.bkt.clouddn.com/FklqPf-mbderllJaGFfBamL_3lle?imageslim" alt="ClipboardImage" width="1435" height="730" />
+ ![ClipboardImage](/upload/1471093917303.png)
 2. 中部可拖动调节大小
-<img src="http://obu9je6ng.bkt.clouddn.com/FroCfvrfeAz_b8oPCyiZrxXGHRmd?imageslim" alt="ClipboardImage" width="1440" height="729" />
+![ClipboardImage](/upload/1471094067216.png)
 3. 预览可直接复制代码
-<img src="http://obu9je6ng.bkt.clouddn.com/FtRJ93mBtmKC0_LnGaSyuZfABdXN?imageslim" alt="ClipboardImage" width="1438" height="729" />
+![ClipboardImage](/upload/1471095177629.png)
 
 ## 怎么安装使用？
 

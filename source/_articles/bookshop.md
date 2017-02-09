@@ -112,7 +112,7 @@ tags: [express,jade,markdown,highlight,less,nodejs]
 |seller|varchar(12)|卖家|
 
 #### E-R图
-<img src="http://obu9je6ng.bkt.clouddn.com/FoxMZIrETvPN4uTkpBQL31CtwJ0T?imageslim" alt="ClipboardImage" width="1111" height="704" />
+![ER](http://moyuyc.github.io/images/ER.png)
 
 ### 服务器框架选择和设计
 #### 选择与原因
@@ -129,7 +129,7 @@ tags: [express,jade,markdown,highlight,less,nodejs]
 
 #### 结构设计
 ##### 文件结构
-<img src="http://obu9je6ng.bkt.clouddn.com/Ftoj335Z5Z0P3M_QKuXcg3qXn0ee?imageslim" alt="ClipboardImage" width="465" height="676" />
+![files](http://moyuyc.github.io/images/files.png) 
 `db/` 所有数据库操作代码
 `public/` 静态资源库，如js,css
 `routes/` 路由操作diam，对应url
@@ -140,11 +140,11 @@ tags: [express,jade,markdown,highlight,less,nodejs]
 
 ##### 部分数据流图
 - 用户留言
-<img src="http://obu9je6ng.bkt.clouddn.com/Fhi1zedL3Ba8-JoHaxvQkan4Lg1Y?imageslim" alt="ClipboardImage" width="818" height="149" />
+![用户留言](http://moyuyc.github.io/images/datastream3.png)
 - 卖家添加图书
-<img src="http://obu9je6ng.bkt.clouddn.com/Fpl8ZZopdctwR0y-kpy4It_iScNL?imageslim" alt="ClipboardImage" width="628" height="183" />
+![卖家添加图书](http://moyuyc.github.io/images/datastream1.png)
 - 买家购书
-<img src="http://obu9je6ng.bkt.clouddn.com/FmTVXNcaMdFiI0awxq_zzpS67an7?imageslim" alt="ClipboardImage" width="773" height="158" />
+![买家购书](http://moyuyc.github.io/images/datastream2.png)
 
 ##### 部分算法设计
 首先对于留言评论，防止恶意用户刷留言评论，设置了定时销毁器。
@@ -256,7 +256,7 @@ public/
 `stylesheets/`文件夹放的是样式文件，其中的`style.less`是入口，`style.css`是利用node模块压缩后真正传送的样式文件
 #### 特殊功能说明
 1. 提示框动态固定显示
-<img src="http://obu9je6ng.bkt.clouddn.com/FrTSgOxaYM2B4s9dWmstn0ZDAoHs?imageslim" alt="ClipboardImage" width="500" height="199" />
+![msg.png](http://moyuyc.github.io/images/msg.png)
 方法一：（固定width）
 ```less
 .messages{
@@ -314,7 +314,7 @@ window.onload = function () {
 ```
 
 2. 跳至评论，评论区高亮
-<img src="http://obu9je6ng.bkt.clouddn.com/FrPkTfIt8U2R0Cvr-lpcPfbqfUED?imageslim" alt="ClipboardImage" width="594" height="621" />
+![blink.png](http://moyuyc.github.io/images/blink.png)
 ```less
 @keyframes blinking {
     0% {
@@ -359,30 +359,30 @@ input.onpaste = function (e) {
     };
 ```
 4. 代码段右上角显示语言
-<img src="http://obu9je6ng.bkt.clouddn.com/FsEQEWGTxxkj6McnadZdnfk9NPjP?imageslim" alt="ClipboardImage" width="928" height="734" />
+![prebefore.png](http://moyuyc.github.io/images/prebefore.png)
 
 ---
 
 ## 系统截图
-<img src="http://obu9je6ng.bkt.clouddn.com/Fm7BX0YWaliIY1WBkmUDTNfh7ZOv?imageslim" alt="ClipboardImage" width="1194" height="792" />
+![png](http://moyuyc.github.io/images/p1.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/Fk-q4DgGxi38zkNuYrsjIUj1tbKr?imageslim" alt="ClipboardImage" width="1185" height="435" />
+![png](http://moyuyc.github.io/images/p2.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FkQTiUEHfw-ngnXOdoTXebY5doQ7?imageslim" alt="ClipboardImage" width="1170" height="973" />
+![png](http://moyuyc.github.io/images/p3.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FlTGXCPrYvVER7aW7X-JoNmJIhmh?imageslim" alt="ClipboardImage" width="1199" height="904" />
+![png](http://moyuyc.github.io/images/p4.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FnS9RKLBBoJ5o35D7s5PqiQXOQA9?imageslim" alt="ClipboardImage" width="1168" height="506" />
+![png](http://moyuyc.github.io/images/p5.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FuAKYxsc1Z3trMhrmzHb-u6kPldZ?imageslim" alt="ClipboardImage" width="1161" height="730" />
+![png](http://moyuyc.github.io/images/p6.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/Fo0bkjy5iYh0JzWfIbkPLpklxhbR?imageslim" alt="ClipboardImage" width="1240" height="959" />
+![png](http://moyuyc.github.io/images/p7.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FgROOlb4_LlW5cLV9dDD4A6_bAIh?imageslim" alt="ClipboardImage" width="1185" height="726" />
+![png](http://moyuyc.github.io/images/p8.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/Fhaqdcpm0qP0-MO6Jk_eglLD0eXR?imageslim" alt="ClipboardImage" width="1173" height="581" />
+![png](http://moyuyc.github.io/images/p9.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FifYYeoniR5rxoFXFgH6wEjI5Aw0?imageslim" alt="ClipboardImage" width="1191" height="747" />
+![png](http://moyuyc.github.io/images/p10.png)
 
 ---
 ## 收获与体会

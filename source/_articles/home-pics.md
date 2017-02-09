@@ -11,24 +11,24 @@ cover:
 在家已经呆了俩个多礼拜了，终于吃上的老家的东西。还是家里舒服，又大又干净。
 
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FmYqtUNABa4AwshsXWKcqPC9gr0u?imageslim" alt="ClipboardImage" width="537" height="717" />
+![ClipboardImage](/upload/1480241877284.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/FvSNwX9dFPIUc27iFQ6BAx7YO43B?imageslim" alt="ClipboardImage" width="531" height="714" />
+![ClipboardImage](/upload/1480241904294.png)
 <center>煌上煌</center>
 
-<img src="http://obu9je6ng.bkt.clouddn.com/Fn774g8yz_jgwbsIDN3AL4AhcTWX?imageslim" alt="ClipboardImage" width="534" height="701" />
+![ClipboardImage](/upload/1480241945952.png)
 <center>家里做的拌粉</center>
 
-<img src="http://obu9je6ng.bkt.clouddn.com/Fj0vkweAXQzWn21ipSa37CIYTK1N?imageslim" alt="ClipboardImage" width="963" height="644" />
+![ClipboardImage](/upload/1480241979423.png)
 <center>牛肉串！</center>
 
-<img src="http://obu9je6ng.bkt.clouddn.com/Frns6NBht9aloDJAW0gqDHGRzqZ2?imageslim" alt="ClipboardImage" width="528" height="683" />
+![ClipboardImage](/upload/1480242012883.png)
 <center>生日蛋糕</center>
 
-最后还有基于react native的app => iNjnu！
-<img src="http://obu9je6ng.bkt.clouddn.com/FuH-0ZSzgnT3jWrifGkZ3fqyyJal?imageslim" alt="ClipboardImage" width="1080" height="1920" />
-<img src="http://obu9je6ng.bkt.clouddn.com/Fkw5Ho1U9pEtmSM1pZQYnAdRS-Gw?imageslim" alt="ClipboardImage" width="1080" height="1920" />
+最后还有基于react native的app=> iNjnu！
+![ClipboardImage](/upload/1480242036910.png)
+![ClipboardImage](/upload/1480242049359.png)
 
-<img src="http://obu9je6ng.bkt.clouddn.com/Fl0Q8TZ2lio3KCUQmMBpXD_WqCIa?imageslim" alt="ClipboardImage" width="1080" height="1920" />
-<img src="http://obu9je6ng.bkt.clouddn.com/FjEQHKAZVBkn9NfPqCjWg_D7JMak?imageslim" alt="ClipboardImage" width="1080" height="1920" />
-<img src="http://obu9je6ng.bkt.clouddn.com/FoGBVVpfz7K5C4S5kOpvoP72u8Ud?imageslim" alt="ClipboardImage" width="1080" height="1920" />
+![ClipboardImage](/upload/1480242111422.png)
+![ClipboardImage](/upload/1480242118446.png)
+![ClipboardImage](/upload/1480242123677.png)

@@ -15,14 +15,10 @@ categories: [Studying]
 
 # 前言
 　　Google研发的V8 JavaScript引擎性能优异。我们请熟悉内部程序实现的作者依源代码来看看V8是如何加速的。
-　　
 　　作者：Community Engine公司研发部研发工程师Hajime Morita
-　　
 　　Google的Chrome中的V8 JavaScript引擎，由于性能良好吸引了相当的注目。它是Google特别为了Chrome可以高速运行网页应用(WebApp)而开发的。Chrome利用Apple领导的WebKit研发计划作为渲染引擎（Rendering engine）。 WebKit也被用在Safari浏览器中。WebKit的标准配备有称为JavaScriptCore的JavaScript引擎，但Chrome则以V8取代之。
-　　
 　　V8开发小组是一群程序语言专家。核心工程师Lars Bak之前研发了HotSpot，这是用在Sun Microsystems公司开发的Java虚拟机器（VM）之加速技术。他也在美国的Animorphic Systems公司（于1997年被Sun Microsystems所并购）研发了称为Strongtalk的实验Smalltalk系统。V8充分发挥了研发HotSpot和Strongtalk时所获得的知识。
-　　
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FhUmMb13gvYjg1XlOg98VG7tGTBO?imageslim)
+![img](/images/v81.jpg)
 <center>图1 开发自己的JavaScript引擎</center>
 
 > Apple的Safari和Google的Chrome使用相同的渲染引擎。配有JavaScriptCore的WebKit渲染引擎在JavaScript引擎中是标准配备，但在Chrome却被V8取代了.
@@ -44,7 +40,7 @@ categories: [Studying]
 　　JavaScript语言的规范现在性能压力巨大。例如，这在当它判定变量类型时就相当显而易见。如C++和Java等主流语言采用静态类型(static typing)。当代码编译时，就可宣告变量类型。由于不需要在执行期间检查数据类型，因此静态类型占有性能上的优势。
 
 　　在例如C++和Java等一般处理系统中，fields*和methods*等的内容是以数组储存，以1:1位移（offset）对应fields和methods等的名称（图2）。个别变量和methods等储存的位置，是针对各个类定义的。在C++和Java等语言中，已事先知道所存取的变量（类）类型，所以语言解释系统(Interpreting system)只要利用数组和位移来存取field和method等。位移使它只要几个机器语言指令，就可以存取field、找出field或执行其他任务。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fh94OeDKPO3cbJGRDbOphqRFBzLG?imageslim)
+![img](/images/v82.jpg)
 <center>图2 JavaScript和C++、Java的不同</center>
 　　C++、Java及其他处理系统将fields和methods等，以它们的名称以1:1对应数组内的位移值储存在数组中。会事先知道要存取的变量类型（类），因此可以只用数组和位移就可以存取fields和methods等。然而在JavaScript，个别的对象都有自己属性和方法等的表格。每一次程序存取属性或是呼叫方法时，都必须检查对象的类型并执行适当的处理。
 
@@ -56,7 +52,7 @@ categories: [Studying]
 　　而另外一方面，JavaScript则是利用动态类型(dynamic typing)。 JavaScript变量没有类型，而所指定对象的类型在第一次执行时（换言之，动态地）就已判定了。每次在JavaScript中存取属性(property)，或是寻求方法等，必须检查对象的类型，并照着进行处理。
 
 　　许多JavaScript引擎都使用哈希表（hash table）来存取属性和寻找方法等。换言之，每次存取属性或是寻找方法时，就会使用字符串作为寻找对象哈希表的键(key)（图3）。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FpO8bNs1zmfROJ6aldaeGgl-NTzi?imageslim)
+![img](/images/v83.jpg)
 <center> 图3 属性存取时的内部JavaScript处理</center>
 
 > 使用对象x哈希表的字符串「foo」作为搜寻「foo」内容的关键字。
@@ -72,7 +68,7 @@ categories: [Studying]
     从性能的角度来看，V8具有4个主要特性。首先，它在执行时以称为及时（just-in-time, JIT）的编译方法，来产生机器语言。这是个普遍用来改善解释速度的方法，在Java和.NET等语言中也可以发现此方法。V8比Firefox中的SpiderMonkey JavaScript引擎，或Safari的JavaScriptCore等竞争引擎还要早的实践了这一技术。
 
     V8 JIT编译器在产生机器语言时，不会产生中间码（图4）。例如，在Java编译器先将原始码转换成一个以虚拟中间语言（称为字节码，bytecode）表示的一类文件 (class file)。Java编译器和字节码编译器产生字节码，而非机器语言。Java VM按顺序地在执行中解释字节码。此执行模式称为字节码解释器(bytecode interpreter)。 Firefox的SpiderMonkey具有一个内部的字节码编译器和字节解释器，将JavaScript原始码转换成它自家特色的字节代码，以便执行。
-    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FhA0f7_KHnCzwuiJmS7BLF5KrS4x?imageslim)
+    ![](/images/v84.png)
     <center>图4 V8的JIT编译器直接输出机器语言</center>
 
     > 序语言系统先使用语法分析器将原始码转换成抽象语法树（abstract syntax tree, AST）。之前有几种方式来处理。字节码编译器将抽象语法树编译为中间代码，然后在编译器中执行。如Java JIT等混合模式将这中间代码的一部分编译成机器语言，以改善处理性能。Chrome不使用中间代码，JIT直接从抽象语法树来编译机器语言。也有抽象语法树解释器，直接解析抽象语法树。
@@ -109,20 +105,20 @@ V8使用了分代(Generational)GC，在新分代(Generational)处理上使用轻
 　　在V8中建立类有两个主要的理由，即（1）将属性名称相同的对象归类，及（2）识别属性名称不同的对象。前一类中的对象有完全相同的对象描述，而这可以加速属性存取。
 
 　　在V8，符合归类条件的类会配置在各种JavaScript对象上。对象引用所配置的类（图5）。然而这些类只存在于V8作为方便之用，所以它们是「隐藏」的。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fv28EjllQFz_cRCdIYI7FV-c4sIn?imageslim)
+![](/images/v85.jpg)
 <center>图5 V8对象有隐藏类的引用</center>
 > 如果对象的描述是相同的，那么隐藏类也会相同。在此范例中，对象p和q都属于相同的隐藏类
 
 　　我上面提到随时可以在JavaScript中新增或删除属性。然而当此事发生时会毁坏归类条件（归纳名称相同的属性）。V8借由建立属性变化所需的新类来解决。属性改变的对象透过一个称为「类型转换(class transition)」的程序纳入新级别中。
 
 　　第二个目标－识别属性名称不同的对象－则是借由建立新类来达成。然而，如果每一次属性改变就建立一个新类的话，那就无法持续达到第一个目标了（归纳名称相同的属性）。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FlgMKjmnLWDX0OEDZVK3e5fwZNij?imageslim)
+![](/images/v86.jpg)
 <center>图6 配置新类：类型转换</center>
 
 > 属性改变的对象会被归为新类。当对象p增加了新属性z时，对象p就会被归为新类。
 
 　　V8将变换信息储存在类内，来解决此问题。考量图7，它说明了图6中所示的情形，当隐藏类Point有x和y属性时，新属性x就会新增至Point级的对象p中。当新属性z加到对象p时，V8会将「新增属性p，建立Point2类」的信息储存在Point级的内部表格中（图7，步骤1）。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FtrGXrQGXYSrnrvWJxG_qpm3JsYo?imageslim)
+![](/images/v87.jpg)
 图7 在类中储存类变换信息当在对象p中加入新属性z时，V8会在Point类内的表格上记录「加入属性z，建立类Point2」（步骤1）。当同一Point类的对象q加入属性z时，V8会先搜寻Point类表。如果它发现了Point2类已加入属性z时，就会将对象q设定在Point2类（步骤2）。
 
 　　当新属性z新增至也是Point级的对象q时，V8会先搜寻Point级的表格，并发现Point2级已加入属性z。在表格中找到类时，对象q就会被设定至该类（Point2），而不建立新类（图7，步骤2）。这就达到了归纳属性名称相同的对象之目的。
@@ -171,7 +167,7 @@ Object* find_x_for_p_premorphic(Object* p) {
 }
 ```
 图9 在伪代码（pseudocode）中的premonomorphic stub 从隐藏类中取得属性位移。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FsFSLGZcMdozPiZgdz4OzBqbYaXX?imageslim)
+![](/images/v88.png)
 <center>图10 premonomorphic stub呼叫存取函数中的属性时会呼叫premonomorphic stub。</center>
 
 ```c++
@@ -188,7 +184,7 @@ Object* find_x_for_p_monomorphic(Object* p) {
 　　在搜寻表格之前，带有属性的对象之隐藏类会与缓存隐藏类比较。如果相符就不需要再搜寻，且可以使用缓存的位移来存取属性。如果隐藏类不相符，就透过隐藏类哈希表以一般方式判断位移。
 
 　　新产生的代码被称为monomorphic stub。「内嵌」这个字的意思是查询隐藏类所需的位移，是以立即可用的形式嵌入在所产生的代码中。当第一次叫出monomorphic stub时，它会将功能从pre-monomorphic stub位址中所叫出的第一个位址重写成monomorphic stub位址（图12）。自此，使用高速的monomorphic stub，单靠类比较和数组存取就可以处理属性存取。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fm07lSpdu-OWE3iJHFOA2NZTu3KQ?imageslim)
+![](/images/v89.png)
 <center>图 12 monomorphic stub呼叫</center>
 
 > 当呼叫monomorphic stub时，它会将功能从premonomorphic stub位址中叫出的第一个位址，重写成monomorphic stub位址。
@@ -225,19 +221,19 @@ Object* find_x_for_p_megamorphic(Object* p) {
 　　V8所含的shell程序可以用来检查V8所产生的机器语言。所产生的指令串可以和V8代码比较，以便显出它的特性。
 
 　　例如，在执行图14a所示的JavaScript函数时，就会产生一个如图14b所示的x86机器语言指令串。此函数在第39个指令中被呼叫，是个「n+one」加法。在JavaScript中，「+」操作数指示数字变量的加法，以及字符串的连续性。编译器不是产生代码来判决这是哪一种，而是呼叫函数来负责判断。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FgEyvkp_Dm_Mffqvti77sGB_R8_T?imageslim)
+![](/images/v810.png)
 <center>图14 V8从JavaScript代码产生的机器语言加法处理被转换成函数呼叫的机器语言（a、b）</center>
 
 　　如果图14的函数稍做更改（图15），那图14b的函数呼叫就会消失，但会有个加法指令（第20），及分支指令（JNZ的若不是零就跳出，第31）。当使用整数作为「+」操作数的操作数，V8编译器在不呼叫函数下会产生一个有「加法」指令的指令串。如果发现操作数（在此为「n」）成了Number对象或String对象等的指标（pointer），
 
 就会叫出函数。「加法」只会发生在当两个「+」运算的操作数都是整数时。在这种情况下，因为可以跳过函数呼叫所以执行就会比较快。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FuOldNcUVfdjGwA1Iuuw4eFrrqkO?imageslim)
+![](/images/v811.png)
 <center>图15 V8从图14之JavaScript中所产生的机器语言，经小幅修改</center>
 
 　　此外，0x2会加上「加法」指令，因为为最低有效位（least significant bit, LSB）被用来区别整数（0）和指标（1）。加0x2（二进制中的十）就如同在该值加上1，LSB除外。在jo指令的溢位（overflow）处理中，利用测试和jnz指令来判定指标，跳到下游处理（注1）。
 
 　　这类的窍门在编译器中到处都有。然而，产生器代码也透露了编译器的限制。具传统最佳化的编译器可以针对图14和15产生完全一样的机器语言，这是由于常数进位的关系。然而V8编译器是在抽象语法树*（abstract syntax tree）单元中产生代码，因此在处理延伸多个节点时就没有最佳化。这在大量的push和pop指令也非常明显。
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FklCa94JO3qTjxzOhrp2b0wdez50?imageslim)
+![](/images/v812.png)
 图16显示了C语言里相同的处理提供参考。由于C和JavaScript之间的语言规范不同，因此所产生的机器语言是图14和图15的不同，这和编译器的性能无关。
 
 　　图16 C编译器从C代码所产生的机器语言所产生的机器语言比V8所产生的干净许多（a、b），大部分是因为C和JavaScript语言规范的差异所致。

@@ -8,7 +8,7 @@ cover: https://avatars3.githubusercontent.com/u/13409222?v=3&s=400
 
 上一篇文件简单介绍了下`Moka Desktop`, 那么对于我这位`Web前端开发工程师`是怎么能够开发一个`Pc App`的呢？  
 这就不得不说到 [`electron`](http://electron.atom.io/).
-<img src="https://avatars3.githubusercontent.com/u/13409222?v=3&s=400" alt="electron" width="400" height="400" />
+![electron](https://avatars3.githubusercontent.com/u/13409222?v=3&s=400)
 
 `Electron` 将`chrome`内核与`nodejs`融合在一起，分为`Main Process` 和 `Renderer Process`, `Main Process`主要负责app通用的全局设置，如窗口大小等等，`Renderer Process`则主要在`Chrome`中，在两个`Process`中可以使用所有的`node packages`
 

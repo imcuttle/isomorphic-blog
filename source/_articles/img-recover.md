@@ -3,7 +3,7 @@ title: 「图像处理」图像的复原
 date: 2016-06-03 15:58:25
 categories: [其他]
 tags: [图像处理]
-cover: 
+cover: /images/r2.png
 ---
 
 # 介绍
@@ -11,9 +11,9 @@ cover:
 而图像复原就是对退化的图像进行处理，尽可能的复原图像的**本来面目**。
 <!--more-->
 如图，先对图片进行模糊处理
-<img src="http://obu9je6ng.bkt.clouddn.com/FkLD1OdGi0WKdv26sK4ubCj3ov6B?imageslim" alt="ClipboardImage" width="530" height="330" />
+![r1.png](/images/r1.png)
 然后对图片进行还原
-<img src="http://obu9je6ng.bkt.clouddn.com/FqQpRZv_Tzx54uHAREg7O9UPY8r3?imageslim" alt="ClipboardImage" width="530" height="330" />
+![r2.png](/images/r2.png)
 
 # 代码解释
 

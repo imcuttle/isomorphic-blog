@@ -11,9 +11,9 @@ tags: [nodejs,express,jade]
 所以，借着学习node的契机，我实践动手做了这个http文件浏览器。
 <!--more-->
 # 预览
-<img src="http://obu9je6ng.bkt.clouddn.com/Fl8Rrj10iMlOgfPj6gij0qmoiIKd?imageslim" alt="ClipboardImage" width="1845" height="419" />
-<img src="http://obu9je6ng.bkt.clouddn.com/FjRzFW2Sf8NZmtl6DataBXsCjHnF?imageslim" alt="ClipboardImage" width="1232" height="290" />
-<img src="http://obu9je6ng.bkt.clouddn.com/Fj9QAb-KZfPuLC-PuEyq6Enn0p3j?imageslim" alt="ClipboardImage" width="1233" height="872" />
+![img](/htm/images/httpfile1.png)
+![img](/htm/images/httpfile2.png)
+![img](/htm/images/httpfile3.png)
 # 功能
 * 支持图片，视频，音乐在线欣赏
 * 支持文件夹压缩下载（管道流下载）

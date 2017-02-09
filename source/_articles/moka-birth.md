@@ -13,7 +13,7 @@ tags: [moka, spa]
 
 ## Usage
 
-<img src="https://segmentfault.com/img/bVEjtX" alt="" width="800" height="432" />
+![](https://segmentfault.com/img/bVEjtX)
 
 为了第一眼能看到效果, 我先把如何安装使用说一下。
 1. 一切从`npm`开始

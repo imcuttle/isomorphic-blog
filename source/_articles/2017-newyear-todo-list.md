@@ -19,8 +19,7 @@ cover:
 ### 待
 
 - [ ] [Node cluster](https://segmentfault.com/a/1190000004621734)  -> 2
-- [ ] Webpack 2  -> ***1***
+- [ ] Webpack 2  -> 1
 - [ ] Bash Script  -> 1
 - [ ] Mobx
 - [ ] React+Redux+[RxJs](https://fe.ele.me/let-us-learn-rxjs/)(事件转换为状态机，更优雅) => Canvas 画图
-
