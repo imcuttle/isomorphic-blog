@@ -37,7 +37,7 @@ tags: [markdown]
 4. diff_match_patch.js
 
 效果图
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FtLU4iWnXe9aqXR2cYkJ-55l167u?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FtLU4iWnXe9aqXR2cYkJ-55l167u?imageslim" alt="ClipboardImage" width="1438" height="731" />
 
 具有如下功能：
 1. markdown编辑，实时预览
@@ -54,11 +54,11 @@ tags: [markdown]
 
 其他交互说明：
 1. 编辑器左下角提示保存信息，右下角提示字数
- ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FklqPf-mbderllJaGFfBamL_3lle?imageslim)
+ <img src="http://obu9je6ng.bkt.clouddn.com/FklqPf-mbderllJaGFfBamL_3lle?imageslim" alt="ClipboardImage" width="1435" height="730" />
 2. 中部可拖动调节大小
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FroCfvrfeAz_b8oPCyiZrxXGHRmd?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FroCfvrfeAz_b8oPCyiZrxXGHRmd?imageslim" alt="ClipboardImage" width="1440" height="729" />
 3. 预览可直接复制代码
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FtRJ93mBtmKC0_LnGaSyuZfABdXN?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FtRJ93mBtmKC0_LnGaSyuZfABdXN?imageslim" alt="ClipboardImage" width="1438" height="729" />
 
 ## 怎么安装使用？
 

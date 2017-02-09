@@ -13,13 +13,13 @@ cover: http://obu9je6ng.bkt.clouddn.com/FnO_h1FTHMT8REA-0aSyXvHW4bIp?imageslim
 
 `Moka Desktop`将Moka命令与[编辑器](https://github.com/moyuyc/markdown-editor) (具有实时高亮同步与粘贴图片功能,极大程度优化用户书写博文体验) 融合起来，十分方便用户书写文章，管理博客。
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fi566IB2hQppOk8s3KCA0Xrk4DU5?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/Fi566IB2hQppOk8s3KCA0Xrk4DU5?imageslim" alt="ClipboardImage" width="188" height="198" />
 
 ## Have A Look
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FhB8E45ALXw-hYBVnEfSsPgijXr8?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FhB8E45ALXw-hYBVnEfSsPgijXr8?imageslim" alt="ClipboardImage" width="870" height="603" />
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fo0ujWSbz2Qq5AYDh2CBfuNxfLG7?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/Fo0ujWSbz2Qq5AYDh2CBfuNxfLG7?imageslim" alt="ClipboardImage" width="870" height="603" />
 
 
 ## Usage
@@ -42,4 +42,4 @@ cover: http://obu9je6ng.bkt.clouddn.com/FnO_h1FTHMT8REA-0aSyXvHW4bIp?imageslim
     4. 支持图片粘贴嵌入
     5. 具有同步预览，右键预览区可控制开关
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FnO_h1FTHMT8REA-0aSyXvHW4bIp?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FnO_h1FTHMT8REA-0aSyXvHW4bIp?imageslim" alt="ClipboardImage" width="806" height="809" />

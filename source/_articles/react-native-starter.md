@@ -10,7 +10,7 @@ cover: http://www.appcoda.com.tw/wp-content/uploads/2015/04/react-native-1024x63
 
 ## 移动端App分类
 
-![](http://img.blog.csdn.net/20160326162834667)
+<img src="http://img.blog.csdn.net/20160326162834667" alt="" width="700" height="368" />
 
 - Web(正在用的): 
     - 优：开发效率高，成本低，纯前端就能搞定，跨平台
@@ -57,12 +57,12 @@ cover: http://www.appcoda.com.tw/wp-content/uploads/2015/04/react-native-1024x63
     [服务端：node + json web tokens](https://github.com/moyuyc/injnu-server)
     - 真机运行截图
 
-    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FuH-0ZSzgnT3jWrifGkZ3fqyyJal?imageslim)
-    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fkw5Ho1U9pEtmSM1pZQYnAdRS-Gw?imageslim)
+    <img src="http://obu9je6ng.bkt.clouddn.com/FuH-0ZSzgnT3jWrifGkZ3fqyyJal?imageslim" alt="ClipboardImage" width="1080" height="1920" />
+    <img src="http://obu9je6ng.bkt.clouddn.com/Fkw5Ho1U9pEtmSM1pZQYnAdRS-Gw?imageslim" alt="ClipboardImage" width="1080" height="1920" />
 
-    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fl0Q8TZ2lio3KCUQmMBpXD_WqCIa?imageslim)
-    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FjEQHKAZVBkn9NfPqCjWg_D7JMak?imageslim)
-    ![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FoGBVVpfz7K5C4S5kOpvoP72u8Ud?imageslim)
+    <img src="http://obu9je6ng.bkt.clouddn.com/Fl0Q8TZ2lio3KCUQmMBpXD_WqCIa?imageslim" alt="ClipboardImage" width="1080" height="1920" />
+    <img src="http://obu9je6ng.bkt.clouddn.com/FjEQHKAZVBkn9NfPqCjWg_D7JMak?imageslim" alt="ClipboardImage" width="1080" height="1920" />
+    <img src="http://obu9je6ng.bkt.clouddn.com/FoGBVVpfz7K5C4S5kOpvoP72u8Ud?imageslim" alt="ClipboardImage" width="1080" height="1920" />
 
 5. 利用git，部署技巧  
     每次在本机修改完后端代码，push到github后，如何快速部署?(无需登录服务器)  

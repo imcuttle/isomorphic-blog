@@ -104,9 +104,9 @@ HTMLCanvasElement.prototype.magicBg = function(){
 
 - 关于贝塞尔曲线，[参考资料](http://bbs.csdn.net/topics/390358020)
 
-![IMG](/images/bezier3.gif)
+<img src="/images/bezier3.gif" alt="IMG" width="240" height="100" />
 <center>图：三次贝塞尔曲线动态绘制效果</center>
-![IMG](/htm/images/canvas1.png)
+<img src="/htm/images/canvas1.png" alt="IMG" width="746" height="725" />
 <center>图：花瓣与其贝塞尔曲线控制点</center>
 - 怎么使用？
 1.	`<script src='drawflower.js'></script>`

@@ -125,7 +125,7 @@ total number of match points between A and B is the parameter R characterizing t
 with match points. Figure 1 depicts the edit graph for the sequences A = abcabba and B = cbabac.
 
 设A=a1a2a3...aN, B=b1b2b3...bM, len(A)=N,len(B)=M，则AB的编辑图就是x∈[0,N], y∈[0,M]，组成的一个二维网格图。编辑图的顶点可以通过有向无环图的水平，垂直，斜线边连接。水平边如(x-1,y)->(x,y), x∈[1,N], y∈[0,M]. 垂直边如(x,y-1)->(x,y), x∈[0,N] y∈[1,M]. 如果ax=by，则存在斜边(x-1,y-1)->(x,y), 像这样的点(x,y)被叫做“配对点”。配对点的总数就是Hunt&Szymanski算法中的相关参数R，也就是编辑图中的斜边个数。图1描绘了串A"abcabba"和串B"cbabac"的编辑图。
-![ClipboardImage](/upload/1478523439810.png)
+<img src="/upload/1478523439810.png" alt="ClipboardImage" width="447" height="425" />
 <center>图一：编辑图</center>
 
 > A trace of length L is a sequence of L match points, (x1
@@ -249,7 +249,7 @@ D+1 diagonals for successively increasing values of D until the furthest reachin
 证明：0-paths的基本是笔直向前的。之前提到过，D-path由一系列(D-1)-path,一个非对角边组成和一条snake组成。如果D-path结束在对角边k上，它必须满足(D-1)-path必须结束在对角边k±1上，并且取决于最终构建snake的是水平边还是垂直边。最终的snake也必须是最长的，也就是当snake延伸的时候，D-path的长度也在增加。假定(D-1)-path在它的对角边上并没有达到最深。但是，之后(D-1)-path可以连接到最终的D-path的snake,通过适当的非对角边变化。此外，D-path可以任意的重组。  
 给定的最远到达(D-1)-paths在k+1和k-1上的结束点，(x’,y’)和(x",y")，理论2给了一个在对角边k上达到最远D-path的计算过程。即在对角边k上，取更深远的点(x’,y’+1) 和 (x"+1,y")然后沿着对角边，直到它不能再做同样的步骤，或者到达了编辑图的边界。此外，通过理论1，只有D-path才能到达D+1的对角边。这就意味着在相关的D+1对角边上计算D-paths的结束点，不断地增加D值直到最远的对角边N-M到达顶点(N,M)。
 
-![ClipboardImage](/upload/1478594215125.png)
+<img src="/upload/1478594215125.png" alt="ClipboardImage" width="420" height="129" />
 
 > The outline above stops when the smallest D is encountered for which there is a furthest reaching D-path to (N,M).
 This must happen before the outer loop terminates because D must be less than or equal to M+N. By construction
@@ -269,7 +269,7 @@ the row index of the endpoint of a furthest reaching path in diagonal k.
 
 图2描绘了具体的算法过程，也运用了一些简单的优化。使用一个数组V，记录D-paths的结束点V[- D], V[-D+ 2], . . . , V[D-2], V[D]。通过理论1，这组顶点与存储在外界循环的(D+1)-paths的结束点相交。因此，数组V可以持续不断的保存D-paths的结束点，而(D+1)-paths的结束点也是通过它们进行计算的。此外，为了记录(x,y)在对角边k的情况，只需要保留x，因为y可以通过x-k得到。因此，V是一个整数数组，其中V[k]保存了对角边k能到达的最远的结束点的航坐标。
 
-![ClipboardImage](/upload/1478594283814.png)
+<img src="/upload/1478594283814.png" alt="ClipboardImage" width="480" height="374" />
 <center>图二：LCS/SES贪心算法</center>
 
 > As a practical matter the algorithm searches D-paths where D≤MAX and if no such path reaches (N,M) then it
@@ -282,7 +282,7 @@ is correctly handled by assuming that there are no diagonal edges in this region
 
 事实上，算法到达D-paths时D<=MAX，如果不存在这样的路径能过到达(N,M)，那么关于A和B任何一个脚本的长度都会超过MAX值，如第14行所示。通过设置MAX的值为M+N，算法就能正常的找到LCS/SES的长度。图3显示了D-paths搜索方法，通过对图1的算法应用。注意虚构的点(0,-1)，在公式第一行，该点是用来找到0-path的结束点。同样注意D-paths在编辑图里超过了左边界和下边界，作为算法运算的一部分。这种边界的情况是为了处理假定不存在对角边。
 
-![ClipboardImage](/upload/1478594692215.png)
+<img src="/upload/1478594692215.png" alt="ClipboardImage" width="462" height="603" />
 
 > The greedy algorithm takes at most O((M+N)D) time. Lines 1 and 14 consume O(1) time. The inner For loop
 (Line 3) is repeated at most (D+1)(D+2)/2 times because the outer For loop (Line 3) is repeated D+1 times and during

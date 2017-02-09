@@ -20,12 +20,12 @@ tags: [爬虫,nodejs,net]
 # 然而并不是一帆风顺
 ## 得不到`HTML`？
 参考资料[http://chenxi.name/60.html](http://chenxi.name/60.html)，利用`request`包进行傻瓜式调用，然而并不能生效，将会跳转至一个[屏蔽提示网页](http://jandan.net/block.php)
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fii2x4oUFPuo7VrVYxvqehkx2i88?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/Fii2x4oUFPuo7VrVYxvqehkx2i88?imageslim" alt="ClipboardImage" width="488" height="350" />
 煎蛋网为了防止恶意爬取数据，进行了一定程度的防爬措施。
 但这可难不倒我，**为什么在浏览器上就能正常浏览图片页面呢？**
 于是我打开浏览器控制台，复制页面请求报文的cmd格式，粘贴至命令行中运行，能够正确得到`HTML`
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FrHslUCGbtbb2kB0cUFU7kzH5wWE?imageslim)
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FiJx6_i37Ln_FqOYPdg_GGuz-ocG?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FrHslUCGbtbb2kB0cUFU7kzH5wWE?imageslim" alt="ClipboardImage" width="1916" height="540" />
+<img src="http://obu9je6ng.bkt.clouddn.com/FiJx6_i37Ln_FqOYPdg_GGuz-ocG?imageslim" alt="ClipboardImage" width="1075" height="545" />
 所以，我觉得问题就是出现在请求报文头部数据，于是复制下浏览器中报头，利用`nodejs`的`http`包，建立http连接。
 ```javascript
 require('http').get({
@@ -129,9 +129,9 @@ function run(i,low) {
 
 关注我的博客[moyuyc.github.io](http://moyuyc.github.io/) ,有技术的老司机带你飙车！
 
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FkB3MBiTLxrELGuFZeXBHHw4_OQZ?imageslim)
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FjiONZ1a7fl88HkQymtFq07BzGoC?imageslim)
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fj6lS1js5U2IfhYiWt-f4_wB73-R?imageslim)
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FqqRmz55PM7e_H6thdl5dopo6gS4?imageslim)
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fvy1_Jk-S0ZDke1GGbrFHvvI0wlm?imageslim)
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/Fs1hyIcV8oGDuu4e208V0KC9EfYt?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FkB3MBiTLxrELGuFZeXBHHw4_OQZ?imageslim" alt="ClipboardImage" width="180" height="180" />
+<img src="http://obu9je6ng.bkt.clouddn.com/FjiONZ1a7fl88HkQymtFq07BzGoC?imageslim" alt="ClipboardImage" width="169" height="169" />
+<img src="http://obu9je6ng.bkt.clouddn.com/Fj6lS1js5U2IfhYiWt-f4_wB73-R?imageslim" alt="ClipboardImage" width="600" height="600" />
+<img src="http://obu9je6ng.bkt.clouddn.com/FqqRmz55PM7e_H6thdl5dopo6gS4?imageslim" alt="ClipboardImage" width="582" height="676" />
+<img src="http://obu9je6ng.bkt.clouddn.com/Fvy1_Jk-S0ZDke1GGbrFHvvI0wlm?imageslim" alt="ClipboardImage" width="600" height="713" />
+<img src="http://obu9je6ng.bkt.clouddn.com/Fs1hyIcV8oGDuu4e208V0KC9EfYt?imageslim" alt="ClipboardImage" width="600" height="562" />

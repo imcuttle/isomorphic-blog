@@ -11,9 +11,9 @@ cover:
 而图像复原就是对退化的图像进行处理，尽可能的复原图像的**本来面目**。
 <!--more-->
 如图，先对图片进行模糊处理
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FkLD1OdGi0WKdv26sK4ubCj3ov6B?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FkLD1OdGi0WKdv26sK4ubCj3ov6B?imageslim" alt="ClipboardImage" width="530" height="330" />
 然后对图片进行还原
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FqQpRZv_Tzx54uHAREg7O9UPY8r3?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FqQpRZv_Tzx54uHAREg7O9UPY8r3?imageslim" alt="ClipboardImage" width="530" height="330" />
 
 # 代码解释
 

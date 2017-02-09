@@ -16,7 +16,7 @@ tags: [css3,页面效果]
 　　顾名思义，就是一些转换动作，如放大缩小( `scale` )，平移( `translate` )，旋转( `rotate` )，翻转( `skew` )等。
 就是关于二维图形与三维模型的转换动作（矩阵变换，图形学中的东西，这里不深究）。
 关于，三维空间的基本转换和少许组合转换，我做过类似的[Demo](http://moyuyc.xyz/play_3d/play_3d_demo1.html) **(请使用最新版的主流浏览器查看)**
-![ClipboardImage](http://obu9je6ng.bkt.clouddn.com/FtNOscEzzmaWRDZSdet7DYNfRDGL?imageslim)
+<img src="http://obu9je6ng.bkt.clouddn.com/FtNOscEzzmaWRDZSdet7DYNfRDGL?imageslim" alt="ClipboardImage" width="1911" height="878" />
 参考资料
 - [CSS3 2D 转换](http://www.w3school.com.cn/css3/css3_2dtransform.asp)
 - [CSS3 3D 转换](http://www.w3school.com.cn/css3/css3_3dtransform.asp)

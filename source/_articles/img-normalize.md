@@ -9,7 +9,7 @@ cover: http://img.my.csdn.net/uploads/201112/9/0_1323437843KrRS.gif
 # 介绍
 
 直方图均衡化：我们把一张图片对应的rgb像素点分成3个(对应rgb)256(0-255)等级，并且将等级绘制为直方图，我们把直方图变得分布均匀，这就是直方图均衡化。
-![img](http://img.my.csdn.net/uploads/201112/9/0_1323437843KrRS.gif)
+<img src="http://img.my.csdn.net/uploads/201112/9/0_1323437843KrRS.gif" alt="img" width="560" height="420" />
 这样的图片往往具有高对比度，我使用js语言实现了该算法。
 <!--more-->
 # 代码解释
@@ -59,10 +59,10 @@ cover: http://img.my.csdn.net/uploads/201112/9/0_1323437843KrRS.gif
 ```
 
 查看控制台，左边为原图局部数据，右边为执行算法后的数据，明显后者分布更加平稳。
-![img](/images/aver1.png)
+<img src="/images/aver1.png" alt="img" width="1019" height="949" />
 
 直观的感觉如下
-![img](/images/aver2.png)
+<img src="/images/aver2.png" alt="img" width="647" height="308" />
 
 # 参考资料
 

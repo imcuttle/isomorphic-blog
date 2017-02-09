@@ -71,9 +71,9 @@ categories: [Studying]
 3. 有序列表项 三
 ```
 
-![图片](/images/img.jpg)
+<img src="/images/img.jpg" alt="图片" width="257" height="220" />
 ```
-![图片](/images/img.jpg)
+<img src="/images/img.jpg" alt="图片" width="257" height="220" />
 ```
 
 | 项目        | 价格   |  数量  |
