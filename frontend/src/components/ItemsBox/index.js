@@ -21,9 +21,10 @@ class ItemsBox extends React.Component {
     }
     componentWillReceiveProps(nextProps) {}
     componentDidMount() {
+        document.body.scrollTop = 0;
         const {scroll} = this.props;
         if(scroll) {
-            document.body.scrollTop = 0;
+            // document.body.scrollTop = 0;
         } else {
             // let text = sessionStorage['@@History/'+this.context.location.key]
             // if(!!text) {
@@ -33,9 +34,11 @@ class ItemsBox extends React.Component {
         if(this.refs.ul) {
             // this.refs.ul.style.visibility = 'hidden';
             setTimeout(()=> {
-                this.refs.ul.classList.remove('active')
-                // this.refs.ul.classList.add('fadeIn')
-                this.refs.ul.style.visibility = '';
+                if (this && this.refs && this.refs.ul) {
+                    this.refs.ul.classList.remove('active')
+                    // this.refs.ul.classList.add('fadeIn')
+                    this.refs.ul.style.visibility = '';
+                }
             }, 1200)
 
         }

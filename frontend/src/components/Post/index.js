@@ -12,13 +12,15 @@ class Post extends React.Component {
     }
 
     render() {
-        const {date, title, summary, hrefTitle, hoverHandler, cover} = this.props;
+        const {date, title, summary, hrefTitle, hoverHandler, cover, realDate} = this.props;
+        const dateStr = realDate && new Date(realDate).toISOString();
         return (
             <li className="preview" itemProp="post" itemType="http://schema.org/BlogPosting"
                 onMouseEnter={hoverHandler && hoverHandler.bind(this, cover, hrefTitle)}
             >
-                <Link to={"/article/"+hrefTitle} className="preview__link" itemProp="url">
-                    <span className="preview__date" itemProp="datePublished" dateTime={date}>
+                <article itemScope="itemScope" itemType="//schema.org/Article">
+                <Link to={"/article/"+hrefTitle} rel="contents" className="preview__link" itemProp="url" >
+                    <span className="preview__date" itemProp="datePublished" dateTime={dateStr} content={dateStr && dateStr.substr(0, 10)} >
                         {date}
                     </span>
                     <h2 className="preview__header" itemProp="name">{title}</h2>
@@ -27,6 +29,7 @@ class Post extends React.Component {
                     </p>
                     <span className="preview__more">Read More</span>
                 </Link>
+                </article>
             </li>
         )
     }

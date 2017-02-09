@@ -14,7 +14,7 @@ class ArtNext extends React.Component {
         const {title, cover, href} = this.props;
         return (
             <section>
-                <Link to={href} className="next__link" style={{backgroundImage: cover && 'url('+cover+')'}}>
+                <Link rel="next" title={title} to={href} className="next__link" style={{backgroundImage: cover && 'url('+cover+')'}}>
                     <div className="next__container">
                         <span>Read Next</span>
                         <h2>{title}</h2>

@@ -8,6 +8,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin');
+var spaceConfig = require('../source/config');
 
 
 var config = {
@@ -55,7 +56,8 @@ var config = {
             filename: 'index.html',
             key: Date.now(),
             // minify: true,
-            template: 'src/index.tpl.html'
+            template: 'src/index.tpl.html',
+            info: spaceConfig.info || {}
         })
     ],
     module: {

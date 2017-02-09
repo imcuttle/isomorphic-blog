@@ -11,6 +11,7 @@ import {renderToString} from 'react-dom/server'
 import reactRouter, {match, RouterContext} from 'react-router'
 import {Provider} from 'react-redux'
 import DocumentTitle from 'react-document-title'
+import DocumentMeta from 'react-document-meta'
 
 import {pathUpdateEntry, fetchConfig} from '../../frontend/src/reducers/actions'
 import {initState} from '../../frontend/src/reducers/appReducers'
@@ -54,8 +55,10 @@ express.response.renderStore = function (store, renderProps) {
         </Provider>
     );
     const title = DocumentTitle.rewind();
+    const meta = DocumentMeta.renderAsHTML();
+
     this.header('content-type', 'text/html; charset=utf-8')
-    this.send(renderFullPage(title, html, store.getState()))
+    this.send(renderFullPage(title, html, store.getState(), meta))
 }
 
 
@@ -67,14 +70,17 @@ fs.watch(htmlPath, () => {
 })
 
 
-function renderFullPage(title, partHtml, initialState) {
+function renderFullPage(title, partHtml, initialState, headerInsertHTML) {
     // <!--HTML-->
     var allHtml = html;
-    if(initialState) {
+    if (initialState) {
         allHtml = allHtml.replace(/\/\*\s*?INITIAL_STATE\s*?\*\//, `window.__INITIAL_STATE__=${JSON.stringify(initialState)}`)
     }
-    if(title) {
+    if (title) {
         allHtml = allHtml.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
+    }
+    if (headerInsertHTML) {
+        allHtml = allHtml.replace(/<!--\s*?HEAD_INSERT\s*?-->/, headerInsertHTML);
     }
     return allHtml.replace(/<!--\s*?HTML\s*?-->/, partHtml);
 

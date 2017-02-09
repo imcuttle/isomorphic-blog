@@ -5,7 +5,7 @@ var deepAssign = require('deep-assign');
 
 const initState = {
     "title": "Moyu Dev Blog",
-
+    "info": {},
     "leftPic": {
         "smText": "Welcome",
         "lgText": "Here",

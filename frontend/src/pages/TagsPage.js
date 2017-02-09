@@ -4,6 +4,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 import DocumentTitle from 'react-document-title'
+import DocumentMeta from 'react-document-meta'
 import {renderFrame, isBrowser, positiveHashCode} from '../common/utils'
 
 import BigPic from '../components/BigPic'
@@ -26,24 +27,52 @@ export default class extends React.Component {
 
     render() {
         const {
-            actions, title: mainTitle, params: {tagName},
+            actions, title: mainTitle, params: {tagName}, location: {pathname},
             state: {
                 picture,
-                config: {profile, fillCovers, icons, iconTarget},
+                config: {profile, info={}, fillCovers, icons, iconTarget},
                 base: { posts, showBack, items, links, texts, prev_next=[]}
             }
-        } = this.props
+        } = this.props;
+
+        const prefix = 'Tags - ';
+        const metas = {
+            title: prefix + mainTitle,
+            description: info.description,
+            canonical: info.host + pathname,
+            meta: {
+                charset: 'utf-8',
+                name: {
+                    keywords: 'tags,'+mainTitle,
+                    description: info.description,
+                    'twitter:card': 'summary',
+                    'twitter:description': info.description,
+                    'twitter:title': 'Tags'
+                },
+                itemProp: {
+                    name: 'Tags',
+                    description: info.description
+                },
+                property: {
+                    'og:title': 'Tags',
+                    'og:type': 'site',
+                    'og:url': info.host + pathname,
+                    'og:site_name': mainTitle,
+                }
+            }
+        };
 
         return (
-            <DocumentTitle title={'Tags - '+mainTitle}>
+            <DocumentTitle title={metas.title}>
                 {
                     renderFrame([
+                        <DocumentMeta {...metas}/>,
                         <BigPic {...picture} showBack={showBack}/>,
                         <div>
                             <Header active="1" links={links} texts={texts}/>
                             <div className="tab active">
                                 <ItemsBox items={items} btnText="View All" hoverHandler={(a, k) => actions.setPicBgUrl(a) } />
-                                <Pagination next={prev_next[0]} prev={prev_next[1]} />
+                                <Pagination prev={prev_next[0]} next={prev_next[1]} />
                                 <Footer icons={icons} method={iconTarget}/>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import {Map} from 'immutable'
 import DocumentTitle from 'react-document-title'
+import DocumentMeta from 'react-document-meta'
 
 import {renderFrame, isBrowser, positiveHashCode} from '../common/utils'
 import BigPic from '../components/BigPic'
@@ -32,12 +33,41 @@ export default class extends React.Component {
     }
 
     render() {
-        const {actions, title, state: {config: {iconTarget, icons, fillCovers}, picture, base: { texts, posts, showBack, links, prev_next=[]} } } = this.props
-        // console.log('render', this.props.state);
+        const {
+            actions, title, location: {pathname},
+            state: {config: {info={}, iconTarget, icons, fillCovers}, picture, base: { texts, posts, showBack, links, prev_next=[]} }
+        } = this.props
+        const prefix = 'Posts - ';
+        const metas = {
+            title: prefix + title,
+            description: info.description,
+            canonical: info.host + pathname,
+            meta: {
+                charset: 'utf-8',
+                name: {
+                    keywords: 'posts,'+title,
+                    description: info.description,
+                    'twitter:card': 'summary',
+                    'twitter:description': info.description,
+                    'twitter:title': 'Posts'
+                },
+                itemProp: {
+                    name: 'Posts',
+                    description: info.description
+                },
+                property: {
+                    'og:title': 'Posts',
+                    'og:type': 'site',
+                    'og:url': info.host + pathname,
+                    'og:site_name': title,
+                }
+            }
+        };
         return (
-            <DocumentTitle title={'Posts - '+title}>
+            <DocumentTitle title={metas.title}>
                 {
                     renderFrame([
+                        <DocumentMeta {...metas} />,
                         <BigPic {...picture} showBack={showBack} />,
                         <div>
                             <Header active="0" links={links} texts={texts} />

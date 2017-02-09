@@ -24,7 +24,7 @@ class Header extends React.Component {
     render() {
         const {active, texts, links} = this.props;
         return (
-            <header style={{position: 'relative'}}>
+            <header style={{position: 'relative'}} itemScope itemType="//schema.org/WPHeader" >
                 <ul className="tabs">
                     <li className={"tabs__item "+(active==0?"active":"")}>
                         <Link to={links[0]}>

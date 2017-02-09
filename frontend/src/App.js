@@ -38,9 +38,8 @@ class App extends React.Component {
     componentWillMount() {
         // console.log('componentWillMount')  // will work in server render
         if (isBrowser) {
-            const {actions, location: {pathname}, params, state: {base: fetchedConfig}} = this.props
-            actions.fetchConfig();
-            actions.pathUpdateEntry(pathname, params);
+            const {actions, location: {pathname}, params, state: {base: fetchedConfig}} = this.props;
+            actions.fetchConfig().then(() => {actions.pathUpdateEntry(pathname, params)})
         }
     }
     componentDidUpdate(prevProps, prevState) {}

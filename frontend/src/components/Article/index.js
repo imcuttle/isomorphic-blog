@@ -20,6 +20,7 @@ class Article extends React.Component {
         // document.body.scrollTop = 0;
     }
     componentDidMount() {
+        document.body.scrollTop = 0;
         // this.refs.main.style.visibility = 'hidden';
         setTimeout(()=> {
             if(this.refs.main) {
@@ -37,10 +38,9 @@ class Article extends React.Component {
     }
 
     render() {
-        const {title, showBack, date, tags, cover, content, profile, method} = this.props;
-
+        const {title, showBack, date, realDate, tags, cover, content, profile, method} = this.props;
         return (
-            <article ref="main" className="fadeIn animated">
+            <article ref="main" className="fadeIn animated" itemScope itemType="//schema.org/Article">
                 <header className="section-padding--lg mast">
                 {
                     !!showBack &&
@@ -52,14 +52,14 @@ class Article extends React.Component {
                     <figure className="absolute-bg mast__img" style={{backgroundImage: cover&&"url("+cover+")"}}></figure>
                     <div className="mast__container">
                         <span>
-                            <time>{date}</time>
+                            <time itemProp="datePublished" dateTime={realDate} content={realDate && realDate.substr(0, 10)} >{date}</time>
                         </span>
-                        <h1>{title}</h1>
+                        <h1 itemProp="name headline">{title}</h1>
                         <ul className="tags">
                             {tags && tags.map(tag => 
                                 tag &&
                                 <li key={tag}>
-                                    <Link to={"/tags/"+tag}>{tag}</Link>
+                                    <Link rel="tag" to={"/tags/"+tag}>{tag}</Link>
                                 </li>
                             )}
                         </ul>
@@ -68,13 +68,13 @@ class Article extends React.Component {
                 <section className="section-padding markdown-body animated fadeIn" dangerouslySetInnerHTML={{__html: content}}></section>
                 {
                     !!profile &&
-                    <section className="profile">
+                    <section className="profile" itemProp="profile">
                         <div className="profile__card">
                             <div className="profile__img">
                                 <figure className="absolute-bg" style={{backgroundImage: profile.image&&"url("+profile.image+")"}}></figure>
                             </div>
                             <div className="profile__container">
-                                <p dangerouslySetInnerHTML={{__html: profile.contentHtml}}></p>
+                                <p itemprop="description" dangerouslySetInnerHTML={{__html: profile.contentHtml}}></p>
                                 <ul className="profile__social">
                                     {
                                         Array.isArray(profile.icons) &&

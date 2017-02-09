@@ -31,7 +31,7 @@ export const pathUpdateEntry = (pathname, params) =>
         let {hrefTitle, tagName, page, searchKey} = params;
         let start, prev, next, links = [oldLinks[0] || "/posts"+(!isNaN(pageSize)?'/1':'') , "/tags"+(!isNaN(tagPageSize)?'/pages/1':'/pages')];
         if (isRootPath(pathname) || isPostsPath(pathname)) { // Posts
-            page = isNaN(page) ? 1 : page;
+            page = isNaN(page) ? 1 : page-0;
             if (isNaN(pageSize)) {
                 pageSize = null;
                 start = 0;
@@ -51,7 +51,7 @@ export const pathUpdateEntry = (pathname, params) =>
             dispatch([setShowBack(true), setLinksTexts([tagName, "Tags"])]) && dispatch(setPrevNext([])) && dispatch(setLinks(links))
             return dispatch(fetchTagPosts(tagName, 0))
         } else if (isTagsPagesPath(pathname)) {
-            page = isNaN(page) ? 1 : page;
+            page = isNaN(page) ? 1 : page-0;
             if (isNaN(tagPageSize)) {
                 start = 0;
                 tagPageSize = null;
@@ -60,7 +60,7 @@ export const pathUpdateEntry = (pathname, params) =>
             }
             prev = start>0 && page>1 && '/tags/pages/'+(page-1)
             dispatch(setLinks(links))
-            return dispatch(fetchTags())
+            return dispatch(fetchTags(start, tagPageSize))
                 .then(f => f && dispatch([setPrevNext([prev, f.hasmore && '/tags/pages/'+(page-0+1)])]))
         } else if (isArchivePath(pathname)) {
             dispatch([setShowBack(true), setFetching(true)])
@@ -143,19 +143,19 @@ export const fetchTags = (start, pageSize) =>
 
 
 /* map data start */
-const mapArchiveBox = ({head: {date, title, cover}, key}, fillCovers) => ({
+const mapArchiveBox = ({head: {date, title, cover, realDate}, key}, fillCovers) => ({
     picUrl: cover || fillCovers[positiveHashCode(key)%fillCovers.length],
-    title, text: date, href: "/article/"+key
+    title, text: date, href: "/article/"+key, realDate
 })
 // const {picUrl, title, text, href, btnText, hoverHandler} = this.props;
 const mapTag = ({cover, name, posts=[]}, fillCovers) =>
     ({picUrl: cover || fillCovers[positiveHashCode(posts[0])%fillCovers.length],
         title: name, text: posts.length+' Posts', href: "/tags/"+name })
 // const {date, title, summary, hrefTitle, hoverHandler, cover} = this.props;
-const mapPost = ({summary, key: hrefTitle, head: {cover, date, title}}) => ({hrefTitle, cover, date, title, summary})
+const mapPost = ({summary, key: hrefTitle, head: {cover, date, title, realDate}}) => ({hrefTitle, realDate, cover, date, title, summary})
 // const {title, showBack, date, tags, cover, content, profile, method} = this.props;
-const mapArticle = ({content, head: {cover, date, title, tags}}) => ({tags: Array.isArray(tags)? tags: (tags ? [tags]: null), content, cover, date, title})
-const mapNextArticle = ({head: {cover, date, title}, key}) => ({key, cover, date, title})
+const mapArticle = ({content, summary, head: {cover, date, realDate, title, tags}}) => ({summary, tags: Array.isArray(tags)? tags: (tags ? [tags]: null), content, cover, realDate, date, title})
+const mapNextArticle = ({head: {realDate, cover, date, title}, key}) => ({key, cover, date, title, realDate})
 /* map data end */
 
 /* base start */

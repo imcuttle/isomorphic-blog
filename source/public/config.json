@@ -1,4 +1,9 @@
 {
+  "info": {
+    "host": "http://blog.moyuyc.xyz",
+    "description": "I’m a Javascript enthusiast. I'm a member of Baidu BEFE team and try my best to improve myself. I’m also a nodejs, c/c++ developer, Sometimes.",
+    "favicon": "/public/favicon.ico"
+  },
   "title": "Moyu Dev Blog",
 
   "leftPic": {

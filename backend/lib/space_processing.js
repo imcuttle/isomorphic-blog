@@ -109,7 +109,8 @@ export const getArticle = key => {
     const prev = main[sorted[currIndex-1]] ? deepAssign({key: sorted[currIndex-1]}, main[sorted[currIndex-1]]) : null
     const next = main[sorted[currIndex+1]] ? deepAssign({key: sorted[currIndex+1]}, main[sorted[currIndex+1]]) : null
     if (curr) {
-        delete curr.summary;
+        if (!curr.summary) summary_cover_cache(curr, SUMMARY_NUMBER);
+        // delete curr.summary;
         delete curr.pureText;
     }
     if (prev) {
