@@ -61,7 +61,7 @@ export const isIE = () => {
   return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
 }
 
-const transitionEvent = (function whichTransitionEvent() {
+const transitionEvent = isBrowser && (function whichTransitionEvent() {
     var t,
         el = document.createElement('surface'),
         transitions = {
