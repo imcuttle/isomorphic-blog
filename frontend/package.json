@@ -7,6 +7,7 @@
     "dev": "open http://localhost:8080/webpack-dev-server/ && node index.js",
     "build": "webpack -p --mini --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "cdev": "webpack-dev-server --devtool source-map --hot --progress --colors --content-base build",
+    "cdev:pure": "DEV_MODE=pure npm run cdev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

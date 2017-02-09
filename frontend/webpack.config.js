@@ -10,6 +10,11 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var Webpack_isomorphic_tools_plugin = require('webpack-isomorphic-tools/plugin');
 var spaceConfig = require('../source/config');
 
+var remoteHost = 'http://localhost:6999'
+if (process.env.DEV_MODE == 'pure') {
+    remoteHost = require('fs').readFileSync(path.join(__dirname, '..', 'scripts', 'host')).toString();
+}
+
 
 var config = {
     devServer: {
@@ -17,12 +22,12 @@ var config = {
         proxy: {
             '/public': {
                 changeOrigin: true,
-                target: 'http://localhost:6999',
+                target: remoteHost,
                 secure: false
             },
             '/api': {
                 changeOrigin: true,
-                target: 'http://localhost:6999',
+                target: remoteHost,
                 secure: false
             }
         }

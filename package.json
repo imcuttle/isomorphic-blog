@@ -8,6 +8,7 @@
     "start": "cd backend && npm run start",
     "dev:back": "cd backend && npm run dev",
     "dev:front": "cd frontend && npm run cdev",
+    "dev:front:pure": "cd frontend && npm run cdev:pure",
     "install": "(cd backend && npm install); (cd frontend && npm install)",
     "deploy:f": "npm run deploy && npm run restart",
     "deploy:a": "npm run build && npm run deploy",

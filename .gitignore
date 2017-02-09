@@ -1,4 +1,5 @@
 .idea
 npm-debug*
-.DS*
+*~
+.DS_Store
 node_modules
