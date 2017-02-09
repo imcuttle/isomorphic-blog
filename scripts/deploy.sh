@@ -9,8 +9,11 @@ cd ..
 git add .
 git commit -am "$MSG"
 git push origin "$BRANCH"
+#HOST=$(cat host)
+#echo $HOST/__ctl/pull
 
-if [ $? = 0 ]; then
+#if [ $? = 0 ]; then
     HOST=$(cat scripts/host)
+    echo $HOST
     curl $HOST/__ctl/pull
-fi
+#fi
