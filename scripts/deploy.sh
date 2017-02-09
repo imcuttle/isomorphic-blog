@@ -11,6 +11,6 @@ git commit -am "$MSG"
 git push origin "$BRANCH"
 
 if [ $? = 0 ]; then
-    HOST=$(cat host)
+    HOST=$(cat scripts/host)
     curl $HOST/__ctl/pull
 fi
