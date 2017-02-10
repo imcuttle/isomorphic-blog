@@ -14,7 +14,7 @@ const skipRegExp = require('../source/config').skipRegExp
 const setMarkDownImageSize = (markdown, p) => {
     let matched = false;
     markdown = markdown.replace(/<img([\s\S]*?)>([\s\S]*?<\/\s*?img>)*/g, (m, c) => {
-        if (c.includes('width=') && c.includes('height=')) {
+        if (c.includes(' width=') && c.includes(' height=')) {
             console.log(`[SKIP] ${p} (had size) => ` + m);
             return m;
         }

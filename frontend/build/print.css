@@ -18,6 +18,12 @@ header, mast__container {
     color: #000;
 }
 
-article pre code{
+article pre code {
     white-space: pre-wrap!important;
+}
+
+.markdown-body {
+    width: 96%!important;
+    /*padding-left: 1em;*/
+    /*padding-right: 1em;*/
 }
