@@ -35,6 +35,10 @@ module.exports = {
                     return '<li>' + text + '</li>';
                 }
             };
+
+            renderer.link = function(href, title, text) {
+                return `<a href="${href}" target="_blank" title="${text}">text</a>`;
+            };
         }
     }
 }
