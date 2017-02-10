@@ -18,7 +18,6 @@ import {initState} from '../../frontend/src/reducers/appReducers'
 import MyRouter from '../../frontend/src/router'
 import {configureStore} from '../../frontend/src/main'
 
-
 const server = express();
 import {fePath, spacePath} from '../server'
 

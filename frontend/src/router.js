@@ -29,7 +29,7 @@ export default (
             <Route path="tags/:tagName" component={TagPage}></Route>
             <Route path="tags/pages/(:page)" component={TagsPage}></Route>
             <Route path="archive(/:searchKey)" component={ArchivePage}></Route>
-            <Route path="*" onEnter={(loc, replace)=>{replace('/')}} />
+            <Redirect path="*" to="/" />
         </Route>
     </Router>
 )

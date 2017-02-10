@@ -1,0 +1,9 @@
+http://blog.moyuyc.xyz/
+http://blog.moyuyc.xyz/posts
+http://blog.moyuyc.xyz/posts/*
+http://blog.moyuyc.xyz/article/*
+http://blog.moyuyc.xyz/tags/*
+http://blog.moyuyc.xyz/tags/pages
+http://blog.moyuyc.xyz/tags/pages/*
+http://blog.moyuyc.xyz/archive
+http://blog.moyuyc.xyz/archive/*

@@ -18,6 +18,7 @@
     "restart": "cd scripts && sh restart.sh",
     "reset": "cd scripts && sh reset.sh",
     "normal-img": "node scripts/normal-image-size.js",
+    "sitemap": "node scripts/sitemap-builder.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -63,6 +64,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.6",
+    "react-router-sitemap-builder": "^1.0.0",
     "redux": "^3.6.0",
     "redux-multi": "^0.1.12",
     "redux-thunk": "^2.1.0",
