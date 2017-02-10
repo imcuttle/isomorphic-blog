@@ -37,7 +37,7 @@ module.exports = {
             };
 
             renderer.link = function(href, title, text) {
-                return `<a href="${href}" target="_blank" title="${text}">text</a>`;
+                return `<a href="${href}" target="_blank" title="${text}">${text}</a>`;
             };
         }
     }
