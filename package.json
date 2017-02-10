@@ -14,6 +14,7 @@
     "deploy:a": "npm run build && npm run deploy",
     "n": "cd scripts && sh new.sh",
     "deploy": "cd scripts && sh deploy.sh",
+    "rinstall": "cd scripts && sh remote-install.sh",
     "restart": "cd scripts && sh restart.sh",
     "normal-img": "node scripts/normal-image-size.js",
     "test": "echo \"Error: no test specified\" && exit 1"
