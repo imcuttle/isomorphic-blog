@@ -5,6 +5,7 @@ import express from 'express'
 import { normalize, checkEntThenResponse } from '../lib/utils'
 import {spawn} from 'child_process'
 import path from 'path'
+import {reset} from '../lib/space_processing'
 
 const ctl = express();
 
@@ -38,6 +39,11 @@ ctl.all('/pull', (req, res) => {
 
 ctl.all('/npmi', (req, res) => {
     spawn_response(res, "npm", ['install'])
+})
+
+ctl.all('/reset', (req, res) => {
+    res.end('reset');
+    reset();
 })
 
 ctl.all('/restart', (req, res) => {

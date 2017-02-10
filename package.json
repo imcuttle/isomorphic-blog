@@ -16,6 +16,7 @@
     "deploy": "cd scripts && sh deploy.sh",
     "rinstall": "sh scripts/remote-install.sh && npm run restart",
     "restart": "cd scripts && sh restart.sh",
+    "reset": "cd scripts && sh reset.sh",
     "normal-img": "node scripts/normal-image-size.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

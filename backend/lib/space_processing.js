@@ -31,17 +31,19 @@ const getConfig = () => {
 }
 const getMarked = () => initMarked(config.marked, require('marked'))
 const computeDBJsonBind = () => computeDBJson.bind(null, markedPure, PROJECT_PATH, true, {...config, returnRaw: false })
-
-let config = getConfig();
-let markedPure = getMarked()
-let computeDBJsonPure = computeDBJsonBind();
-let DataBase = computeDBJsonPure();
-watch(SPACE_CONFIG_PATH, (type, filename) => {
-    clearCache(SPACE_CONFIG_PATH);
+export const reset = (clear=true) => {
+    clear && clearCache(SPACE_CONFIG_PATH);
     config = getConfig();
     markedPure = getMarked()
     computeDBJsonPure = computeDBJsonBind();
     DataBase = computeDBJsonPure();
+}
+
+let config, markedPure, computeDBJsonPure, DataBase;
+reset(false);
+
+watch(SPACE_CONFIG_PATH, (type, filename) => {
+    reset();
 })
 
 watch(SPACE_ARTICLES_PATH, function(eventType, filename) {
