@@ -1,5 +1,5 @@
 ---
-title: 下一代 Web 应用模型 — Progressive Web App
+title: Progressive Web App
 date: 2017-02-10 19:35:48
 categories:
 tags: [转, web]
