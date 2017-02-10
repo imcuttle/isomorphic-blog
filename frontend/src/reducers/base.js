@@ -14,7 +14,10 @@ const initState = {
     prev_next: [],
     post_hasmore: false,
     item_hasmore: false,
-    article: undefined,
+    article: {
+        title: 'Article',
+        // date: 'Date'
+    },
     nextArticle: undefined
 }
 

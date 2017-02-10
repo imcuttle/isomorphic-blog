@@ -88,16 +88,17 @@ export const loaded = () => {
             loadEl.addEventListener(transitionEvent, function func(e) {
                 e.target.removeEventListener(transitionEvent, func, false);
                 loadEl.style.display = 'none';
-                resolve();
+                resolve(1);
             }, false);
             if(isie) {
                 // ie, set loading element opacity, trigger transitionEnd event;
                 loadEl.style.opacity = 0;
+                setTimeout(resolve.bind(null, 1), 400);
             } else {
                 // not ie, loading-container height=0, fadeOuted , then children will hide
                 // better performance
                 loadEl.classList.add('fadeOut');
-                setTimeout(resolve.bind(), 400);
+                setTimeout(resolve.bind(null, 1), 400);
             }
         }
 
