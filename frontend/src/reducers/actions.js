@@ -29,7 +29,8 @@ export const pathUpdateEntry = (pathname, params) =>
     (dispatch, getState) => {
         let {config: {pageSize, tagPageSize, summaryNumber}, base: {post_hasmore, links: oldLinks=[], texts } } = getState()
         let {hrefTitle, tagName, page, searchKey} = params;
-        let start, prev, next, links = [oldLinks[0] || "/posts"+(!isNaN(pageSize)?'/1':'') , "/tags"+(!isNaN(tagPageSize)?'/pages/1':'/pages')];
+        let default_left_link = "/posts"+(!isNaN(pageSize)?'/1':'');
+        let start, prev, next, links = [oldLinks[0] || default_left_link , "/tags"+(!isNaN(tagPageSize)?'/pages/1':'/pages')];
         if (isRootPath(pathname) || isPostsPath(pathname)) { // Posts
             page = isNaN(page) ? 1 : page-0;
             if (isNaN(pageSize)) {
@@ -39,6 +40,7 @@ export const pathUpdateEntry = (pathname, params) =>
                 start = (page-1) * pageSize;
             }
             prev = start>0 && page>1 && '/posts/'+(page-1)
+            links[0] = default_left_link
 
             dispatch([setLinks(links), setLinksTexts(["Posts", "Tags"])])
             return dispatch(fetchPosts(start, pageSize))
