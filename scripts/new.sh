@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
@@ -12,9 +13,3 @@ FILE=source/article/$name.md
 [ -f "$FILE" ] && echo "existed $FILE" && exit;
 cd ..
 moka n "$name"
-
-if [ -f "$FILE" ]; then
-    if ! grep -q -m1 "skip:\s*true" "$FILE"; then
-        echo "$FILE will be sent."
-    fi
-fi

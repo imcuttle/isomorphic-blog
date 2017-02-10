@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
 
-HOST=$(cat scripts/host)
+HOST=$(cat host)
 curl $HOST/__ctl/npmi
