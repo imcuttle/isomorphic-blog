@@ -19,6 +19,7 @@
     "reset": "cd scripts && sh reset.sh",
     "normal-img": "mimgs -lo 1 ",
     "sitemap": "node scripts/sitemap-builder.js",
+    "pretest": "echo $@",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

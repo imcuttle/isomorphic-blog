@@ -67,8 +67,8 @@ export default class extends React.Component {
                 {
                     renderFrame([
                         <DocumentMeta {...metas} />,
-                        seoImage ? <SeoImage title={'Tag: '+tagName} src={seoImage} /> : null,
                         <BigPic {...picture} showBack={showBack}/>,
+                        seoImage ? <SeoImage title={'Tag: '+tagName} src={seoImage} /> : null,
                         <div>
                             <Header active="0" links={links} texts={texts} />
                             <div className="tab active">
