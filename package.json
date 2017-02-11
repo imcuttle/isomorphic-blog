@@ -17,7 +17,7 @@
     "rinstall": "sh scripts/remote-install.sh && npm run restart",
     "restart": "cd scripts && sh restart.sh",
     "reset": "cd scripts && sh reset.sh",
-    "normal-img": "node scripts/normal-image-size.js",
+    "normal-img": "mimgs -lo 1 ",
     "sitemap": "node scripts/sitemap-builder.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -50,6 +50,7 @@
     "jsxhint": "^0.15.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "markdown-image-size": "^1.1.0",
     "moka-cli": "^1.2.26",
     "morgan": "^1.8.0",
     "postcss-loader": "^1.0.0",
