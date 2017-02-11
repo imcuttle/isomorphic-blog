@@ -12,6 +12,7 @@ import Header from '../components/Header'
 import ItemsBox from '../components/ItemsBox'
 import Pagination from '../components/Pagination'
 import Footer from '../components/Footer'
+import SeoImage from '../components/SeoImage'
 
 export default class extends React.Component {
 
@@ -30,7 +31,7 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {tagName}, location: {pathname},
             state: {
                 picture,
-                config: {profile, info={}, fillCovers, icons, iconTarget},
+                config: {profile, info={}, fillCovers, icons, iconTarget, seoImage},
                 base: { posts, showBack, items, links, texts, prev_next=[]}
             }
         } = this.props;
@@ -67,6 +68,7 @@ export default class extends React.Component {
                 {
                     renderFrame([
                         <DocumentMeta {...metas}/>,
+                        seoImage ? <SeoImage title={'Tags'} src={seoImage} /> : null,
                         <BigPic {...picture} showBack={showBack}/>,
                         <div>
                             <Header active="1" links={links} texts={texts}/>

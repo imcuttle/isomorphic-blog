@@ -27,7 +27,7 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {hrefTitle},
             location: {pathname},
             state: {
-                config: {profile, fillCovers, icons, iconTarget, info={}},
+                config: {profile, fillCovers, icons, iconTarget, info={}, seoImage},
                 base: { posts, article={}, nextArticle={}, showBack, links, prev_next=[]}
             }
         } = this.props // title, cover, href
@@ -68,7 +68,7 @@ export default class extends React.Component {
             <DocumentTitle title={metas.title}>
                 <main>
                     <DocumentMeta {...metas} />
-                    {cover && <SeoImage title={title} src={cover} />}
+                    <SeoImage title={title} src={cover || seoImage} />
                     <Article
                         title={title} date={date} showBack={showBack}
                         tags={tags} content={content} realDate={real_date}

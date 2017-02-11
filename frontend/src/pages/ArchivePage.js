@@ -9,6 +9,7 @@ import {isBrowser} from '../common/utils'
 
 import ItemsBox from '../components/ItemsBox'
 import DocumentMeta from 'react-document-meta';
+import SeoImage from '../components/SeoImage'
 
 export default class extends React.Component {
 
@@ -28,7 +29,7 @@ export default class extends React.Component {
         const {
             title, params: {searchKey}, location: {pathname},
             state: {
-                config: {info={}},
+                config: {info={}, seoImage},
                 base: {items}
             }
         } = this.props;
@@ -63,6 +64,7 @@ export default class extends React.Component {
             <DocumentTitle title={tags.title}>
                 <main>
                     <DocumentMeta {...tags} />
+                    {seoImage && <SeoImage title={'Archive'} src={seoImage} />}
                     <section className="archives animated fadeIn">
                         <Link className="nav nav--black" to="/">
                             <i className="fa fa-lg fa-arrow-left"></i>

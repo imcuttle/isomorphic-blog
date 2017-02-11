@@ -22,7 +22,7 @@ export const renderFrame = (childs) =>
     <main>
         <section className="previews">
             {
-                React.Children.map(childs, function(child, i) {
+                React.Children.map(childs.filter(c=>!!c), function(child, i) {
                         return React.cloneElement(child, {
                             key: i
                         })

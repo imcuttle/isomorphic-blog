@@ -10,7 +10,7 @@
     "dev:front": "cd frontend && npm run cdev",
     "dev:front:pure": "cd frontend && npm run cdev:pure",
     "install": "(cd backend && npm install); (cd frontend && npm install)",
-    "deploy:f": "npm run deploy && npm run restart",
+    "deploy:f": "npm run deploy && npm run reset",
     "deploy:a": "npm run build && npm run deploy",
     "n": "cd scripts && sh new.sh",
     "deploy": "cd scripts && sh deploy.sh",

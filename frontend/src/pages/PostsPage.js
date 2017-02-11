@@ -13,6 +13,7 @@ import Header from '../components/Header'
 import Pagination from '../components/Pagination'
 import Footer from '../components/Footer'
 import Posts from '../components/Posts'
+import SeoImage from '../components/SeoImage'
 
 export default class extends React.Component {
 
@@ -35,7 +36,7 @@ export default class extends React.Component {
     render() {
         const {
             actions, title, location: {pathname},
-            state: {config: {info={}, iconTarget, icons, fillCovers}, picture, base: { texts, posts, showBack, links, prev_next=[]} }
+            state: {config: {info={}, iconTarget, icons, seoImage, fillCovers}, picture, base: { texts, posts, showBack, links, prev_next=[]} }
         } = this.props
         const prefix = 'Posts - ';
         const metas = {
@@ -68,6 +69,7 @@ export default class extends React.Component {
                 {
                     renderFrame([
                         <DocumentMeta {...metas} />,
+                        seoImage ? <SeoImage title={'Posts'} src={seoImage} /> : null,
                         <BigPic {...picture} showBack={showBack} />,
                         <div>
                             <Header active="0" links={links} texts={texts} />

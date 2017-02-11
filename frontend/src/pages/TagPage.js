@@ -11,6 +11,7 @@ import Header from '../components/Header'
 import Posts from '../components/Posts'
 import Pagination from '../components/Pagination'
 import Footer from '../components/Footer'
+import SeoImage from '../components/SeoImage'
 
 export default class extends React.Component {
 
@@ -29,7 +30,7 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {tagName}, location: {pathname},
             state: {
                 picture,
-                config: {info={}, profile, fillCovers, icons, iconTarget},
+                config: {info={}, profile, fillCovers, icons, iconTarget, seoImage},
                 base: { posts, showBack, links, texts, prev_next=[]}
             }
         } = this.props
@@ -66,6 +67,7 @@ export default class extends React.Component {
                 {
                     renderFrame([
                         <DocumentMeta {...metas} />,
+                        seoImage ? <SeoImage title={'Tag: '+tagName} src={seoImage} /> : null,
                         <BigPic {...picture} showBack={showBack}/>,
                         <div>
                             <Header active="0" links={links} texts={texts} />
