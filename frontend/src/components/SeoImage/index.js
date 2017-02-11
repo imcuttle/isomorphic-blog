@@ -21,7 +21,7 @@ export default class extends React.Component {
     render() {
       const {title, src} = this.props
       return (
-        <img className={{display: 'none'}} alt={title} title={title} src={src}/>
+        <img style={{display: 'none'}} alt={title} title={title} src={src}/>
       )
     }
 }
