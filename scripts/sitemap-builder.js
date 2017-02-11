@@ -4,6 +4,8 @@
 require('babel-register');
 const path = require('path')
 const sitemapBuilder = require('react-router-sitemap-builder').default
+const skipRegExp = require('../source/config').skipRegExp
+const getSites = require('react-router-sitemap-builder').getSites
 const router = require('../frontend/src/router').default;
 const fs = require('fs')
 
@@ -36,4 +38,14 @@ var json = JSON.flatten(router);
 
 const host = fs.readFileSync(__dirname+'/host').toString();
 
-sitemapBuilder(router, host, path.resolve(__dirname, '../source/public/sitemap.txt'))
+const sites = getSites(router) || []
+const articlePath = path.join(__dirname + '/../source/_articles')
+
+
+const mapStr = sites.concat(
+    fs.readdirSync(articlePath).filter(p => !skipRegExp.test(p)).map(p => p.replace(/\.[^\.]*$/, '')).map(u => '/article/'+u)
+).map(u => host+u).join('\r\n')
+
+console.log(mapStr);
+
+fs.writeFileSync(path.join(__dirname, '../source/public/sitemap.txt'), mapStr);
