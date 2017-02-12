@@ -65,9 +65,7 @@ http://blog.moyuyc.xyz/article/some-fegl-programs
 http://blog.moyuyc.xyz/article/spider-girls-bynode
 http://blog.moyuyc.xyz/article/talk-about-javascript-object-and-array-deepclone
 http://blog.moyuyc.xyz/article/talk-about-websocket
-http://blog.moyuyc.xyz/article/test
 http://blog.moyuyc.xyz/article/the-mena-of-university
 http://blog.moyuyc.xyz/article/type-effection-by-js
 http://blog.moyuyc.xyz/article/why-v8-so-fast
-http://blog.moyuyc.xyz/article/xxx
 http://blog.moyuyc.xyz/article/you-paint-i-guess-by-socketio
