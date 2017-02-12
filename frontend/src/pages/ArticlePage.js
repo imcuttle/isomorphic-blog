@@ -75,7 +75,7 @@ export default class extends React.Component {
                         profile={profile} method={iconTarget}
                         cover={currCover}
                     />
-                    {fetchedConfig && <Duoshuo {...duoshuo} url={(info.host||location.origin) + location.pathname} thread={hrefTitle}
+                    {fetchedConfig && <Duoshuo {...duoshuo} url={(info.host||isBrowser && location.origin) + pathname} thread={hrefTitle}
                              share={{title, images: currCover, content: summary+'...'}} />}
                     {href &&
                         <ArtNext title={nTitle} href={"/article/"+href}
