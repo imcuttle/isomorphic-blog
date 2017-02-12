@@ -8,6 +8,7 @@ import {renderFrame, isBrowser, positiveHashCode} from '../common/utils'
 import Article from '../components/Article'
 import ArtNext from '../components/ArtNext'
 import SeoImage from '../components/SeoImage'
+import Duoshuo from '../components/DuoshuoComment'
 import DocumentMeta from 'react-document-meta';
 
 export default class extends React.Component {
@@ -27,11 +28,10 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {hrefTitle},
             location: {pathname},
             state: {
-                config: {profile, fillCovers, icons, iconTarget, info={}, seoImage},
-                base: { posts, article={}, nextArticle={}, showBack, links, prev_next=[]}
+                config: {profile, fillCovers, icons, iconTarget, info={}, seoImage, duoshuo},
+                base: { posts, article={}, nextArticle={}, showBack, links, prev_next=[], fetchedConfig, fetching}
             }
         } = this.props // title, cover, href
-
         const {tags, content, cover, date, title, realDate, summary} = article
         const {key: href, cover: nCover, title: nTitle} = nextArticle
         profile.icons = icons;
@@ -63,7 +63,7 @@ export default class extends React.Component {
                 }
             }
         };
-
+        const currCover = cover || fillCovers[positiveHashCode(hrefTitle) % fillCovers.length]
         return (
             <DocumentTitle title={metas.title}>
                 <main>
@@ -73,8 +73,10 @@ export default class extends React.Component {
                         title={title} date={date} showBack={showBack}
                         tags={tags} content={content} realDate={real_date}
                         profile={profile} method={iconTarget}
-                        cover={cover || fillCovers[positiveHashCode(hrefTitle) % fillCovers.length]}
+                        cover={currCover}
                     />
+                    {fetchedConfig && <Duoshuo {...duoshuo} url={(info.host||location.origin) + location.pathname} thread={hrefTitle}
+                             share={{title, images: currCover, content: summary+'...'}} />}
                     {href &&
                         <ArtNext title={nTitle} href={"/article/"+href}
                           cover={nCover || fillCovers[positiveHashCode(nextArticle.key) % fillCovers.length]}

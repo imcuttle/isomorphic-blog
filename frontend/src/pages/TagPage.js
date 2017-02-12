@@ -30,7 +30,7 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {tagName}, location: {pathname},
             state: {
                 picture,
-                config: {info={}, profile, fillCovers, icons, iconTarget, seoImage},
+                config: {info={}, profile, fillCovers, icons, iconTarget, seoImage, copyright},
                 base: { posts, showBack, links, texts, prev_next=[]}
             }
         } = this.props
@@ -74,7 +74,7 @@ export default class extends React.Component {
                             <div className="tab active">
                                 <Posts scroll={false} posts={posts} hoverHandler={(a, k) => actions.setPicBgUrl(a || fillCovers[positiveHashCode(k) % fillCovers.length]) }/>
                                 <Pagination prev={prev_next[0]} next={prev_next[1]}/>
-                                <Footer icons={icons} method={iconTarget}/>
+                                <Footer icons={icons} method={iconTarget} copyright={copyright}/>
                             </div>
                         </div>
                     ])

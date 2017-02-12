@@ -33,6 +33,30 @@ export const renderFrame = (childs) =>
     </main>
 
 
+export const html_encode = (str) => {
+    if (str.length == 0) return "";
+    return str.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/ /g, "&nbsp;")
+        .replace(/\'/g, "&#39;")
+        .replace(/\"/g, "&quot;")
+        .replace(/\n/g, "<br/>");
+}
+
+
+export const html_decode = (str) => {
+    if (str.length == 0) return "";
+    return str.replace(/&amp;/g, "&")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&nbsp;/g, " ")
+        .replace(/&#39;/g, "\'")
+        .replace(/&quot;/g, "\"")
+        .replace(/<br\/>/g, "\n")
+}
+
+
 export const hashCode = str => {
     var hash = 0;
     if (!str) return hash;
@@ -93,12 +117,12 @@ export const loaded = () => {
             if(isie) {
                 // ie, set loading element opacity, trigger transitionEnd event;
                 loadEl.style.opacity = 0;
-                setTimeout(resolve.bind(null, 1), 400);
+                setTimeout(() => {loadEl.style.display = 'none';resolve.bind(null, 1)}, 800);
             } else {
                 // not ie, loading-container height=0, fadeOuted , then children will hide
                 // better performance
                 loadEl.classList.add('fadeOut');
-                setTimeout(resolve.bind(null, 1), 400);
+                setTimeout(() => {loadEl.style.display = 'none';resolve.bind(null, 1)}, 800);
             }
         }
 

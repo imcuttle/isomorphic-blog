@@ -36,7 +36,7 @@ export default class extends React.Component {
     render() {
         const {
             actions, title, location: {pathname},
-            state: {config: {info={}, iconTarget, icons, seoImage, fillCovers}, picture, base: { texts, posts, showBack, links, prev_next=[]} }
+            state: {config: {info={}, copyright, iconTarget, icons, seoImage, fillCovers}, picture, base: { texts, posts, showBack, links, prev_next=[]} }
         } = this.props
         const prefix = 'Posts - ';
         const metas = {
@@ -76,7 +76,7 @@ export default class extends React.Component {
                             <div className="tab active">
                                 <Posts posts={posts} hoverHandler={(a, k) => {a=a || fillCovers[positiveHashCode(k) % fillCovers.length]; actions.setPicBgUrl(a)} } />
                                 <Pagination prev={prev_next[0]} next={prev_next[1]} />
-                                <Footer icons={icons} method={iconTarget} />
+                                <Footer icons={icons} method={iconTarget} copyright={copyright}/>
                             </div>
                         </div>
                     ])

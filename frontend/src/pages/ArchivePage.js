@@ -29,7 +29,7 @@ export default class extends React.Component {
         const {
             title, params: {searchKey}, location: {pathname},
             state: {
-                config: {info={}, seoImage},
+                config: {info={}, seoImage, copyright},
                 base: {items}
             }
         } = this.props;
@@ -85,7 +85,8 @@ export default class extends React.Component {
                             />
                         </div>
                     </section>
-                        <ItemsBox big={true} scroll={false} btnText="Read Post" items={items} />
+                    <ItemsBox big={true} scroll={false} btnText="Read Post" items={items} />
+                    <div className="archive-copyright" dangerouslySetInnerHTML={{__html: copyright || ''}} />
                 </main>
             </DocumentTitle>
         )

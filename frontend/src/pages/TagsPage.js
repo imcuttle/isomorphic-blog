@@ -31,7 +31,7 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {tagName}, location: {pathname},
             state: {
                 picture,
-                config: {profile, info={}, fillCovers, icons, iconTarget, seoImage},
+                config: {profile, info={}, fillCovers, icons, iconTarget, seoImage, copyright},
                 base: { posts, showBack, items, links, texts, prev_next=[]}
             }
         } = this.props;
@@ -75,7 +75,7 @@ export default class extends React.Component {
                             <div className="tab active">
                                 <ItemsBox items={items} btnText="View All" hoverHandler={(a, k) => actions.setPicBgUrl(a) } />
                                 <Pagination prev={prev_next[0]} next={prev_next[1]} />
-                                <Footer icons={icons} method={iconTarget}/>
+                                <Footer icons={icons} method={iconTarget} copyright={copyright}/>
                             </div>
                         </div>
                     ])

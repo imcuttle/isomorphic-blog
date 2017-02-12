@@ -1,0 +1,117 @@
+.__ds-main {
+  .ds-done {
+    display: inherit;
+  }
+  .ds-ing {
+    display: none!important;
+  }
+  #ds-reset {
+    .ds-like-thread-button {
+      box-shadow: inset 0 0 0 0 @hoverColor!important;
+      span {
+        transition: all 0.4s ease-in-out!important;
+      }
+      transition: all 0.4s ease-in-out!important;
+      &:hover {
+        box-shadow: inset 175px 0 0 0 @hoverColor!important;
+        span {
+          //color: #fff!important;
+        }
+      }
+    }
+    .ds-post-button {
+      .anima()
+    }
+    .ds-avatar {
+      border: 1px solid #ccc;
+      border-radius: 50%!important;
+      img {
+        border-radius: 50%!important;
+        transition: all 0.4s ease-out!important;
+        &:hover {
+          box-shadow: 0 1px 2px rgba(10, 10, 10, 0.3), 0 1px 3px rgba(10, 10, 10, 0.8);
+        }
+      }
+    }
+  }
+
+
+  #ds-share #ds-reset.ds-share-aside-left ul, #ds-share #ds-reset.ds-share-aside-right ul, #ds-share #ds-reset.ds-share-inline ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    *zoom: 1
+  }
+
+  #ds-share #ds-reset.ds-share-aside-left ul:after, #ds-share #ds-reset.ds-share-aside-right ul:after, #ds-share #ds-reset.ds-share-inline ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+  }
+
+  #ds-share #ds-reset.ds-share-aside-left ul li, #ds-share #ds-reset.ds-share-aside-right ul li, #ds-share #ds-reset.ds-share-inline ul li {
+    list-style: none;
+    float: left;
+    font-size: 14px;
+    padding: 7px 0
+  }
+
+  #ds-share #ds-reset.ds-share-inline {
+    position: relative
+  }
+
+  #ds-share #ds-reset.ds-share-inline ul li {
+    margin-left: 8px
+  }
+
+  #ds-share #ds-reset.ds-share-inline ul li:first-child {
+    margin-left: 0
+  }
+
+  #ds-share #ds-reset .ds-share-icons-16 .ds-weibo, #ds-share #ds-reset .ds-share-icons-16 .ds-sohu, #ds-share #ds-reset .ds-share-icons-16 .ds-renren, #ds-share #ds-reset .ds-share-icons-16 .ds-netease, #ds-share #ds-reset .ds-share-icons-16 .ds-qqt, #ds-share #ds-reset .ds-share-icons-16 .ds-kaixin, #ds-share #ds-reset .ds-share-icons-16 .ds-douban, #ds-share #ds-reset .ds-share-icons-16 .ds-msn, #ds-share #ds-reset .ds-share-icons-16 .ds-qzone, #ds-share #ds-reset .ds-share-icons-16 .ds-duoshuo, #ds-share #ds-reset .ds-share-icons-16 .ds-360, #ds-share #ds-reset .ds-share-icons-16 .ds-alipay, #ds-share #ds-reset .ds-share-icons-16 .ds-qq, #ds-share #ds-reset .ds-share-icons-16 .ds-baidu, #ds-share #ds-reset .ds-share-icons-16 .ds-taobao, #ds-share #ds-reset .ds-share-icons-16 .ds-google, #ds-share #ds-reset .ds-share-icons-16 .ds-more, #ds-share #ds-reset .ds-share-icons-16 .ds-wechat, #ds-share #ds-reset .ds-share-icons-16 .ds-diandian, #ds-share #ds-reset .ds-share-icons-16 .ds-huaban, #ds-share #ds-reset .ds-share-icons-16 .ds-duitang, #ds-share #ds-reset .ds-share-icons-16 .ds-youdao, #ds-share #ds-reset .ds-share-icons-16 .ds-pengyou, #ds-share #ds-reset .ds-share-icons-16 .ds-facebook, #ds-share #ds-reset .ds-share-icons-16 .ds-twitter, #ds-share #ds-reset .ds-share-icons-16 .ds-linkedin, #ds-share #ds-reset .ds-share-icons-16 .ds-meilishuo, #ds-share #ds-reset .ds-share-icons-16 .ds-mogujie {
+    line-height: 16px;
+    padding-left: 20px;
+    text-decoration: none;
+    color: #999;
+    display: block;
+    overflow: hidden;
+    //background-image: url("//static.duoshuo.com/images/service-icons-color.png?v=2");
+    background-repeat: no-repeat;
+  }
+}
+
+.anima {
+  box-shadow: inset 0 0 0 0 @hoverColor!important;
+  transition: all 0.5s ease-in!important;
+  &:hover {
+    //color: #fff!important;
+    box-shadow: inset 0 0 0 175px @hoverColor!important;
+    a, span {
+      box-shadow: inset 0 0 0 175px @hoverColor!important;
+    }
+  }
+}
+
+@import "duoshuo.default.css";
+
+/*多说UA开始*/
+#ds-reset {
+  .this_ua {
+    margin-left: 2px!important;
+    margin-right: 7px!important;
+    .ua_text {
+      margin-left: 2px;
+    }
+  }
+  @media @mobile {
+    .this_ua {
+      .ua_text:not(.always) {
+        display: none;
+      }
+    }
+  }
+
+}
+/*多说UA结束*/

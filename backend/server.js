@@ -53,7 +53,13 @@ app.use('/api', require('./routes/api').default)
 app.use('/__ctl', require('./routes/ctl').default)
 
 app.all('/public/config.json', (req, res) => {
-    res.sendFile(spacePath+'/config.json')
+    require('fs').readFile(spacePath+'/config.yml', (err, data) => {
+        if (err) {
+            res.status(500).end(err.message);
+        } else {
+            res.json(require('js-yaml').safeLoad(data.toString()))
+        }
+    })
 })
 app.use('/', require('./routes/react-server').default);
 app.use('/', express.static(spacePath))

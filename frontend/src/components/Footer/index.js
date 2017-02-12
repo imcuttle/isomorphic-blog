@@ -15,9 +15,9 @@ class Footer extends React.Component {
     }
 
     render() {
-        const {icons, method} = this.props;
+        const {icons, method, copyright} = this.props;
         return (
-            <footer className="section-padding--sm footer">
+            <footer className="section-padding--sm footer" style={{position: 'relative'}}>
                 <Link className="footer__archive" to="/archive">Archive</Link>
                 <ul className="footer__social">
                     {
@@ -29,6 +29,7 @@ class Footer extends React.Component {
                         )
                     }
                 </ul>
+                <div className="copyright" dangerouslySetInnerHTML={{__html: copyright || ''}} />
             </footer>
         )
     }

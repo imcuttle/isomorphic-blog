@@ -20,6 +20,11 @@ var config = {
     devServer: {
         historyApiFallback: true,
         proxy: {
+            '/embed.js*': {
+                changeOrigin: true,
+                target: remoteHost,
+                secure: false
+            },
             '/public': {
                 changeOrigin: true,
                 target: remoteHost,

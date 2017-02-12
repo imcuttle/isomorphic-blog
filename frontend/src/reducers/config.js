@@ -45,7 +45,9 @@ const initState = {
     ],
     "lazyLoadCover": false,
     "host": "https://moyuyc.github.io",
-    "duoshuo": "moyublog"
+    "duoshuo": {
+
+    }
 }
 
 export default function (state=initState, action) {
