@@ -104,11 +104,13 @@ const clearCache = (modulepath) => delete require.cache[require.resolve(modulepa
 [react-router-sitemap-builder](https://github.com/moyuyc/react-router-sitemap-builder)
 
 2. 更好的阅读体验！解析 markdown & HTML 图像文本，读取 URL 图片数据得到大小，替换文本！
+
 ```
 ![](http://obu9je6ng.bkt.clouddn.com/FgyP1Ozhv0F8pA14FosHGobvpP_v?imageslim)
 => => =>
 <img src="http://obu9je6ng.bkt.clouddn.com/FgyP1Ozhv0F8pA14FosHGobvpP_v?imageslim" width="1003" height="402"/>
 ```
+
 [markdown-image-size](https://github.com/moyuyc/node-markdown-image-size)
 
 3. react+多说踩坑！
@@ -119,13 +121,14 @@ const clearCache = (modulepath) => delete require.cache[require.resolve(modulepa
 
 具体看代码吧 [react-duoshuo-comment](https://github.com/moyuyc/isomorphic-blog/blob/master/frontend/src/components/DuoshuoComment/index.js)
 
-又水了一篇...
 
 ## 其他的一些
 
 - 发布流程
+
 在本地书写完 markdown 后 => git push 至 github => curl url => 服务器触发 git pull 更新文章 => 文件监听变化 => 更新数据 => 发布成功！
 
 - SEO
+
 谷歌真是技术杠杠的，没几天就可以搜到我的站点了，百度还是没有（都已提交网站和 sitemap.txt/robots.txt）
 <img src="http://obu9je6ng.bkt.clouddn.com/FocOlJ-S5EvxL2Qrc00zWNif6kyy?imageslim" width="580" height="628"/>
