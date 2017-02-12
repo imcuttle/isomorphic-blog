@@ -38,7 +38,7 @@ export default class extends React.Component {
     }
 
     getUaHtml(string) {
-        var pars = new parser();
+        var pars = new parser(string);
         var sua = pars.getResult();
         if(sua.os.version=='x86_64') sua.os.version='x64';
         return '<span class="this_ua platform '+sua.os.name+'">'
