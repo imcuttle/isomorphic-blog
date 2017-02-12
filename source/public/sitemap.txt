@@ -15,6 +15,7 @@ http://blog.moyuyc.xyz/article/animation-of-my-blog-navbar
 http://blog.moyuyc.xyz/article/b_vs_strong_&_i_vs_em
 http://blog.moyuyc.xyz/article/baidu-fe-interview-1
 http://blog.moyuyc.xyz/article/baidu-fe-interview-2
+http://blog.moyuyc.xyz/article/blog-update
 http://blog.moyuyc.xyz/article/bookshop
 http://blog.moyuyc.xyz/article/componentWillReceiveProps-vs-componentWillUpdate
 http://blog.moyuyc.xyz/article/draw-flower-by-canvas

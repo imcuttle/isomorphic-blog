@@ -3,7 +3,7 @@ info:
   host: http://blog.moyuyc.xyz
   description: I’m a Javascript enthusiast. I'm a member of Baidu BEFE team and try
     my best to improve myself. I’m also a nodejs, c/c++ developer, Sometimes.
-  favicon: "/public/favicon.ico"
+  favicon: "/head.jpg"
 
 seoImage: /head.jpg
 title: Moyu Dev Blog
@@ -26,7 +26,7 @@ summaryNumber: 100
 iconTarget: _blank
 icons:
 - key: envelope-o
-  url: mailto:492899414@qq.com
+  url: mailto:moyuyc95@gmail.com
 - key: github
   url: https://github.com/moyuyc
 - key: weibo
