@@ -8,7 +8,8 @@ cover: http://imglf2.nosdn.127.net/img/Sk5OZVhRaUZtSFhFUVdpVDRiZWljcVBuQUo4WE16Z
 
 学生时代最后一个学期的前夕（明天就回学校了）。完成了[个人博客](http://blog.moyuyc.xyz)的“换血”，页面风格没什么大的改版，**重点是在后端数据接口的开发设计，和前端代码的重构，加上了 react 动态加载多说评论系统（使用 redux 分离数据逻辑处理代码），也加上了服务器渲染，都是为了 SEO 和首屏渲染！**
 
-**地址: [http:blog.moyuyc.xyz](http:blog.moyuyc.xyz)**
+**地址: [http://blog.moyuyc.xyz](http://blog.moyuyc.xyz)**
+**仓库地址: [isomorphic-blog](https://github.com/moyuyc/isomorphic-blog)**
 
 感谢陈老板的服务器！
 
