@@ -2,6 +2,26 @@
 
 http://blog.moyuyc.xyz
 
+# 怎么使用
+
+```
+git clone https://github.com/moyuyc/isomorphic-blog.git
+cd isomorphic-blog
+npm install && npm start
+```
+
+# 基于...
+
+## 前
+
+`react/react-router/redux/webpack/`
+
+## 后
+
+`express/marked/moka-cli/babel/react/react-router/`
+
+# 文章
+
 学生时代最后一个学期的前夕（明天就回学校了）。完成了[个人博客](http://blog.moyuyc.xyz)的“换血”，页面风格没什么大的改版，**重点是在后端数据接口的开发设计，和前端代码的重构，加上了 react 动态加载多说评论系统（使用 redux 分离数据逻辑处理代码），也加上了服务器渲染，都是为了 SEO 和首屏渲染！**
 
 **地址: [http://blog.moyuyc.xyz](http://blog.moyuyc.xyz)**
