@@ -35,7 +35,7 @@ export default class extends React.Component {
         } = this.props;
 
         const tags = {
-            title: 'Archive - '+ title,
+            title: 'Archive | '+ title,
             description: info.description,
             canonical: info.host + pathname,
             meta: {

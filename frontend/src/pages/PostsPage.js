@@ -38,7 +38,7 @@ export default class extends React.Component {
             actions, title, location: {pathname},
             state: {config: {info={}, copyright, iconTarget, icons, seoImage, fillCovers}, picture, base: { texts, posts, showBack, links, prev_next=[]} }
         } = this.props
-        const prefix = 'Posts - ';
+        const prefix = 'Posts | ';
         const metas = {
             title: prefix + title,
             description: info.description,

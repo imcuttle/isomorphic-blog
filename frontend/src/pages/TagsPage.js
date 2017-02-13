@@ -36,7 +36,7 @@ export default class extends React.Component {
             }
         } = this.props;
 
-        const prefix = 'Tags - ';
+        const prefix = 'Tags | ';
         const metas = {
             title: prefix + mainTitle,
             description: info.description,

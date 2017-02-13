@@ -35,7 +35,7 @@ export default class extends React.Component {
         const {tags, content, cover, date, title, realDate, summary} = article
         const {key: href, cover: nCover, title: nTitle} = nextArticle
         profile.icons = icons;
-        const prefix =  title + ' - ';
+        const prefix =  title + ' | ';
         let real_date = realDate ? new Date(realDate).toISOString() : null;
         const metas = {
             title: prefix + mainTitle,
