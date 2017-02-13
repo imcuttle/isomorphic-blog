@@ -118,7 +118,7 @@ export const loaded = () => {
                 loadEl.style.opacity = 0;
                 setTimeout(() => {
                     loadEl.style.display = 'none';
-                    resolve.bind(null, 1)
+                    resolve(1)
                 }, 800);
             } else {
                 // not ie, loading-container height=0, fadeOuted , then children will hide
@@ -126,7 +126,7 @@ export const loaded = () => {
                 loadEl.classList.add('fadeOut');
                 setTimeout(() => {
                     loadEl.style.display = 'none';
-                    resolve.bind(null, 1)
+                    resolve(1)
                 }, 800);
             }
         }
