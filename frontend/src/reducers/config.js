@@ -45,16 +45,14 @@ const initState = {
     ],
     "lazyLoadCover": false,
     "host": "https://moyuyc.github.io",
-    "duoshuo": {
-
-    }
+    "duoshuo": {}
 }
 
-export default function (state=initState, action) {
+export default function (state = initState, action) {
     let newState = {...state}
     switch (action.type) {
         case 'SET_CONFIG':
-            return deepAssign( newState, action.config );
+            return deepAssign(newState, action.config);
         default:
             return newState;
     }

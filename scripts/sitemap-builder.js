@@ -6,7 +6,7 @@ const path = require('path')
 const sitemapBuilder = require('react-router-sitemap-builder').default
 const skipRegExp = require('../source/config').skipRegExp
 const getSites = require('react-router-sitemap-builder').getSites
-const router = require('../frontend/src/router').default;
+const router = require('../frontend/src/router').routerForSiteMap;
 const fs = require('fs')
 
 JSON.flatten = function(data) {

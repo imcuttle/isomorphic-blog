@@ -1,26 +1,20 @@
 /**
  * Created by Moyu on 16/10/20.
  */
-import {render} from 'react-dom'
-import React from 'react'
-import { Router, Route, IndexRoute, Redirect, IndexRedirect, browserHistory, hashHistory, useRouterHistory } from 'react-router'
-import {routerReducer, syncHistoryWithStore, routerMiddleware} from 'react-router-redux'
-import {createHashHistory, createBrowserHistory} from 'history'
-import {createStore, applyMiddleware} from 'redux'
-import { Provider } from 'react-redux'
-import thunkMiddleware from 'redux-thunk'
-import multi from 'redux-multi'
-
-import appReducers, {initState} from './reducers/appReducers'
-
-import './common/css/main.text.less'
-import './common/css/loading.text.less'
-import './common/css/pace.text.less'
-// import './common/css/base.global.less'
-
-import MyRouters from './router'
-
-import {isBrowser} from './common/utils'
+import {render} from "react-dom";
+import React from "react";
+import {browserHistory} from "react-router";
+import {routerMiddleware} from "react-router-redux";
+import {createStore, applyMiddleware} from "redux";
+import {Provider} from "react-redux";
+import thunkMiddleware from "redux-thunk";
+import multi from "redux-multi";
+import appReducers, {initState} from "./reducers/appReducers";
+import "./common/css/main.text.less";
+import "./common/css/loading.text.less";
+import "./common/css/pace.text.less";
+import MyRouters from "./router";
+import {isBrowser} from "./common/utils";
 
 var _initState = isBrowser && window.__INITIAL_STATE__ || initState
 export const configureStore = (initialState, middleware) => {
@@ -49,8 +43,14 @@ export const configureStore = (initialState, middleware) => {
 
 const store = configureStore(_initState)
 
-isBrowser && render((
-    <Provider store={store}>
-        {MyRouters}
-    </Provider>
-), document.getElementById('app'))
+
+if (isBrowser) {
+
+    render((
+        <Provider store={store}>
+            {MyRouters}
+        </Provider>
+    ), document.getElementById('app'))
+}
+
+

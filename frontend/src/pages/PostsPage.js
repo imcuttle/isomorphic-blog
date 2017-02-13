@@ -1,34 +1,37 @@
 /**
  * Created by moyu on 2017/2/8.
  */
-import React from 'react'
-import {render} from 'react-dom'
-import {Map} from 'immutable'
-import DocumentTitle from 'react-document-title'
-import DocumentMeta from 'react-document-meta'
-
-import {renderFrame, isBrowser, positiveHashCode} from '../common/utils'
-import BigPic from '../components/BigPic'
-import Header from '../components/Header'
-import Pagination from '../components/Pagination'
-import Footer from '../components/Footer'
-import Posts from '../components/Posts'
-import SeoImage from '../components/SeoImage'
+import React from "react";
+import {render} from "react-dom";
+import {Map} from "immutable";
+import DocumentTitle from "react-document-title";
+import DocumentMeta from "react-document-meta";
+import {renderFrame, positiveHashCode} from "../common/utils";
+import BigPic from "../components/BigPic";
+import Header from "../components/Header";
+import Pagination from "../components/Pagination";
+import Footer from "../components/Footer";
+import Posts from "../components/Posts";
+import SeoImage from "../components/SeoImage";
 
 export default class extends React.Component {
 
     constructor(props) {
         super(props);
     }
-    static contextTypes={
+
+    static contextTypes = {
         router: React.PropTypes.object.isRequired
     }
+
     shouldComponentUpdate(newProps) {
         return !Map(newProps.state).equals(Map(this.props.state)) || newProps.location.pathname !== this.props.location.pathname;
     }
+
     componentWillReceiveProps(newProps) {
 
     }
+
     componentWillMount() {
         const {actions, state} = this.props
     }
@@ -36,7 +39,7 @@ export default class extends React.Component {
     render() {
         const {
             actions, title, location: {pathname},
-            state: {config: {info={}, copyright, iconTarget, icons, seoImage, fillCovers}, picture, base: { texts, posts, showBack, links, prev_next=[]} }
+            state: {config: {info = {}, copyright, iconTarget, icons, seoImage, fillCovers}, picture, base: {texts, posts, showBack, links, prev_next = []}}
         } = this.props
         const prefix = 'Posts | ';
         const metas = {
@@ -46,7 +49,7 @@ export default class extends React.Component {
             meta: {
                 charset: 'utf-8',
                 name: {
-                    keywords: 'posts,'+title,
+                    keywords: 'posts,' + title,
                     description: info.description,
                     'twitter:card': 'summary',
                     'twitter:description': info.description,
@@ -69,13 +72,16 @@ export default class extends React.Component {
                 {
                     renderFrame([
                         <DocumentMeta {... metas} />,
-                        <BigPic {...picture} showBack={showBack} />,
-                        seoImage ? <SeoImage title={'Posts'} src={seoImage} /> : null,
+                        <BigPic {...picture} showBack={showBack}/>,
+                        seoImage ? <SeoImage title={'Posts'} src={seoImage}/> : null,
                         <div>
-                            <Header active="0" links={links} texts={texts} />
+                            <Header active="0" links={links} texts={texts}/>
                             <div className="tab active">
-                                <Posts posts={posts} hoverHandler={(a, k) => {a=a || fillCovers[positiveHashCode(k) % fillCovers.length]; actions.setPicBgUrl(a)} } />
-                                <Pagination prev={prev_next[0]} next={prev_next[1]} />
+                                <Posts posts={posts} hoverHandler={(a, k) => {
+                                    a = a || fillCovers[positiveHashCode(k) % fillCovers.length];
+                                    actions.setPicBgUrl(a)
+                                } }/>
+                                <Pagination prev={prev_next[0]} next={prev_next[1]}/>
                                 <Footer icons={icons} method={iconTarget} copyright={copyright}/>
                             </div>
                         </div>

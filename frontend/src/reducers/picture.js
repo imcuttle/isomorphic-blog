@@ -1,7 +1,6 @@
 /**
  * Created by Moyu on 16/10/20.
  */
-import {Set} from 'immutable'
 
 const initState = {
     bgColor: '#000',
@@ -10,13 +9,13 @@ const initState = {
     smText: 'SMTEXT'
 }
 
-export default function (state=initState, action) {
+export default function (state = initState, action) {
     let newState = {...state}
     switch (action.type) {
         case 'SET_PIC_BGURL':
-            return { ...newState, bgUrl: action.bgUrl };
+            return {...newState, bgUrl: action.bgUrl};
         case 'SET_PIC':
-            return { ...newState, ...action.picture }
+            return {...newState, ...action.picture}
         default:
             return newState;
     }

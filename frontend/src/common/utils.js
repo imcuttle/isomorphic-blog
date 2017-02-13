@@ -1,8 +1,7 @@
 /**
  * Created by Moyu on 16/10/20.
  */
-import React from 'react'
-import fetch from 'isomorphic-fetch'
+import React from "react";
 
 export const isBrowser = (() => !(typeof process === 'object' && typeof process.versions === 'object' && typeof process.versions.node !== 'undefined'))();
 
@@ -22,7 +21,7 @@ export const renderFrame = (childs) =>
     <main>
         <section className="previews">
             {
-                React.Children.map(childs.filter(c=>!!c), function(child, i) {
+                React.Children.map(childs.filter(c => !!c), function (child, i) {
                         return React.cloneElement(child, {
                             key: i
                         })
@@ -62,7 +61,7 @@ export const hashCode = str => {
     if (!str) return hash;
     for (var i = 0; i < str.length; i++) {
         var char = str.charCodeAt(i);
-        hash = ((hash<<5)-hash)+char;
+        hash = ((hash << 5) - hash) + char;
         hash = hash & hash; // Convert to 32bit integer
     }
     return hash;
@@ -81,32 +80,32 @@ export const checkJsonThenLog = ({code, result}) => {
 }
 
 export const isIE = () => {
-  var myNav = navigator.userAgent.toLowerCase();
-  return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+    var myNav = navigator.userAgent.toLowerCase();
+    return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
 }
 
 const transitionEvent = isBrowser && (function whichTransitionEvent() {
-    var t,
-        el = document.createElement('surface'),
-        transitions = {
-            'transition':'transitionend',
-            'OTransition':'oTransitionEnd',
-            'MozTransition':'transitionend',
-            'WebkitTransition':'webkitTransitionEnd'
+        var t,
+            el = document.createElement('surface'),
+            transitions = {
+                'transition': 'transitionend',
+                'OTransition': 'oTransitionEnd',
+                'MozTransition': 'transitionend',
+                'WebkitTransition': 'webkitTransitionEnd'
+            }
+        for (t in transitions) {
+            if (el.style[t] !== undefined) {
+                return transitions[t];
+            }
         }
-    for(t in transitions) {
-        if( el.style[t] !== undefined ){
-            return transitions[t];
-        }
-    }
-})()
+    })()
 
 export const loaded = () => {
     var isie = isIE();
     // if (!isBrowser) return;
-    loadEl = loadEl || document.getElementById(isie?'loading':'loading-container');
+    loadEl = loadEl || document.getElementById(isie ? 'loading' : 'loading-container');
     return new Promise((resolve) => {
-        if(!transitionEvent)
+        if (!transitionEvent)
             loadEl.style.display = 'none';
         else {
             loadEl.addEventListener(transitionEvent, function func(e) {
@@ -114,15 +113,21 @@ export const loaded = () => {
                 loadEl.style.display = 'none';
                 resolve(1);
             }, false);
-            if(isie) {
+            if (isie) {
                 // ie, set loading element opacity, trigger transitionEnd event;
                 loadEl.style.opacity = 0;
-                setTimeout(() => {loadEl.style.display = 'none';resolve.bind(null, 1)}, 800);
+                setTimeout(() => {
+                    loadEl.style.display = 'none';
+                    resolve.bind(null, 1)
+                }, 800);
             } else {
                 // not ie, loading-container height=0, fadeOuted , then children will hide
                 // better performance
                 loadEl.classList.add('fadeOut');
-                setTimeout(() => {loadEl.style.display = 'none';resolve.bind(null, 1)}, 800);
+                setTimeout(() => {
+                    loadEl.style.display = 'none';
+                    resolve.bind(null, 1)
+                }, 800);
             }
         }
 

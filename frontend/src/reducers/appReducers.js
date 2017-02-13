@@ -1,10 +1,8 @@
-import {routerReducer, syncHistoryWithStore} from 'react-router-redux'
-import { combineReducers, createStore, applyMiddleware } from 'redux'
-
-import config from './config'
-import base from './base'
-import picture from './picture'
-
+import {routerReducer} from "react-router-redux";
+import {combineReducers} from "redux";
+import config from "./config";
+import base from "./base";
+import picture from "./picture";
 
 
 export const initState = {

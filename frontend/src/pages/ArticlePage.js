@@ -1,24 +1,26 @@
 /**
  * Created by moyu on 2017/2/8.
  */
-import React from 'react'
-import {render} from 'react-dom'
-import DocumentTitle from 'react-document-title'
-import {renderFrame, isBrowser, positiveHashCode} from '../common/utils'
-import Article from '../components/Article'
-import ArtNext from '../components/ArtNext'
-import SeoImage from '../components/SeoImage'
-import Duoshuo from '../components/DuoshuoComment'
-import DocumentMeta from 'react-document-meta';
+import React from "react";
+import {render} from "react-dom";
+import DocumentTitle from "react-document-title";
+import {isBrowser, positiveHashCode} from "../common/utils";
+import Article from "../components/Article";
+import ArtNext from "../components/ArtNext";
+import SeoImage from "../components/SeoImage";
+import Duoshuo from "../components/DuoshuoComment";
+import DocumentMeta from "react-document-meta";
 
 export default class extends React.Component {
 
     constructor(props) {
         super(props);
     }
-    static contextTypes={
+
+    static contextTypes = {
         router: React.PropTypes.object.isRequired
     }
+
     componentWillMount() {
         const {actions, state} = this.props
     }
@@ -28,14 +30,14 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {hrefTitle},
             location: {pathname},
             state: {
-                config: {profile, fillCovers, icons, iconTarget, info={}, seoImage, duoshuo},
-                base: { posts, article={}, nextArticle={}, showBack, links, prev_next=[], fetchedConfig, fetching}
+                config: {profile, fillCovers, icons, iconTarget, info = {}, seoImage, duoshuo},
+                base: {posts, article = {}, nextArticle = {}, showBack, links, prev_next = [], fetchedConfig, fetching}
             }
         } = this.props // title, cover, href
         const {tags, content, cover, date, title, realDate, summary} = article
         const {key: href, cover: nCover, title: nTitle} = nextArticle
         profile.icons = icons;
-        const prefix =  title + ' | ';
+        const prefix = title + ' | ';
         let real_date = realDate ? new Date(realDate).toISOString() : null;
         const metas = {
             title: prefix + mainTitle,
@@ -44,7 +46,7 @@ export default class extends React.Component {
             meta: {
                 charset: 'utf-8',
                 name: {
-                    keywords: 'article,'+mainTitle+','+title,
+                    keywords: 'article,' + mainTitle + ',' + title,
                     description: summary,
                     'twitter:card': 'summary',
                     'twitter:description': summary,
@@ -68,19 +70,20 @@ export default class extends React.Component {
             <DocumentTitle title={metas.title}>
                 <main>
                     <DocumentMeta {...metas} />
-                    <SeoImage title={title} src={cover || seoImage} />
+                    <SeoImage title={title} src={cover || seoImage}/>
                     <Article
                         title={title} date={date} showBack={showBack}
                         tags={tags} content={content} realDate={real_date}
                         profile={profile} method={iconTarget}
                         cover={currCover}
                     />
-                    {fetchedConfig && <Duoshuo {...duoshuo} url={(info.host||isBrowser && location.origin) + pathname} thread={hrefTitle}
-                             share={{title, images: currCover, content: summary+'...'}} />}
+                    {fetchedConfig && <Duoshuo {...duoshuo} url={(info.host || isBrowser && location.origin) + pathname}
+                                               thread={hrefTitle}
+                                               share={{title, images: currCover, content: summary + '...'}}/>}
                     {href &&
-                        <ArtNext title={nTitle} href={"/article/"+href}
-                          cover={nCover || fillCovers[positiveHashCode(nextArticle.key) % fillCovers.length]}
-                        />
+                    <ArtNext title={nTitle} href={"/article/" + href}
+                             cover={nCover || fillCovers[positiveHashCode(nextArticle.key) % fillCovers.length]}
+                    />
                     }
                 </main>
             </DocumentTitle>

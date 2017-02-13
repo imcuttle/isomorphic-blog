@@ -1,27 +1,28 @@
 /**
  * Created by moyu on 2017/2/8.
  */
-import React from 'react'
-import {render} from 'react-dom'
-import DocumentTitle from 'react-document-title'
-import DocumentMeta from 'react-document-meta'
-import {renderFrame, isBrowser, positiveHashCode} from '../common/utils'
-
-import BigPic from '../components/BigPic'
-import Header from '../components/Header'
-import ItemsBox from '../components/ItemsBox'
-import Pagination from '../components/Pagination'
-import Footer from '../components/Footer'
-import SeoImage from '../components/SeoImage'
+import React from "react";
+import {render} from "react-dom";
+import DocumentTitle from "react-document-title";
+import DocumentMeta from "react-document-meta";
+import {renderFrame} from "../common/utils";
+import BigPic from "../components/BigPic";
+import Header from "../components/Header";
+import ItemsBox from "../components/ItemsBox";
+import Pagination from "../components/Pagination";
+import Footer from "../components/Footer";
+import SeoImage from "../components/SeoImage";
 
 export default class extends React.Component {
 
     constructor(props) {
         super(props);
     }
-    static contextTypes={
+
+    static contextTypes = {
         router: React.PropTypes.object.isRequired
     }
+
     componentWillMount() {
         const {actions, state} = this.props
     }
@@ -31,8 +32,8 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {tagName}, location: {pathname},
             state: {
                 picture,
-                config: {profile, info={}, fillCovers, icons, iconTarget, seoImage, copyright},
-                base: { posts, showBack, items, links, texts, prev_next=[]}
+                config: {profile, info = {}, fillCovers, icons, iconTarget, seoImage, copyright},
+                base: {posts, showBack, items, links, texts, prev_next = []}
             }
         } = this.props;
 
@@ -44,7 +45,7 @@ export default class extends React.Component {
             meta: {
                 charset: 'utf-8',
                 name: {
-                    keywords: 'tags,'+mainTitle,
+                    keywords: 'tags,' + mainTitle,
                     description: info.description,
                     'twitter:card': 'summary',
                     'twitter:description': info.description,
@@ -69,12 +70,13 @@ export default class extends React.Component {
                     renderFrame([
                         <DocumentMeta {...metas}/>,
                         <BigPic {...picture} showBack={showBack}/>,
-                        seoImage ? <SeoImage title={'Tags'} src={seoImage} /> : null,
+                        seoImage ? <SeoImage title={'Tags'} src={seoImage}/> : null,
                         <div>
                             <Header active="1" links={links} texts={texts}/>
                             <div className="tab active">
-                                <ItemsBox items={items} btnText="View All" hoverHandler={(a, k) => actions.setPicBgUrl(a) } />
-                                <Pagination prev={prev_next[0]} next={prev_next[1]} />
+                                <ItemsBox items={items} btnText="View All"
+                                          hoverHandler={(a, k) => actions.setPicBgUrl(a) }/>
+                                <Pagination prev={prev_next[0]} next={prev_next[1]}/>
                                 <Footer icons={icons} method={iconTarget} copyright={copyright}/>
                             </div>
                         </div>

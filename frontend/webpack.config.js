@@ -1,5 +1,6 @@
 
 var path = require('path');
+var fs = require('fs');
 var WebpackMd5Hash = require('webpack-md5-hash');
 var webpack = require('webpack');
 var node_module_dir = path.resolve(__dirname, 'node_module');
@@ -46,13 +47,16 @@ var config = {
         libs: [
             'react', 'react-router', 'react-dom',
             'immutable', 'redux', 'react-redux', 'react-router-redux',
-            'isomorphic-fetch', 'classname'
-        ]
+            'isomorphic-fetch', 'classname', 'deep-assign',
+            'redux-multi', 'redux-thunk',
+            'react-document-meta', 'react-document-title'
+        ],
     },
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].min.js?v=[chunkhash]',
         publicPath: '/',
+        chunkFilename: 'modules/[name].min.js?v=[chunkhash]'
         // hotUpdateChunkFilename: 'hot/hot-update.js',
         // hotUpdateMainFilename: 'hot/hot-update.json'
     },
@@ -128,5 +132,26 @@ if(minimize) {
         new webpack.HotModuleReplacementPlugin()  //fix Maximum call stack
     )
 }
+
+/*
+ 204K	frontend/build/app.min.js
+ 4.0K	frontend/build/index.html
+ 276K	frontend/build/libs.min.js
+ 16K	frontend/build/pace.js
+ 4.0K	frontend/build/print.css
+ 172K	frontend/build/styles.min.css
+ 1.1M	frontend/build/toy_res
+ */
+
+/*
+ 120K	frontend/build/app.min.js
+ 4.0K	frontend/build/index.html
+ 292K	frontend/build/libs.min.js
+ 140K	frontend/build/modules
+ 16K	frontend/build/pace.js
+ 4.0K	frontend/build/print.css
+ 172K	frontend/build/styles.min.css
+ 1.1M	frontend/build/toy_res
+ */
 
 module.exports = config;
