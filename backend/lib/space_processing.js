@@ -9,7 +9,6 @@ import {existsSync, watch, readFileSync} from 'fs'
 import {getFileJson, initMarked, computeDBJson} from 'moka-cli/lib/generate'
 import {updateDB, deleteDB} from 'moka-cli/lib/server'
 import {testWord} from './utils'
-import {safeLoad} from 'js-yaml'
 
 const PROJECT_PATH = path.join(__dirname, '..', '..');
 export const SPACE_PATH = path.join(PROJECT_PATH, 'source');
@@ -217,7 +216,7 @@ export const searchFilter = (searchWord) => {
 export const parseContent = (content) => {
     let head = {}
     content = content.replace(/^\s*?---([\s\S]+?)---/m, function (m, c) {
-        head = safeLoad(m);
+        head = require('js-yaml').safeLoad(m);
         return '';
     })
     return {
