@@ -37,7 +37,12 @@ const readdir = (dir) => {
 }
 
 admin.all('/dashboard', wrap( async (req, res) => {
-    const files = await readdir(SPACE_ARTICLES_PATH);
+    let files = await readdir(SPACE_ARTICLES_PATH);
+    files = files.map((v) => ({name: v, time: fs.statSync(SPACE_ARTICLES_PATH + '/' + v).mtime.getTime()}))
+        .sort((a, b) => b.time - a.time)
+        .map(v => v.name)
+
+
 
     res.render('admin-dashboard', {
         title: '管理员面板', subtitle: '你好，'+req.session.admin,
