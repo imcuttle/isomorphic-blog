@@ -79,8 +79,8 @@ app.use((req, res, next) => {
 });
 
 
-const fePath = module.exports.fePath = path.resolve(__dirname, '..', 'frontend', 'build')
-const spacePath = module.exports.spacePath = path.resolve(__dirname, '..', 'source', 'public')
+const fePath = module.exports.fePath = path.join(__dirname, '..', 'frontend', 'build')
+const spacePath = module.exports.spacePath = path.join(__dirname, '..', 'source', 'public')
 
 app.all('/api', (req, res) => {
     res.end('By Moyu. <github.com/moyuyc> ');
@@ -94,12 +94,15 @@ app.all('/public/config.json', (req, res) => {
         if (err) {
             res.status(500).end(err.message);
         } else {
-            res.json(require('js-yaml').safeLoad(data.toString()))
+            res.json(require('js-yaml').safeLoad(data.toString(), require('js-yaml').FAILSAFE_SCHEMA))
         }
     })
 })
 
 app.use('/admin', require('./routes/admin-render').default)
+app.use('/subscribe-person', (req, res) => {
+    res.sendFile(path.join(spacePath, '../mailer.json'));
+})
 app.use('/subscribe', (req, res) => {
     res.render('subscribe', {title: '订阅'})
 })

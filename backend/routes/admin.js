@@ -33,6 +33,7 @@ const sendMailProm = ({name, mail, title, html}) => {
 
 async function parse_SendMail (content, hrefTitle) {
     let mailers = await readFilePromise(SPACE_PATH+'/mailer.json');
+    mailers = [{name: 'xx', mail: 'moyuyc95@gmail.com'}]
     hrefTitle = hrefTitle.replace(/\.[^\.]*$/, '')
     const json = parseContent(content);
     if (json.head.date) json.head.date = json.head.date.toLocaleString();
@@ -68,7 +69,7 @@ admin.all('/add-receiver', wrap(async (req, res, next) => {
                 if (mailer.find(x => x.mail == mail)) {
                     res.json(normalize(500, '该邮箱已经添加了！'));
                 } else {
-                    mailer.push({name, mail});
+                    mailer.push({name, mail, time: new Date().toLocaleString()});
                     if (await writeFilePromise(SPACE_PATH+'/mailer.json', JSON.stringify(mailer, null, 2))) {
                         res.json(normalize(200, '订阅成功'));
                         await gitpush();
