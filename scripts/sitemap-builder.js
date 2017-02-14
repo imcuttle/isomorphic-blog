@@ -38,14 +38,22 @@ var json = JSON.flatten(router);
 
 const host = fs.readFileSync(__dirname+'/host').toString();
 
-const sites = getSites(router) || []
+const sites = getSites(router) || [];
+
 const articlePath = path.join(__dirname + '/../source/_articles')
 
 
-const mapStr = sites.concat(
-    fs.readdirSync(articlePath).filter(p => !skipRegExp.test(p)).map(p => p.replace(/\.[^\.]*$/, '')).map(u => '/article/'+u)
-).map(u => host+u).join('\r\n')
+const rewrite = module.exports =  function () {
+    const mapStr = sites.concat(
+        fs.readdirSync(articlePath).filter(p => !skipRegExp.test(p)).map(p => p.replace(/\.[^\.]*$/, '')).map(u => '/article/'+u)
+    ).map(u => host+u).join('\r\n')
 
-console.log(mapStr);
+    return new Promise((resolve, reject) => {
+        fs.writeFile(path.join(__dirname, '../source/public/sitemap.txt'), mapStr, function (err) {
+            if (err) reject(err);
+            else resolve(1);
+        });
+    })
+}
 
-fs.writeFileSync(path.join(__dirname, '../source/public/sitemap.txt'), mapStr);
+rewrite();

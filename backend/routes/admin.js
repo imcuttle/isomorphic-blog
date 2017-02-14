@@ -5,12 +5,12 @@ import express from 'express'
 import {SPACE_ARTICLES_PATH, SPACE_PATH, parseContent} from '../lib/space_processing'
 import { normalize, checkEntThenResponse, writeFilePromise, readFilePromise, md5,
     gitpush, sendMail, mail_encode, sync, render, compile } from '../lib/utils'
+import reWrite from '../../scripts/sitemap-builder'
 import fs from 'fs';
 import path from 'path';
 import wrap from 'express-async-wrap';
 const admin = express();
 const checkRequestSecret = req => md5(req.ent.name+'-'+req.ent.pwd) === '1559328d1e102d24f6284970a7577423'
-
 const compiled = compile(fs.readFileSync(path.join(__dirname, '../../template/mail.tpl.html')).toString());
 const origin = fs.readFileSync(path.join(__dirname, '../../scripts/host')).toString();
 const getMailHTML = (hrefTitle, data) => {
@@ -84,26 +84,26 @@ admin.all('/add-receiver', wrap(async (req, res, next) => {
     }
 }))
 
-admin.all('/post-pure', wrap(async function (req, res, next) {
-    try {
-        let {content, title, pwd, name} = req.ent;
-        if (checkEntThenResponse(req.ent, res, ['content', 'title', 'pwd', 'name'])) {
-            if (!title.includes(".")) {
-                title += '.md';
-            }
-            if (checkRequestSecret(req)) {
-                if (await writeFilePromise(SPACE_ARTICLES_PATH+'/'+title, content)) {
-                    res.json(normalize(200, "Well Done."))
-                    await parse_SendMail(content, title);
-                }
-            } else {
-                res.json(normalize(500, 'Error Secret'))
-            }
-        }
-    } catch (ex) {
-        next(ex);
-    }
-}))
+// admin.all('/post-pure', wrap(async function (req, res, next) {
+//     try {
+//         let {content, title, pwd, name} = req.ent;
+//         if (checkEntThenResponse(req.ent, res, ['content', 'title', 'pwd', 'name'])) {
+//             if (!title.includes(".")) {
+//                 title += '.md';
+//             }
+//             if (checkRequestSecret(req)) {
+//                 if (await writeFilePromise(SPACE_ARTICLES_PATH+'/'+title, content)) {
+//                     res.json(normalize(200, "Well Done."))
+//                     await parse_SendMail(content, title);
+//                 }
+//             } else {
+//                 res.json(normalize(500, 'Error Secret'))
+//             }
+//         }
+//     } catch (ex) {
+//         next(ex);
+//     }
+// }))
 
 admin.all('/login', wrap(async (req, res, next) => {
     let {pwd, name} = req.ent;
@@ -136,6 +136,7 @@ admin.all('/post', wrap(async function (req, res, next) {
             } else if (await writeFilePromise(SPACE_ARTICLES_PATH+'/'+title, content)) {
                 res.json(normalize(200, "Well Done."));
                 if (!force) {
+                    await reWrite();
                     await parse_SendMail(content, title);
                 }
                 await gitpush();
@@ -160,6 +161,7 @@ admin.all('/post/del', wrap(async function (req, res, next) {
         let {id} = req.ent;
         if (checkEntThenResponse(req.ent, res, ['id'])) {
             await unlink( SPACE_ARTICLES_PATH + '/' + id);
+            await reWrite();
             res.json(normalize(200, "Deleted"));
             await gitpush();
         }
