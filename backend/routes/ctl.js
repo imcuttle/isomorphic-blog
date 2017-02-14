@@ -2,7 +2,6 @@
  * Created by moyu on 2017/2/8.
  */
 import express from 'express'
-import { normalize, checkEntThenResponse } from '../lib/utils'
 import {spawn} from 'child_process'
 import path from 'path'
 import {reset} from '../lib/space_processing'
@@ -44,6 +43,10 @@ ctl.all('/npmi', (req, res) => {
 ctl.all('/reset', (req, res) => {
     res.end('reset');
     reset();
+})
+
+ctl.all('/push', (req, res) => {
+    spawn_response(res, "git", ['push', 'origin', 'master'])
 })
 
 ctl.all('/restart', (req, res) => {

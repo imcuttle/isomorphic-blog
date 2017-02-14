@@ -84,6 +84,11 @@ export const isIE = () => {
     return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
 }
 
+export const md5 = (text) => {
+    var crypto = require('crypto');
+    return crypto.createHash('md5').update(text).digest('hex');
+}
+
 const transitionEvent = isBrowser && (function whichTransitionEvent() {
         var t,
             el = document.createElement('surface'),

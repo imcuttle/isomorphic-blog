@@ -1,0 +1,25 @@
+extends layout.pug
+
+block content
+    div.admin-login
+        div.row
+            div.col-lg-6.col-lg-offset-3
+                div.panel.panel-primary
+                    div.panel-body
+                        form#form.form-horizontal(method='post')
+                            div.form-group
+                                label.col-sm-2.control-label(for="name" class="col-sm-2 control-label") 账号
+                                div.col-sm-10
+                                    input(type="text" class="form-control" name="user" id="name" minlength=6 maxlength=20 placeholder="账户" required)
+                            div.form-group
+                                label.col-sm-2.control-label(for="pwd" class="col-sm-2 control-label") 密码
+                                div.col-sm-10
+                                    input(type="password" class="form-control" name="pwd" id="pwd" minlength=6 maxlength=20 placeholder="账户" required)
+                            div.form-group
+                                div.col-sm-offset-2.col-sm-10
+                                    div.text-right
+                                        input#login.btn.btn-primary(type="button", value="登录")
+
+
+    script(src='/js/admin.js')
+

@@ -9,11 +9,12 @@ import {existsSync, watch, readFileSync} from 'fs'
 import {getFileJson, initMarked, computeDBJson} from 'moka-cli/lib/generate'
 import {updateDB, deleteDB} from 'moka-cli/lib/server'
 import {testWord} from './utils'
+import {safeLoad} from 'js-yaml'
 
 const PROJECT_PATH = path.join(__dirname, '..', '..');
-const SPACE_PATH = path.join(PROJECT_PATH, 'source');
+export const SPACE_PATH = path.join(PROJECT_PATH, 'source');
 const SPACE_CONFIG_PATH = path.join(SPACE_PATH, 'config.js');
-const SPACE_ARTICLES_PATH = path.join(SPACE_PATH, '_articles');
+export const SPACE_ARTICLES_PATH = path.join(SPACE_PATH, '_articles');
 const SUMMARY_NUMBER = 100;
 
 const clearCache = (modulepath) => delete require.cache[require.resolve(modulepath)]
@@ -213,3 +214,14 @@ export const searchFilter = (searchWord) => {
     return items.map(mapArticlePost);
 }
 
+export const parseContent = (content) => {
+    let head = {}
+    content = content.replace(/^\s*?---([\s\S]+?)---/m, function (m, c) {
+        head = safeLoad(m);
+        return '';
+    })
+    return {
+        content: markedPure(string),
+        head
+    };
+}

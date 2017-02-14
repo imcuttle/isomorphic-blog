@@ -1,0 +1,28 @@
+extends layout.pug
+
+
+block content
+    div.dashboard-main
+        div.row
+            div.col-lg-8.col-lg-offset-2
+                div.panel.panel-default
+                    div.panel-heading
+                        h3.panel-title= "订阅"
+                    div.panel-body
+                        form#form.form-horizontal(method='post')
+                            div.form-group
+                                label.col-sm-2.control-label(for="name" class="col-sm-2 control-label") Name
+                                div.col-sm-10
+                                    input(type="text" class="form-control" name="name" id="name" minlength=6 maxlength=20 placeholder="Name" required)
+                            div.form-group
+                                label.col-sm-2.control-label(for="email" class="col-sm-2 control-label") Email
+                                div.col-sm-10
+                                    input(type="email" class="form-control" name="email" id="email" minlength=6 maxlength=20 placeholder="Email" required)
+                    div.panel-footer
+                        div.text-right
+                            button#submit.btn.btn-default= "订阅"
+
+
+
+    script(src='/js/subscribe.js')
+
