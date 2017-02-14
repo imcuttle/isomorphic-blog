@@ -2,14 +2,44 @@
  * Created by moyu on 2017/2/8.
  */
 import express from 'express'
-import {SPACE_ARTICLES_PATH, SPACE_PATH} from '../lib/space_processing'
-import { normalize, checkEntThenResponse, writeFilePromise, readFilePromise, md5, gitpush } from '../lib/utils'
+import {SPACE_ARTICLES_PATH, SPACE_PATH, parseContent} from '../lib/space_processing'
+import { normalize, checkEntThenResponse, writeFilePromise, readFilePromise, md5,
+    gitpush, sendMail, mail_encode, sync, render, compile } from '../lib/utils'
 import fs from 'fs';
+import path from 'path';
 import wrap from 'express-async-wrap';
-
 const admin = express();
-
 const checkRequestSecret = req => md5(req.ent.name+'-'+req.ent.pwd) === '24ecfe337456b66831c3bf21cbd2f72a'
+
+const compiled = compile(fs.readFileSync(path.join(__dirname, '../../template/mail.tpl.html')).toString());
+const origin = fs.readFileSync(path.join(__dirname, '../../scripts/host')).toString();
+const getMailHTML = (hrefTitle, data) => {
+    return render(compiled, {...data, _link: origin, hrefTitle})
+}
+const sendMailProm = ({name, mail, title, html}) => {
+    return sendMail(
+        'smtp.qq.com',
+        '492899414@qq.com',
+        'jrpzcdbebynzcabf',
+        mail,
+        `${mail_encode("From", "Moyu")} <moyuyc95@gmail.com>\r\n` +
+        `${mail_encode("Subject", `[墨鱼新的文章出炉啦!] ${title}`)}\r\n` +
+        `${mail_encode("To", name)} <${mail}>\r\n` +
+        `Content-Type: text/html; charset="utf-8"\r\n\r\n` +
+        `${html}`
+    )
+}
+
+
+async function parse_SendMail (content, hrefTitle) {
+    let mailers = await readFilePromise(SPACE_PATH+'/mailer.json');
+    mailers = [{name: 'TEST', mail: 'moyuyc95@gmail.com'}];
+    const json = parseContent(content);
+    let html = getMailHTML(hrefTitle, json);
+    sync(mailers.map(r =>
+        () => sendMailProm({...r, html, title: json.head.title})
+    ))
+}
 
 const redirectUnLogin = (req, res, next) => {
     if (req.session.admin) {
@@ -40,7 +70,7 @@ admin.all('/add-receiver', wrap(async (req, res, next) => {
                     mailer.push({name, mail});
                     if (await writeFilePromise(SPACE_PATH+'/mailer.json', JSON.stringify(mailer, null, 2))) {
                         res.json(normalize(200, '订阅成功'));
-                        gitpush();
+                        await gitpush();
                     } else {
                         res.json(normalize(500, '订阅失败'));
                     }
@@ -62,6 +92,7 @@ admin.all('/post-pure', wrap(async function (req, res, next) {
             if (checkRequestSecret(req)) {
                 if (await writeFilePromise(SPACE_ARTICLES_PATH+'/'+title, content)) {
                     res.json(normalize(200, "Well Done."))
+                    await parse_SendMail(content, title);
                 }
             } else {
                 res.json(normalize(500, 'Error Secret: '+req.ent.secret))
@@ -102,7 +133,8 @@ admin.all('/post', wrap(async function (req, res, next) {
                 res.json(normalize(4000, "Existed!"))
             } else if (await writeFilePromise(SPACE_ARTICLES_PATH+'/'+title, content)) {
                 res.json(normalize(200, "Well Done."));
-                gitpush();
+                await parse_SendMail(content, title);
+                await gitpush();
             }
         }
     } catch (ex) {
@@ -125,7 +157,7 @@ admin.all('/post/del', wrap(async function (req, res, next) {
         if (checkEntThenResponse(req.ent, res, ['id'])) {
             await unlink( SPACE_ARTICLES_PATH + '/' + id);
             res.json(normalize(200, "Deleted"));
-            gitpush();
+            await gitpush();
         }
     } catch (ex) {
         next(ex);

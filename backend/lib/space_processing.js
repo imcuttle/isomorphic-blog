@@ -221,7 +221,7 @@ export const parseContent = (content) => {
         return '';
     })
     return {
-        content: markedPure(string),
+        content: markedPure(content),
         head
     };
 }

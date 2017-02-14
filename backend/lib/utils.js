@@ -86,6 +86,17 @@ export async function gitpush () {
     await exec('git', ['push', 'origin', 'master'])
 }
 
+export function compile (str) {
+    var tpl = str;
+    tpl = "var tpl = `" + tpl + "`;\n return tpl;"
+    return new Function('obj', tpl);
+}
+
+export function render (compiled, data) {
+    //console.log(compiled(data));
+    return compiled(data);
+}
+
 export const sendMail = (host,user,pwd,to,msg) => {
     const net = require('net');
     return new Promise(resolve => {
