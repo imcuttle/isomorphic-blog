@@ -9,7 +9,7 @@ import fs from 'fs';
 import path from 'path';
 import wrap from 'express-async-wrap';
 const admin = express();
-const checkRequestSecret = req => md5(req.ent.name+'-'+req.ent.pwd) === '24ecfe337456b66831c3bf21cbd2f72a'
+const checkRequestSecret = req => md5(req.ent.name+'-'+req.ent.pwd) === '1559328d1e102d24f6284970a7577423'
 
 const compiled = compile(fs.readFileSync(path.join(__dirname, '../../template/mail.tpl.html')).toString());
 const origin = fs.readFileSync(path.join(__dirname, '../../scripts/host')).toString();

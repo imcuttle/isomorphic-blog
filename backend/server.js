@@ -6,7 +6,11 @@ const bodyParser = require('body-parser');
 const url = require('url')
 const session = require('express-session');
 const path = require('path')
-const minify = require('express-minify');
+const compression = require('compression');
+const fs = require('fs')
+var UglifyJS = require("uglify-js");
+
+
 
 process.env.PORT = process.env.PORT || 6999;
 
@@ -17,10 +21,32 @@ process.on('uncaughtException', function (err) {
 const app = express();
 
 // app.use(cookieParser());
+app.use(compression());
 
 // view engine setup
 app.use(require('less-middleware')(__dirname+'/public'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/js', (req, res, next) => {
+    const pathname = decodeURIComponent(url.parse(req.originalUrl).pathname)
+    const abFile = __dirname + '/public'+pathname;
+    if (fs.existsSync(abFile)) {
+        if (abFile.endsWith('.js')) {
+            res.set('content-type', 'application/javascript');
+            fs.readFile(abFile, (err, data) => {
+                if (!err) {
+                    data = data.toString();
+                    if (process.env.NODE_ENV == 'production') {
+                        data = UglifyJS.minify(data, {fromString: true})
+                    }
+                    res.send(data);
+                }
+            })
+        } else {
+            res.sendFile(abFile)
+        }
+    } else {
+        next();
+    }
+});
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -29,12 +55,6 @@ app.use(bodyParser.json({limit:'5mb'}));
 app.use(bodyParser.raw({limit:'5mb'}));
 app.use(bodyParser.urlencoded({ extended: true, limit:'5mb'}));
 app.use(logger('dev'));
-app.use(minify({
-    js_match: /js/,
-    css_match: /css/,
-    cache: true
-}));
-
 app.use(session({
     resave: false,
     saveUninitialized: true,

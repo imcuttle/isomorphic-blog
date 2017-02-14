@@ -29,7 +29,7 @@ function handleRender(req, res, next) {
         if (error) {
             res.status(500).send(error.stack);
         } else if (redirectLocation) {
-            const pathname = decodeURIComponent(url.parse(req.url).pathname)
+            const pathname = decodeURIComponent(url.parse(req.originalUrl).pathname)
             if( fs.existsSync(path.join(fePath, pathname))
                 || fs.existsSync(path.join(spacePath, pathname)) ) {
                 next();
