@@ -1,12 +1,3 @@
-http://blog.moyuyc.xyz/
-http://blog.moyuyc.xyz/posts
-http://blog.moyuyc.xyz/posts/*
-http://blog.moyuyc.xyz/article/*
-http://blog.moyuyc.xyz/tags/*
-http://blog.moyuyc.xyz/tags/pages
-http://blog.moyuyc.xyz/tags/pages/*
-http://blog.moyuyc.xyz/archive
-http://blog.moyuyc.xyz/archive/*
 http://blog.moyuyc.xyz/article/2017-newyear-todo-list
 http://blog.moyuyc.xyz/article/Set-Up-Yourself-Blog
 http://blog.moyuyc.xyz/article/about-promise-and-qjs
@@ -69,3 +60,12 @@ http://blog.moyuyc.xyz/article/the-mena-of-university
 http://blog.moyuyc.xyz/article/type-effection-by-js
 http://blog.moyuyc.xyz/article/why-v8-so-fast
 http://blog.moyuyc.xyz/article/you-paint-i-guess-by-socketio
+http://blog.moyuyc.xyz/
+http://blog.moyuyc.xyz/posts
+http://blog.moyuyc.xyz/posts/*
+http://blog.moyuyc.xyz/article/*
+http://blog.moyuyc.xyz/tags/*
+http://blog.moyuyc.xyz/tags/pages
+http://blog.moyuyc.xyz/tags/pages/*
+http://blog.moyuyc.xyz/archive
+http://blog.moyuyc.xyz/archive/*

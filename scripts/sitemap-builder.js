@@ -44,9 +44,10 @@ const articlePath = path.join(__dirname + '/../source/_articles')
 
 
 const rewrite = module.exports =  function () {
-    const mapStr = sites.concat(
-        fs.readdirSync(articlePath).filter(p => !skipRegExp.test(p)).map(p => p.replace(/\.[^\.]*$/, '')).map(u => '/article/'+u)
-    ).map(u => host+u).join('\r\n');
+    const mapStr = fs.readdirSync(articlePath).filter(p => !skipRegExp.test(p))
+        .map(p => p.replace(/\.[^\.]*$/, '')).map(u => '/article/'+u).concat(
+            sites
+        ).map(u => host+u).join('\r\n');
 
     console.log(mapStr)
 
