@@ -94,7 +94,7 @@ app.all('/public/config.json', (req, res) => {
         if (err) {
             res.status(500).end(err.message);
         } else {
-            res.json(require('js-yaml').safeLoad(data.toString(), require('js-yaml').FAILSAFE_SCHEMA))
+            res.json(require('js-yaml').safeLoad(data.toString(), {schema: require('js-yaml').FAILSAFE_SCHEMA} ))
         }
     })
 })
