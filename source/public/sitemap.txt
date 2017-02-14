@@ -63,7 +63,6 @@ http://blog.moyuyc.xyz/article/simple-imgprocessing
 http://blog.moyuyc.xyz/article/slice-and-breakpoint-up-down
 http://blog.moyuyc.xyz/article/some-fegl-programs
 http://blog.moyuyc.xyz/article/spider-girls-bynode
-http://blog.moyuyc.xyz/article/sss
 http://blog.moyuyc.xyz/article/talk-about-javascript-object-and-array-deepclone
 http://blog.moyuyc.xyz/article/talk-about-websocket
 http://blog.moyuyc.xyz/article/the-mena-of-university
