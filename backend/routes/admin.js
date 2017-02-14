@@ -33,7 +33,7 @@ const sendMailProm = ({name, mail, title, html}) => {
 
 async function parse_SendMail (content, hrefTitle) {
     let mailers = await readFilePromise(SPACE_PATH+'/mailer.json');
-    mailers = [{name: 'xx', mail: 'moyuyc95@gmail.com'}]
+    mailers = [{name: 'xx', mail: 'moyuyc95@gmail.com'}, {name: 'xxxx', mail: 'moyuyc95@gmail.com'}]
     hrefTitle = hrefTitle.replace(/\.[^\.]*$/, '')
     const json = parseContent(content);
     if (json.head.date) json.head.date = json.head.date.toLocaleString();
@@ -135,7 +135,9 @@ admin.all('/post', wrap(async function (req, res, next) {
                 res.json(normalize(4000, "Existed!"))
             } else if (await writeFilePromise(SPACE_ARTICLES_PATH+'/'+title, content)) {
                 res.json(normalize(200, "Well Done."));
-                await parse_SendMail(content, title);
+                if (!force) {
+                    await parse_SendMail(content, title);
+                }
                 await gitpush();
             }
         }
