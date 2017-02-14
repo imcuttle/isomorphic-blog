@@ -8,7 +8,7 @@ info:
 seoImage: /head.jpg
 title: Moyu Dev Blog
 
-copyright: © 2016 Yc  <a target="_blank" href="/subscribe" title="点我订阅"><i class="fa fa-heart"></i></a>  Powered by <a href="https://github.com/moyuyc/isomorphic-blog" target="_blank">< Guess? ></a>
+copyright: <a target="_blank" href="/subscribe" title="点我订阅" style="margin-right:10px;color:#d68f8f;">点 <i class="fa fa-heart"></i> 我</a> © 2016 Yc  <i class="fa fa-star"></i>  Powered by <a href="https://github.com/moyuyc/isomorphic-blog" target="_blank">< Guess? ></a>
 
 duoshuo:
   short: moyuyc

@@ -35,7 +35,7 @@ app.use('/js', (req, res, next) => {
                 if (!err) {
                     data = data.toString();
                     if (process.env.NODE_ENV == 'production') {
-                        data = UglifyJS.minify(data, {fromString: true})
+                        data = UglifyJS.minify(data, {fromString: true}).code
                     }
                     res.send(data);
                 }
@@ -47,6 +47,8 @@ app.use('/js', (req, res, next) => {
         next();
     }
 });
+
+app.use(express.static(__dirname+'/public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 

@@ -96,7 +96,7 @@ admin.all('/post-pure', wrap(async function (req, res, next) {
                     await parse_SendMail(content, title);
                 }
             } else {
-                res.json(normalize(500, 'Error Secret: '+req.ent.secret))
+                res.json(normalize(500, 'Error Secret'))
             }
         }
     } catch (ex) {
@@ -111,7 +111,7 @@ admin.all('/login', wrap(async (req, res, next) => {
             req.session.admin = name;
             res.json(normalize(200, 'Fine.'))
         } else {
-            res.json(normalize(500, 'Error Secret: '+secret))
+            res.json(normalize(500, 'Error Secret'))
         }
     }
 }))
