@@ -104,7 +104,7 @@ app.use('/subscribe-person', (req, res) => {
     res.sendFile(path.join(spacePath, '../mailer.json'));
 })
 app.use('/subscribe', (req, res) => {
-    res.render('subscribe', {title: '订阅'})
+    res.render('subscribe', {title: '订阅', subtitle: '订阅后，文章更新将会自动发邮件'})
 })
 app.use('/', require('./routes/react-server').default);
 app.use('/', express.static(spacePath))
