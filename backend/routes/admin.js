@@ -36,6 +36,7 @@ async function parse_SendMail (content, hrefTitle) {
     hrefTitle = hrefTitle.replace(/\.[^\.]*$/, '')
     mailers = [{name: 'TEST', mail: 'moyuyc95@gmail.com'}];
     const json = parseContent(content);
+    if (json.head.date) json.head.date = json.head.date.toLocaleString();
     let html = getMailHTML(hrefTitle, json);
     sync(mailers.map(r =>
         () => sendMailProm({...r, html, title: json.head.title})
