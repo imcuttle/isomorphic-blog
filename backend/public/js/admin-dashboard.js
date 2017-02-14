@@ -47,6 +47,8 @@
             alert('please input correctly!');
             return;
         }
+        if (!confirm('submit?') ) return;
+
         $.post('/api/admin/post', {content: content, title: title}, function (data) {
             if (data.code == 200) {
                 alert(data.result);
