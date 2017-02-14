@@ -216,7 +216,7 @@ export const searchFilter = (searchWord) => {
 export const parseContent = (content) => {
     let head = {}
     content = content.replace(/^\s*?---([\s\S]+?)---/m, function (m, c) {
-        head = require('js-yaml').safeLoad(m);
+        head = require('js-yaml').safeLoad(c);
         return '';
     })
     return {
