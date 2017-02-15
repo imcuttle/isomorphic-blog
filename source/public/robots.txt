@@ -1,5 +1,4 @@
 User-agent: *
+Sitemap: http://blog.moyuyc.xyz/sitemap.xml
 Disallow: /api/*
 Disallow: /admin
-
-Sitemap: http://blog.moyuyc.xyz/sitemap.txt
