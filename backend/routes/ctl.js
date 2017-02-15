@@ -8,7 +8,7 @@ import {reset} from '../lib/space_processing'
 
 const ctl = express();
 
-const spawn_response = (res, cmd, args=[], cwd) => {
+const spawn_response = (res, cmd, args=[], cwd, notEnded) => {
     res.writeHead(200, {
         'Content-Type': 'text/event-stream',
         'Cache-Control': 'no-cache',
@@ -28,12 +28,17 @@ const spawn_response = (res, cmd, args=[], cwd) => {
     });
     ls.on('close', (code) => {
         console.log(`child process exited with code ${code}`)
-        res.end(`child process exited with code ${code}`);
+        if (!notEnded) {
+            res.end(`child process exited with code ${code}`);
+        } else {
+            res.write(`child process exited with code ${code}`);
+        }
     });
 }
 
 ctl.all('/pull', (req, res) => {
-    spawn_response(res, "git", ['fetch', '-f', 'origin', 'master'])
+    spawn_response(res, "git", ['fetch', '--all'], null, true)
+    spawn_response(res, "git", ['reset', '--hard', 'origin/master'])
 })
 
 ctl.all('/npmi', (req, res) => {
