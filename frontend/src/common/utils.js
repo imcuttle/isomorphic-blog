@@ -38,7 +38,7 @@ export const html_encode = (str) => {
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/ /g, "&nbsp;")
-        .replace(/\'/g, "&#39;")
+        .replace(/\'/g, "&apos;")
         .replace(/\"/g, "&quot;")
         .replace(/\n/g, "<br/>");
 }
@@ -50,7 +50,7 @@ export const html_decode = (str) => {
         .replace(/&lt;/g, "<")
         .replace(/&gt;/g, ">")
         .replace(/&nbsp;/g, " ")
-        .replace(/&#39;/g, "\'")
+        .replace(/&apos;/g, "\'")
         .replace(/&quot;/g, "\"")
         .replace(/<br\/>/g, "\n")
 }
