@@ -33,7 +33,7 @@ const spawn_response = (res, cmd, args=[], cwd) => {
 }
 
 ctl.all('/pull', (req, res) => {
-    spawn_response(res, "git", ['pull', 'origin', 'master'])
+    spawn_response(res, "git", ['pull', '-f', 'origin', 'master'])
 })
 
 ctl.all('/npmi', (req, res) => {
@@ -43,10 +43,6 @@ ctl.all('/npmi', (req, res) => {
 ctl.all('/reset', (req, res) => {
     res.end('reset');
     reset();
-})
-
-ctl.all('/push', (req, res) => {
-    spawn_response(res, "git", ['push', 'origin', 'master'])
 })
 
 ctl.all('/restart', (req, res) => {
