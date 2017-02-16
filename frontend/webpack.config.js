@@ -127,6 +127,7 @@ if(minimize) {
     );
     config.plugins.unshift(new Webpack_isomorphic_tools_plugin(require('../webpack-isomorphic-conf')));
 } else {
+    config.module.loaders[1].loaders.unshift("react-hot-loader/webpack")
     config.devtool = 'source-map';
     config.plugins.push (
         new webpack.HotModuleReplacementPlugin()  //fix Maximum call stack
