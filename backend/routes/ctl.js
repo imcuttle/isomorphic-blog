@@ -8,12 +8,14 @@ import {reset} from '../lib/space_processing'
 
 const ctl = express();
 
-const spawn_response = (res, cmd, args=[], cwd, notEnded) => {
-    res.writeHead(200, {
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive'
-    });
+const spawn_response = (res, cmd, args=[], cwd, notEnded, callback) => {
+    if (notEnded) {
+        res.writeHead(200, {
+            'Content-Type': 'text/event-stream',
+            'Cache-Control': 'no-cache',
+            'Connection': 'keep-alive'
+        });
+    }
     var ls = spawn(cmd, args, {cwd: cwd ? cwd : path.join(__dirname, '..', '..')})
     ls.stdout.on('data', (data) => {
         data = data.toString()
@@ -33,12 +35,15 @@ const spawn_response = (res, cmd, args=[], cwd, notEnded) => {
         } else {
             res.write(`child process exited with code ${code}`);
         }
+
+        callback && callback(code)
     });
 }
 
 ctl.all('/pull', (req, res) => {
-    spawn_response(res, "git", ['fetch', '--all'], null, true)
-    spawn_response(res, "git", ['reset', '--hard', 'origin/master'])
+    spawn_response(res, "git", ['fetch', 'origin', 'master'], null, true,
+        code => spawn_response(res, "git", ['reset', '--hard', 'origin/master'])
+    )
 })
 
 ctl.all('/npmi', (req, res) => {
