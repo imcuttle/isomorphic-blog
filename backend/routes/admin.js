@@ -137,6 +137,10 @@ admin.all('/post', wrap(async function (req, res, next) {
                 res.json(normalize(200, "Well Done."));
                 if (!force) {
                     await reWrite();
+                    const i = content.search(/<!--\s*more\s*-->/);
+                    if (i>=0) {
+                        content = content.slice(0, i);
+                    }
                     await parse_SendMail(content, title);
                 }
                 await gitpush();
