@@ -195,8 +195,8 @@ skip: false
 1. Server读取app代码时，node_module回环加载，出现错误，修改成只使用最外层node_modules
 2. react Server端渲染，require() 样式文件的解决方法？(ignore, only无效)
 3. HTTPs才能使用摄像头，因此搞了个免费证书，配置下nginx
-	- [https://aotu.io/notes/2016/08/16/nginx-https/](值得细嚼)
-	- [https://www.zhihu.com/question/19578422](免费证书)
+	- [值得细嚼](https://aotu.io/notes/2016/08/16/nginx-https/)
+	- [免费证书](https://www.zhihu.com/question/19578422)
 	- http://serverfault.com/questions/67316/in-nginx-how-can-i-rewrite-all-http-requests-to-https-while-maintaining-sub-dom
 4. mac迁移到ubuntu一系列的问题
 	1. http://stackoverflow.com/questions/12335848/opencv-program-compile-error-libopencv-core-so-2-4-cannot-open-shared-object-f
