@@ -114,6 +114,7 @@ var config = {
         return [require('autoprefixer'), require('precss')];
     }
 }
+
 if(minimize) {
     config.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
@@ -149,6 +150,15 @@ if(minimize) {
  4.0K	frontend/build/index.html
  292K	frontend/build/libs.min.js
  140K	frontend/build/modules
+ 16K	frontend/build/pace.js
+ 4.0K	frontend/build/print.css
+ 172K	frontend/build/styles.min.css
+ 1.1M	frontend/build/toy_res
+
+ 200K	frontend/build/app.min.js
+ 4.0K	frontend/build/index.html
+ 292K	frontend/build/libs.min.js
+ 124K	frontend/build/modules
  16K	frontend/build/pace.js
  4.0K	frontend/build/print.css
  172K	frontend/build/styles.min.css
