@@ -3,18 +3,34 @@
  */
 import path from 'path'
 import default_config from './default_config'
-import cheerio from 'cheerio'
+import cls from 'colors/safe';
+import cheerio from 'cheerio';
+import moment from 'moment';
 import deepAssign from 'deep-assign'
 import {existsSync, watch, readFileSync} from 'fs'
 import {getFileJson, initMarked, computeDBJson} from 'moka-cli/lib/generate'
 import {updateDB, deleteDB} from 'moka-cli/lib/server'
-import {testWord} from './utils'
+import {testWord} from './utils';
+import fs from 'fs';
+import JsYml from 'js-yaml';
 
 const PROJECT_PATH = path.join(__dirname, '..', '..');
 export const SPACE_PATH = path.join(PROJECT_PATH, 'source');
 const SPACE_CONFIG_PATH = path.join(SPACE_PATH, 'config.js');
 export const SPACE_ARTICLES_PATH = path.join(SPACE_PATH, '_articles');
 const SUMMARY_NUMBER = 100;
+
+export const parseContent = (content) => {
+    let head = {}
+    content = content.replace(/^\s*?---([\s\S]+?)---/m, function (m, c) {
+        head = JsYml.safeLoad(c, {schema: JsYml.FAILSAFE_SCHEMA});
+        return '';
+    })
+    return {
+        content: markedPure(content),
+        head
+    };
+}
 
 const clearCache = (modulepath) => delete require.cache[require.resolve(modulepath)]
 const getConfig = () => {
@@ -30,7 +46,45 @@ const getConfig = () => {
     return conf;
 }
 const getMarked = () => initMarked(config.marked, require('marked'))
-const computeDBJsonBind = () => computeDBJson.bind(null, markedPure, PROJECT_PATH, true, {...config, returnRaw: false })
+const computeDBJsonBind = () => {
+    return () => {
+        const markedFunc = markedPure;
+        const skipRegExp = config.skipRegExp;
+        const timeFormat = config.timeFormat;
+        const articlePath = path.join(PROJECT_PATH, 'source', '_articles');
+        let filenames = fs.readdirSync(articlePath);
+        if (process.env.NODE_ENV != 'production') {
+            filenames = filenames.slice(0, 10);
+        }
+
+        const DB = { main: {}, index: { sorted: [], tagMap: {} }};
+        const { main, index: {sorted, tagMap} } = DB;
+
+        const entList = filenames.map(name =>  ({json: parseContent(fs.readFileSync(articlePath+'/'+name).toString()), name}) )
+            .sort((a, b) => new Date(moment(b.json.head.date, 'YYYY-MM-DD HH:mm:ss').format()) - new Date(moment(a.json.head.date, 'YYYY-MM-DD HH:mm:ss').format()))
+
+        entList.forEach((x, i, all) => {
+            console.log(cls.green('[INFO]'), x.name, cls.green(''+(i+1)+'/'+all.length))
+            let name = x.name;
+            const keyStr = name.replace(/\.[^\.]*$/, '');
+            x.json.head.realDate = new Date(x.json.head.date).toISOString();
+            x.json.head.date = moment(x.json.head.realDate).format(timeFormat);
+            main[keyStr] = x.json;
+            sorted.push(keyStr);
+            if (x.json.head.tags) {
+                if (!Array.isArray(x.json.head.tags)) {
+                    x.json.head.tags = [x.json.head.tags]
+                }
+                x.json.head.tags.forEach(tag => {
+                    tagMap[tag] = tagMap[tag] || [];
+                    tagMap[tag].push(x.name)
+                })
+            }
+        })
+        return DB;
+    }
+    // computeDBJson.bind(null, markedPure, PROJECT_PATH, true, {...config, returnRaw: false })
+}
 export const reset = (clear=true) => {
     clear && clearCache(SPACE_CONFIG_PATH);
     config = getConfig();
@@ -86,7 +140,7 @@ const pureText_cache = (item={}) => {
     }
 }
 
-const mapArticlePost = (key, summaryNumber) => {
+const mapArticlePost = (key, summaryNumber=SUMMARY_NUMBER) => {
     const {main, index: {sorted, tagMap}} = DataBase;
     const item = main[key];
     summary_cover_cache(item, summaryNumber);
@@ -186,7 +240,7 @@ export const getTags = (start, size) => {
 
 export const getArchive = () => {
     const {main, index: {sorted, tagMap}} = DataBase;
-    return sorted.map(mapArticlePost)
+    return sorted.map(k => ({...mapArticlePost(k), summary: ''}) )
 }
 
 export const searchFilter = (searchWord) => {
@@ -213,14 +267,3 @@ export const searchFilter = (searchWord) => {
     return items.map(mapArticlePost);
 }
 
-export const parseContent = (content) => {
-    let head = {}
-    content = content.replace(/^\s*?---([\s\S]+?)---/m, function (m, c) {
-        head = require('js-yaml').safeLoad(c, {schema: require('js-yaml').FAILSAFE_SCHEMA});
-        return '';
-    })
-    return {
-        content: markedPure(content),
-        head
-    };
-}
