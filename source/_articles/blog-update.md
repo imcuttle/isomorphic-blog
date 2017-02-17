@@ -91,9 +91,11 @@ require('jquery');
 const clearCache = (modulepath) => delete require.cache[require.resolve(modulepath)]
 ```
 
-如上代码，`require.resolve` 和 `path.resolve` 方法基本一致，都是基于 `process.cwd()` 当前环境路径，解析 `..` `.` 得到绝对路径。
+如上代码，`path.resolve` 方法基本一致，是基于 `process.cwd()` 当前环境路径，解析 `..` `.` 得到绝对路径。
 
-*再插一句！`require("../path")` 中的路径，不是基于 `process.cwd()` 的，而是 `__dirname`*
+*再插一句！`require("../path")` 和 `require.resolve` 中的路径，不是基于 `process.cwd()` 的，而是 `__dirname`*
+
+可以通过 `process.chdir('/')` 来测试
 
 
 ### 配置文件 json => yaml
