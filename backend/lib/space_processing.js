@@ -120,6 +120,7 @@ watch(SPACE_ARTICLES_PATH, function(eventType, filename) {
 })
 
 const summary_cover_cache = (item={}, summaryNumber, forcePure) => {
+    item.head = item.head || {}
     if ( ( (!item.summary || item.summary.length != summaryNumber) && !isNaN(summaryNumber)) || (!item.head.cover && !item.noCover) ) {
 
         if( (!item.summary || item.summary.length != summaryNumber) && !isNaN(summaryNumber)) {
