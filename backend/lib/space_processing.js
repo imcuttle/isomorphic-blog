@@ -81,7 +81,7 @@ const computeDBJsonBind = () => {
                 }
                 x.json.head.tags.forEach(tag => {
                     tagMap[tag] = tagMap[tag] || [];
-                    tagMap[tag].push(x.name)
+                    tagMap[tag].push(keyStr);
                 })
             }
         })
@@ -159,7 +159,8 @@ const mapArticlePost = (key, summaryNumber=SUMMARY_NUMBER) => {
 const mapTagNamePost = (key) => {
     const {main, index: {sorted, tagMap}} = DataBase;
     const item = main[tagMap[key][0]];
-    summary_cover_cache(item);
+    summary_cover_cache(item, SUMMARY_NUMBER);
+    // console.log(item, key, tagMap[key])
     return {
         posts: tagMap[key],
         name: key,
