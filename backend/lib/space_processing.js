@@ -71,6 +71,9 @@ const computeDBJsonBind = () => {
             console.log(`${cls.green('[INFO]')}\t${cls.blue(''+(i+1)+'/'+all.length)}\t${x.name}`)
             let name = x.name;
             const keyStr = name.replace(/\.[^\.]*$/, '');
+            if (x.json.head.skip && x.json.head.skip == 'true' || x.json.head.skip == true) {
+                return;
+            }
             x.json.head.realDate = new Date(x.json.head.date).toISOString();
             x.json.head.date = moment(x.json.head.realDate).format(timeFormat);
             main[keyStr] = x.json;
