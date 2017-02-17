@@ -8,9 +8,10 @@ const session = require('express-session');
 const path = require('path')
 const compression = require('compression');
 const fs = require('fs')
-var UglifyJS = require("uglify-js");
+const UglifyJS = require("uglify-js");
 
-
+const normalize = require('./lib/utils').normalize
+express.response.normalize = normalize;
 
 process.env.PORT = process.env.PORT || 6999;
 

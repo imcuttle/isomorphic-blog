@@ -11,6 +11,19 @@
     $editor.val(win.localStorage.getItem('content') || '')
     var $submit = $('#submit');
     var $dels = $('[name="del-art"]');
+    var $ups = $('[name="up-art"]');
+
+    $ups.on('click', function (e) {
+        var $self = $(this);
+        var id = $self.attr('data-up');
+
+        $.post("/api/admin/post/update", {id: id}, function (data) {
+            alert(data.result);
+        }, 'json');
+
+        $editor.change();
+        $title.change();
+    })
 
     $dels.on('click', function () {
         var $self = $(this)

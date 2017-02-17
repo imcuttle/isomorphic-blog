@@ -26,7 +26,7 @@ function watchHandle (type, filename) {
 var serverProcess = runServer();
 
 function runServer() {
-    return cp.fork(process.env.NODE_ENV === 'development' ? './server.js' : './middle.js', process.argv, {stdio: [0, 1, 2, 'ipc']})
+    return cp.fork('./middle.js', process.argv, {stdio: [0, 1, 2, 'ipc']})
         .on('message', (message) => {
             console.log('Get Message from child: %s', message);
             if (message === 'bye') {

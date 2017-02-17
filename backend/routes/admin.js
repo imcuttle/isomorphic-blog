@@ -53,7 +53,7 @@ const redirectUnLogin = (req, res, next) => {
 
 const errorHandle = (err, req, res, next) => {
     console.error(err);
-    res.json(normalize(500, err.stack));
+    res.normalize(500, err.stack);
 }
 
 admin.all('/add-receiver', wrap(async (req, res, next) => {
@@ -62,12 +62,12 @@ admin.all('/add-receiver', wrap(async (req, res, next) => {
         if (checkEntThenResponse(req.ent, res, ['name', 'mail'])) {
             name = name.trim();  mail = mail.trim();
             if (!/\w+?@\w+?\.\w+/.test(mail)) {
-                res.json(normalize(500, ' 邮箱格式不正确'));
+                res.normalize(500, ' 邮箱格式不正确');
             } else {
                 const data = await readFilePromise(SPACE_PATH+'/mailer.json');
                 const mailer = JSON.parse(data);
                 if (mailer.find(x => x.mail == mail)) {
-                    res.json(normalize(500, '该邮箱已经添加了！'));
+                    res.normalize(500, '该邮箱已经添加了！');
                 } else {
                     mailer.push({name, mail, time: new Date().toLocaleString()});
                     if (await writeFilePromise(SPACE_PATH+'/mailer.json', JSON.stringify(mailer, null, 2))) {
@@ -122,6 +122,21 @@ admin.use(redirectUnLogin)
 admin.all('/out', wrap(async (req, res, next) => {
     delete req.session.admin;
     res.json(normalize(200, 'Fine.'))
+}))
+
+admin.all('/post/update', wrap(async (req, res, next) => {
+    try {
+        let {title} = req.ent;
+        if (checkEntThenResponse(req.ent, res, ['title'])) {
+            if (!title.includes(".")) {
+                title += '.md';
+            }
+            const str = await readFilePromise(SPACE_ARTICLES_PATH+'/'+title);
+            res.normalize(200, str);
+        }
+    } catch (ex) {
+        next(ex);
+    }
 }))
 
 admin.all('/post', wrap(async function (req, res, next) {
