@@ -83,7 +83,7 @@ export const execIgnore = (cmd, args=[], cwd=path.join(__dirname, '../..')) => {
 export async function gitpush () {
     await execIgnore('git', ['add', '.'])
     await execIgnore('git', ['commit', '-am', 'sync from server'])
-    await exec('sudo', ['git', 'push', 'origin', 'master'])
+    await exec('git', ['push', 'origin', 'master'])
 }
 
 export function compile (str) {
