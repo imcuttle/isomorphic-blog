@@ -11,7 +11,11 @@ const work_flow = (req, res, necessary, getData) => {
     const ent = req.ent;
     if (checkEntThenResponse(ent, res, necessary)) {
         const data = getData && getData(ent);
-        data && res.normalize(200, data) || res.normalize(404, req.originalUrl + ' -> 失败');
+        if (data) {
+            res.normalize(200, data);
+        } else {
+            res.normalize(404, req.originalUrl + ' -> 失败');
+        }
     }
 }
 
