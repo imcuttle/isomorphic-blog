@@ -11,8 +11,9 @@ const work_flow = (req, res, necessary, getData) => {
     const ent = req.ent;
     if (checkEntThenResponse(ent, res, necessary)) {
         const data = getData && getData(ent);
-        const json = data ? normalize(200, data) : normalize(404, req.originalUrl + ' -> 失败')
-        res.json( json );
+        console.log(res.normalize.toString())
+        // const json = data ? normalize(200, data) : normalize(404, req.originalUrl + ' -> 失败')
+        res.normalize( 200 , data );
     }
 }
 

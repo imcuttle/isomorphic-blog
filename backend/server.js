@@ -11,7 +11,9 @@ const fs = require('fs')
 const UglifyJS = require("uglify-js");
 
 const normalize = require('./lib/utils').normalize
-express.response.normalize = normalize;
+express.response.normalize = function (code, result) {
+    this.json(normalize(code, result))
+};
 
 process.env.PORT = process.env.PORT || 6999;
 

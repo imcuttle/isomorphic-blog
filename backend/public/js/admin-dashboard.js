@@ -18,11 +18,16 @@
         var id = $self.attr('data-up');
 
         $.post("/api/admin/post/update", {id: id}, function (data) {
-            alert(data.result);
+            if (data.code !== 200) {
+                alert(data.result);
+            } else {
+                $editor.val(data.result);
+                $title.val(id);
+                win.localStorage.setItem('title', id);
+                win.localStorage.setItem('content', data.result);
+            }
         }, 'json');
 
-        $editor.change();
-        $title.change();
     })
 
     $dels.on('click', function () {

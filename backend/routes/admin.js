@@ -71,10 +71,10 @@ admin.all('/add-receiver', wrap(async (req, res, next) => {
                 } else {
                     mailer.push({name, mail, time: new Date().toLocaleString()});
                     if (await writeFilePromise(SPACE_PATH+'/mailer.json', JSON.stringify(mailer, null, 2))) {
-                        res.json(normalize(200, '订阅成功'));
+                        res.normalize(200, '订阅成功');
                         await gitpush();
                     } else {
-                        res.json(normalize(500, '订阅失败'));
+                        res.normalize(500, '订阅失败');
                     }
                 }
             }
@@ -110,9 +110,9 @@ admin.all('/login', wrap(async (req, res, next) => {
     if (checkEntThenResponse(req.ent, res, ['name', 'pwd'])) {
         if (checkRequestSecret(req)) {
             req.session.admin = name;
-            res.json(normalize(200, 'Fine.'))
+            res.normalize(200, 'Fine.');
         } else {
-            res.json(normalize(500, 'Error Secret'))
+            res.normalize(500, 'Error Secret')
         }
     }
 }))
@@ -121,17 +121,14 @@ admin.use(redirectUnLogin)
 
 admin.all('/out', wrap(async (req, res, next) => {
     delete req.session.admin;
-    res.json(normalize(200, 'Fine.'))
+    res.normalize(200, 'Fine.');
 }))
 
 admin.all('/post/update', wrap(async (req, res, next) => {
     try {
-        let {title} = req.ent;
-        if (checkEntThenResponse(req.ent, res, ['title'])) {
-            if (!title.includes(".")) {
-                title += '.md';
-            }
-            const str = await readFilePromise(SPACE_ARTICLES_PATH+'/'+title);
+        let {id} = req.ent;
+        if (checkEntThenResponse(req.ent, res, ['id'])) {
+            const str = await readFilePromise(SPACE_ARTICLES_PATH+'/'+id);
             res.normalize(200, str);
         }
     } catch (ex) {

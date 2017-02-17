@@ -22,7 +22,7 @@ block content
 
                 ul(style="margin:10px auto;list-style-type:none;")
                     each art in articles
-                      li(style="padding: 4px;")
+                      li.file-item(style="padding: 4px;")
                         span(style="margin-right:10px;")= art
                         button.btn.btn-sm.btn-danger(name="del-art", data-del=art)= "Delete"
                         button.btn.btn-sm.btn-warning(name="up-art", data-up=art)= "Update"
