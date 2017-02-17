@@ -78,8 +78,9 @@ export default class extends React.Component {
                             <span>{'Archive'}</span>
                         </header>
                         <div className="serach-div">
-                            <input placeholder="Serach..." defaultValue={searchKey} spellCheck={false} autoCorrect='off'
-                                   onChange={e => {
+                            <input placeholder="Search Then Enter ..." defaultValue={searchKey} spellCheck={false} autoCorrect='off'
+                                   onKeyPress={e => {
+                                       e.charCode === 13 &&
                                        router.push('/archive/' + encodeURIComponent(e.target.value.trim()));
                                    }}
                             />
