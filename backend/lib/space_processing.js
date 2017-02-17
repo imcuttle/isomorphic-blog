@@ -64,16 +64,13 @@ const computeDBJsonBind = () => {
             .sort((a, b) => new Date(moment(b.json.head.date, 'YYYY-MM-DD HH:mm:ss').format()) - new Date(moment(a.json.head.date, 'YYYY-MM-DD HH:mm:ss').format()))
 
         entList.forEach((x, i, all) => {
-            if (x.json.head.skip && x.json.head.skip == true || x.json.head.skip == 'true') {
+            if (x.json.head.skip && (x.json.head.skip == true || x.json.head.skip == 'true') ) {
                 console.log(`${cls.green('[INFO]')}\t${cls.blue(''+(i+1)+'/'+all.length)}\t${x.name}\t${cls.yellow("[SKIPPED]")}`)
                 return;
             }
             console.log(`${cls.green('[INFO]')}\t${cls.blue(''+(i+1)+'/'+all.length)}\t${x.name}`)
             let name = x.name;
             const keyStr = name.replace(/\.[^\.]*$/, '');
-            if (x.json.head.skip && x.json.head.skip == 'true' || x.json.head.skip == true) {
-                return;
-            }
             x.json.head.realDate = new Date(x.json.head.date).toISOString();
             x.json.head.date = moment(x.json.head.realDate).format(timeFormat);
             main[keyStr] = x.json;
