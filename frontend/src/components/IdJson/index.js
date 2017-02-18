@@ -21,7 +21,7 @@ export default class extends React.Component {
     static propTypes = {}
     render() {
       const props = this.props.json || {};
-      props["@context"] = "//schema.org";
+      props["@context"] = "http://schema.org";
       return (
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(props, null, 4)}}>
         </script>
