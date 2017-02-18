@@ -39,8 +39,10 @@ export default class extends React.Component {
     render() {
         const {
             actions, title, location: {pathname},
-            state: {config: {info = {}, copyright, iconTarget, icons, seoImage, fillCovers}, picture, base: {texts, posts, showBack, links, prev_next = []}}
-        } = this.props
+            state: {config: {info = {}, seo={}, copyright, iconTarget, icons, seoImage, fillCovers}, picture, base: {texts, posts, showBack, links, prev_next = []}}
+        } = this.props;
+        const {author={}} = seo;
+        const {name: author_name, image: author_image} = author;
         const prefix = 'Posts | ';
         const metas = {
             title: prefix + title,
@@ -77,7 +79,10 @@ export default class extends React.Component {
                         <div>
                             <Header active="0" links={links} texts={texts}/>
                             <div className="tab active">
-                                <Posts posts={posts} hoverHandler={(a, k) => {
+                                <Posts posts={posts}
+                                       publisher={title} logo={info.favicon}
+                                       author_url={info.host+'/'} author_name={author_name} author_img={author_image}
+                                       hoverHandler={(a, k) => {
                                     a = a || fillCovers[positiveHashCode(k) % fillCovers.length];
                                     actions.setPicBgUrl(a)
                                 } }/>

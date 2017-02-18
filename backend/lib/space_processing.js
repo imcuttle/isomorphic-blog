@@ -142,6 +142,7 @@ const pureText_cache = (item={}) => {
     if (!item.pureText) {
         const dom = cheerio(item.content)
         item.pureText = dom.text()
+        item.pureText = item.pureText.replace(/(\r|\n)/g, ' ');
     }
 }
 
@@ -177,6 +178,7 @@ export const getArticle = key => {
     const next = main[sorted[currIndex+1]] ? deepAssign({key: sorted[currIndex+1]}, main[sorted[currIndex+1]]) : null
     if (curr) {
         if (!curr.summary) summary_cover_cache(curr, SUMMARY_NUMBER);
+        curr.head.mDate = fs.statSync(`${SPACE_ARTICLES_PATH}/${key}.md`).mtime.toISOString();
         // delete curr.summary;
         delete curr.pureText;
     }

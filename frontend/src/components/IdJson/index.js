@@ -1,3 +1,4 @@
+
 import React from 'react'
 import {Map} from 'immutable'
 
@@ -19,9 +20,11 @@ export default class extends React.Component {
     state = {}
     static propTypes = {}
     render() {
-      const {title, src} = this.props
+      const props = this.props.json || {};
+
       return (
-        <img itemProp="image" style={{display: 'none'}} alt={title} title={title} src={src}/>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(props, null, 4)}}>
+        </script>
       )
     }
 }

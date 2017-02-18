@@ -9,6 +9,7 @@ import Article from "../components/Article";
 import ArtNext from "../components/ArtNext";
 import SeoImage from "../components/SeoImage";
 import Duoshuo from "../components/DuoshuoComment";
+import IdJson from "../components/IdJson";
 import DocumentMeta from "react-document-meta";
 
 export default class extends React.Component {
@@ -30,15 +31,18 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {hrefTitle},
             location: {pathname},
             state: {
-                config: {profile, fillCovers, icons, iconTarget, info = {}, seoImage, duoshuo},
+                config: {profile, seo={}, fillCovers, icons, iconTarget, info = {}, seoImage, duoshuo},
                 base: {posts, article = {}, nextArticle = {}, showBack, links, prev_next = [], fetchedConfig, fetching}
             }
         } = this.props // title, cover, href
-        const {tags, content, cover, date, title, realDate, summary, keywords} = article
+        const {author={}} = seo;
+        const {name: author_name, image: author_image} = author;
+        const {tags, content, cover, date, title, realDate, summary, keywords, mDate} = article
         const {key: href, cover: nCover, title: nTitle} = nextArticle
         profile.icons = icons;
         const prefix = title + ' | ';
         let real_date = realDate ? new Date(realDate).toISOString() : null;
+        let m_date = mDate ? new Date(mDate).toISOString() : null;
         const metas = {
             title: prefix + mainTitle,
             description: summary,
@@ -62,6 +66,8 @@ export default class extends React.Component {
                     'og:updated_time': real_date,
                     'og:url': info.host + pathname,
                     'og:site_name': mainTitle,
+                    "article:published_time": real_date,
+                    "article:modified_time": m_date
                 }
             }
         };
@@ -70,12 +76,25 @@ export default class extends React.Component {
             <DocumentTitle title={metas.title}>
                 <main>
                     <DocumentMeta {...metas} />
-                    <SeoImage title={title} src={cover || seoImage}/>
+                    {/*<SeoImage title={title} src={cover || seoImage}/>*/}
+                    {/*<IdJson json={{*/}
+                        {/*'@context': 'http://schema.org', '@type': 'Article',*/}
+                        {/*publisher: mainTitle,*/}
+                        {/*url: info.host + pathname, dateModified: m_date, datePublished: real_date,*/}
+                        {/*headline: title, description: summary,*/}
+                        {/*author: {*/}
+                            {/*'@type': 'Person', name: author_name, url: info.host+'/',*/}
+                            {/*image: {'@type': 'imageObject', url: author_image}*/}
+                        {/*}*/}
+                    {/*}} />*/}
                     <Article
+                        summary={summary} logo={info.favicon}
+                        publisher={mainTitle} author_img={author_image}
+                        author_name={author_name} author_url={info.host+'/'}
                         title={title} date={date} showBack={showBack}
                         tags={tags} content={content} realDate={real_date}
                         profile={profile} method={iconTarget}
-                        cover={currCover}
+                        cover={currCover} mDate={m_date}
                     />
                     {fetchedConfig && <Duoshuo {...duoshuo} url={(info.host || isBrowser && location.origin) + pathname}
                                                thread={hrefTitle}

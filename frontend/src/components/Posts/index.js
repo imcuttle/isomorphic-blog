@@ -36,7 +36,7 @@ class Posts extends React.Component {
         scroll: false
     }
     render() {
-        const {posts, hoverHandler} = this.props;
+        const {posts, hoverHandler, ...rest} = this.props;
 
         return (
             <div ref="div" className="tab active">
@@ -44,7 +44,7 @@ class Posts extends React.Component {
                     {
                         Array.isArray(posts)
                         && posts.map(post =>
-                            <Post key={post.hrefTitle} {...post} hoverHandler={hoverHandler}/>
+                            <Post key={post.hrefTitle} {...rest} {...post} hoverHandler={hoverHandler}/>
                         )
                     }
                 </ul>

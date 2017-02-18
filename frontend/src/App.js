@@ -5,7 +5,9 @@ import React from "react";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import Loading from "./components/Loading";
+import IdJson from "./components/IdJson";
 import {loaded, isBrowser} from "./common/utils";
+
 
 class App extends React.Component {
     constructor(props) {
@@ -66,10 +68,24 @@ class App extends React.Component {
     render() {
         const {children, ...rest} = this.props;
         const {isFirst} = this.state;
-        const {state: {config: {title}, base: {fetching}}} = rest
+        const {state: {config: {title, info, seo={}}, base: {fetching}}} = this.props;
+        const {author={}} = seo
+        const {name: author_name, image: author_image} = author;
+
         return (
             <div>
                 <Loading show={!isFirst && fetching}/>
+                <IdJson
+                    json={{
+                        '@type': 'WebSite',
+                        'url': info.host+'/',
+                        'publisher': title,
+                        author: {
+                            '@type': 'Person', name: author_name, url: info.host+'/',
+                            image: {'@type': 'imageObject', url: author_image}
+                        }
+                    }}
+                />
                 {
                     React.Children.map(children, (child, i) =>
                         React.cloneElement(child, Object.assign({

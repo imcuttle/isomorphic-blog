@@ -5,7 +5,12 @@ info:
     my best to improve myself. I’m also a nodejs, c/c++ developer, Sometimes.
   favicon: "/head.jpg"
 
-seoImage: /head.jpg
+seo:
+  author:
+    name: Moyuyc
+    image: http://blog.moyuyc.xyz/head.jpg
+
+seoImage: http://blog.moyuyc.xyz/head.jpg
 title: Moyu Dev Blog
 
 copyright: <a target="_blank" href="/subscribe" title="点我订阅" style="margin-right:10px;color:#d68f8f;">点 <i class="fa fa-heart"></i> 我</a> © 2016 Yc  <i class="fa fa-star"></i>  Powered by <a href="https://github.com/moyuyc/isomorphic-blog" target="_blank">< Guess? ></a>
