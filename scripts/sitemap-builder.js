@@ -43,7 +43,7 @@ const sites = getSites(router) || [];
 
 const articlePath = path.join(__dirname + '/../source/_articles')
 
-const getUrlXMLString = (loc, lastmod, priority) => ["<url>", `<loc>${loc}</loc>`, `<lastmod>${lastmod}</lastmod>`, `<priority>${priority}</priority>`, "</url>"].join('')//reduce((p, n) => n ? (p+n+"\r\n") : p, "")
+const getUrlXMLString = (loc, lastmod, priority) => ["<url>", `<loc>${loc}</loc>`, `<lastmod>${lastmod}</lastmod>`, `<priority>${priority}</priority>`, `<changefreq>daily</changefreq>`, "</url>"].join('')//reduce((p, n) => n ? (p+n+"\r\n") : p, "")
 
 
 getUrlXMLString({})
@@ -58,7 +58,7 @@ const rewrite = module.exports =  function () {
 
 
 
-    let mapStr = [getUrlXMLString(host+'/', articleSites[0].mtime.toISOString(), "0.8")].concat(articleSites.map(x => getUrlXMLString(x.loc, x.mtime.toISOString(), "1.0")))
+    let mapStr = [getUrlXMLString(host+'/', articleSites[0].mtime.toISOString(), "0.8")].concat(articleSites.map(x => getUrlXMLString(x.loc, x.mtime.toISOString(), 1)))
         .join('')
 
     mapStr = sitemapXML(mapStr);
