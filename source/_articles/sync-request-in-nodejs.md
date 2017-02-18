@@ -103,7 +103,7 @@ function parse (o) {
     return JSON.parse(s, function (key, value) {
         if('string' === typeof value) {
           if(/^:base64:/.test(value))
-            return new Buffer(value.substring(8), 'hex')
+            return new Buffer(value.substring(8), 'base64')
           else // string
             return /^:/.test(value) ? value.substring(1) : value
         }
