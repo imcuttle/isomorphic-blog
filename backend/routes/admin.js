@@ -17,17 +17,22 @@ const getMailHTML = (hrefTitle, data) => {
     return render(compiled, {...data, _link: origin, hrefTitle})
 }
 const sendMailProm = ({name, mail, title, html}) => {
-    return sendMail(
-        'smtp.qq.com',
-        '492899414@qq.com',
-        'jrpzcdbebynzcabf',
-        mail,
-        `${mail_encode("From", "Moyu")} <moyuyc95@gmail.com>\r\n` +
-        `${mail_encode("Subject", `[墨鱼新的文章出炉啦!] ${title}`)}\r\n` +
-        `${mail_encode("To", name)} <${mail}>\r\n` +
-        `Content-Type: text/html; charset="utf-8"\r\n\r\n` +
-        `${html}`
-    )
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(sendMail(
+                'smtp.qq.com',
+                '492899414@qq.com',
+                'jrpzcdbebynzcabf',
+                mail,
+                `${mail_encode("From", "Moyu")} <moyuyc95@gmail.com>\r\n` +
+                `${mail_encode("Subject", `[墨鱼新的文章出炉啦!] ${title}`)}\r\n` +
+                `${mail_encode("To", name)} <${mail}>\r\n` +
+                `Content-Type: text/html; charset="utf-8"\r\n\r\n` +
+                `${html}`
+            ))
+        }, 1000);
+    })
+
 }
 
 
@@ -153,7 +158,7 @@ admin.all('/post', wrap(async function (req, res, next) {
                     await reWrite();
                     const i = content.search(/<!--\s*more\s*-->/);
                     if (i>=0) {
-                        content = content.slice(0, i) + '...（点击标题查看更多）';
+                        content = content.slice(0, i) + '... （点击标题查看更多）';
                     }
                     await parse_SendMail(content, title);
                 }
