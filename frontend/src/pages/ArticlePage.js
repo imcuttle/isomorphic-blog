@@ -34,7 +34,7 @@ export default class extends React.Component {
                 base: {posts, article = {}, nextArticle = {}, showBack, links, prev_next = [], fetchedConfig, fetching}
             }
         } = this.props // title, cover, href
-        const {tags, content, cover, date, title, realDate, summary} = article
+        const {tags, content, cover, date, title, realDate, summary, keywords} = article
         const {key: href, cover: nCover, title: nTitle} = nextArticle
         profile.icons = icons;
         const prefix = title + ' | ';
@@ -46,7 +46,7 @@ export default class extends React.Component {
             meta: {
                 charset: 'utf-8',
                 name: {
-                    keywords: 'article,' + mainTitle + ',' + title,
+                    keywords: 'article,' + mainTitle + ',' + title + (keywords ? ',' + keywords.join(',') : ''),
                     description: summary,
                     'twitter:card': 'summary',
                     'twitter:description': summary,

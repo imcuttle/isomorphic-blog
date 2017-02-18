@@ -168,9 +168,10 @@ const mapPost = ({summary, key: hrefTitle, head: {cover, date, title, realDate}}
     summary
 })
 // const {title, showBack, date, tags, cover, content, profile, method} = this.props;
-const mapArticle = ({content, summary, head: {cover, date, realDate, title, tags}}) => ({
+const mapArticle = ({content, summary, head: {cover, keywords, date, realDate, title, tags}}) => ({
     summary,
     tags: Array.isArray(tags) ? tags : (tags ? [tags] : null),
+    keywords: Array.isArray(keywords) ? keywords : (keywords ? [keywords] : null),
     content,
     cover,
     realDate,
