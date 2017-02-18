@@ -20,7 +20,7 @@ class Item extends React.Component {
                         <figure className="absolute-bg" style={{backgroundImage: "url(\""+picUrl+"\")"}}></figure>
                     </div>
                     <div className="card__container">
-                        <h2 className="card__header">{title}</h2>
+                        <h2 className="card__header" itemProp="headline name">{title}</h2>
                         <p className="card__count">{text}</p>
                         <span className="card__more">{btnText}</span>
                     </div>

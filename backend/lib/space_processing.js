@@ -248,7 +248,7 @@ export const getTags = (start, size) => {
 
 export const getArchive = () => {
     const {main, index: {sorted, tagMap}} = DataBase;
-    return sorted.map(k => ({...mapArticlePost(k), summary: ''}) )
+    return sorted.map(k => ({...mapArticlePost(k)}) )
 }
 
 export const searchFilter = (searchWord) => {

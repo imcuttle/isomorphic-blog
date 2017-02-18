@@ -29,10 +29,13 @@ export default class extends React.Component {
         const {
             title, params: {searchKey}, location: {pathname},
             state: {
-                config: {info = {}, seoImage, copyright},
+                config: {info = {}, seoImage, copyright, seo={}},
                 base: {items}
             }
         } = this.props;
+
+        const {author={}} = seo;
+        const {name: author_name, image: author_image} = author;
 
         const tags = {
             title: 'Archive | ' + title,
@@ -86,7 +89,11 @@ export default class extends React.Component {
                             />
                         </div>
                     </section>
-                    <ItemsBox big={true} scroll={false} btnText="Read Post" items={items}/>
+                    <ItemsBox
+                        big={true} scroll={false} btnText="Read Post" items={items}
+                        publisher={title} author_img={author_image} logo={info.favicon}
+                        author_name={author_name} author_url={info.host+'/'}
+                    />
                     <div className="archive-copyright" dangerouslySetInnerHTML={{__html: copyright || ''}}/>
                 </main>
             </DocumentTitle>

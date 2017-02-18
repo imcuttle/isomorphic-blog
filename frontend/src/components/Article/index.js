@@ -4,7 +4,7 @@
 import React from 'react';
 import {Link} from 'react-router'
 import {Map} from 'immutable'
-
+import {renderFrame, positiveHashCode} from "../../common/utils";
 
 class Article extends React.Component {
     shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -59,21 +59,22 @@ class Article extends React.Component {
                             <time itemProp="dateModified" dateTime={mDate} content={mDate} style={{display: 'none'}} >{mDate}</time>
                         </span>
                         <div itemType="//schema.org/Organization" itemScope style={{display: 'none'}} itemProp="publisher">
-                            <span itemProp="name">{publisher}</span>
+                            <meta itemProp="name" content={publisher}/>
                             <meta itemProp="logo" content={logo} />
                         </div>
                         <div itemType="//schema.org/Person" itemScope style={{display: 'none'}} itemProp="author">
-                            <span itemProp="name">{author_name}</span>
-                            <span itemProp="url">{author_url}</span>
+                            <meta itemProp="name" content={author_name}/>
+                            <meta itemProp="url" content={author_url}/>
                             <span itemProp="image" itemScope itemType="//schema.org/imageObject">
-                                <span itemProp="url">{author_img}</span>
+                                <meta itemProp="url" content={author_img}/>
                             </span>
                         </div>
                         <div itemType="//schema.org/imageObject" itemScope style={{display: 'none'}} itemProp="image">
                             <img itemProp="url" src={cover} title={title} alt={title} />
-                            <span itemProp="width">500</span><span itemProp="height">500</span>
+                            <meta itemProp="width" content="500"/>
+                            <meta itemProp="height" content="500"/>
                         </div>
-                        <div style={{display: 'none'}} itemProp="description">{summary}</div>
+                        <meta itemProp="description" content={summary}/>
                         <h1 itemProp="name headline">{title}</h1>
                         <ul className="tags">
                             {tags && tags.map(tag => 

@@ -69,24 +69,41 @@ class ItemsBox extends React.Component {
                 </div>
             )
         } else {
+            const {author_name, author_img, logo, publisher, author_url} = this.props;
             return (
                 <div className="section-padding archives__container">
                     {
                         items && items.map((item, i)=>
-                            <article key={i} className="card">
+                            <article key={i} className="card" itemScope itemType="//schema.org/BlogPosting">
                             <Link onClick={e=>{
                                 {/*this.context.router.setState({top: document.body.scrollTop});*/}
                             }} className="card__link" to={{pathname: item.href}} itemProp="url">
+                                <div itemType="//schema.org/Person" itemScope style={{display: 'none'}} itemProp="author">
+                                    <span itemProp="name">{author_name}</span>
+                                    <span itemProp="url">{author_url}</span>
+                                    <span itemProp="image" itemScope itemType="//schema.org/imageObject">
+                                        <span itemProp="url">{author_img}</span>
+                                    </span>
+                                </div>
+                                <div itemType="//schema.org/imageObject" itemScope style={{display: 'none'}} itemProp="image">
+                                    <img itemProp="url" src={item.picUrl} title={item.title} alt={item.title} />
+                                    <span itemProp="width">500</span><span itemProp="height">500</span>
+                                </div>
+                                <div itemType="//schema.org/Organization" itemScope style={{display: 'none'}} itemProp="publisher">
+                                    <span itemProp="name">{publisher}</span>
+                                    <meta itemProp="logo" content={logo} />
+                                </div>
+                                <meta itemProp="description" content={item.summary+'...'}/>
                                 <div className="card__img">
                                     <figure className="absolute-bg wow" 
                                     style={{
                                         backgroundImage: item.picUrl && "url("+item.picUrl+")",
                                         animationName: 'fade-in'}}>
                                     </figure>
-                                    </div>
-                                    <div className="card__container">
-                                    <h2 className="card__header" itemProp="name">{item.title}</h2>
-                                    <p className="card__count" itemProp="datePublished">{item.text}</p>
+                                </div>
+                                <div className="card__container">
+                                    <h2 className="card__header" itemProp="name headline">{item.title}</h2>
+                                    <p className="card__count" itemProp="datePublished" content={item.realDate}>{item.text}</p>
                                     <span className="card__more">{btnText}</span>
                                 </div>
                             </Link>

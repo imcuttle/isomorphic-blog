@@ -79,11 +79,10 @@ export default class extends React.Component {
                         <div>
                             <Header active="0" links={links} texts={texts}/>
                             <div className="tab active">
-                                <Posts posts={posts}
+                                <Posts posts={posts} fillCovers={fillCovers}
                                        publisher={title} logo={info.favicon}
                                        author_url={info.host+'/'} author_name={author_name} author_img={author_image}
-                                       hoverHandler={(a, k) => {
-                                    a = a || fillCovers[positiveHashCode(k) % fillCovers.length];
+                                       hoverHandler={(a) => {
                                     actions.setPicBgUrl(a)
                                 } }/>
                                 <Pagination prev={prev_next[0]} next={prev_next[1]}/>

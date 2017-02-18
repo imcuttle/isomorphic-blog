@@ -158,7 +158,7 @@ admin.all('/post', wrap(async function (req, res, next) {
                     await reWrite();
                     const i = content.search(/<!--\s*more\s*-->/);
                     if (i>=0) {
-                        content = content.slice(0, i) + '... （点击标题查看更多）';
+                        content = content.slice(0, i) + ' ...（点击标题查看更多）';
                     }
                     await parse_SendMail(content, title);
                 }

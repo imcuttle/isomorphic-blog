@@ -4,6 +4,7 @@
 import {Link} from 'react-router'
 import React from 'react'
 import {Map} from 'immutable'
+import {renderFrame, positiveHashCode} from "../../common/utils";
 
 class Post extends React.Component {
 
@@ -12,14 +13,16 @@ class Post extends React.Component {
     }
 
     render() {
-        const {
+        let {
             date, title, summary, hrefTitle, hoverHandler, cover, realDate,
-            publisher, logo, author_url, author_name, author_img
+            publisher, logo, author_url, author_name, author_img, fillCovers
         } = this.props;
+
+        cover = cover || fillCovers[positiveHashCode(hrefTitle) % fillCovers.length]
         const dateStr = realDate && new Date(realDate).toISOString();
         return (
             <li className="preview" itemProp="post" itemScope itemType="//schema.org/BlogPosting"
-                onMouseEnter={hoverHandler && hoverHandler.bind(this, cover, hrefTitle)}
+                onMouseEnter={hoverHandler && hoverHandler.bind(this, cover)}
             >
                 <article>
                 <Link to={"/article/"+hrefTitle} rel="contents" className="preview__link" itemProp="url" >
@@ -36,15 +39,16 @@ class Post extends React.Component {
                         <meta itemProp="logo" content={logo} />
                     </div>
                     <div itemType="//schema.org/Person" itemScope style={{display: 'none'}} itemProp="author">
-                        <span itemProp="name">{author_name}</span>
-                        <span itemProp="url">{author_url}</span>
+                        <meta itemProp="name" content={author_name}/>
+                        <meta itemProp="url" content={author_url}/>
                         <span itemProp="image" itemScope itemType="//schema.org/imageObject">
-                            <span itemProp="url">{author_img}</span>
+                            <meta itemProp="url" content={author_img}/>
                         </span>
                     </div>
                     <div itemType="//schema.org/imageObject" itemScope style={{display: 'none'}} itemProp="image">
                         <img itemProp="url" src={cover} title={title} alt={title} />
-                        <span itemProp="width">500</span><span itemProp="height">500</span>
+                        <meta itemProp="width" content="500"/>
+                        <meta itemProp="height" content="500"/>
                     </div>
 
                     <span className="preview__more">Read More</span>

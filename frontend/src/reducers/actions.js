@@ -148,9 +148,9 @@ export const fetchTags = (start, pageSize) =>
 
 
 /* map data start */
-const mapArchiveBox = ({head: {date, title, cover, realDate, mDate}, key}, fillCovers) => ({
+const mapArchiveBox = ({head: {date, title, cover, realDate, mDate}, key, summary}, fillCovers) => ({
     picUrl: cover || fillCovers[positiveHashCode(key) % fillCovers.length],
-    title, text: date, href: "/article/" + key, realDate
+    title, text: date, href: "/article/" + key, realDate, summary
 })
 // const {picUrl, title, text, href, btnText, hoverHandler} = this.props;
 const mapTag = ({cover, name, posts = []}, fillCovers) =>

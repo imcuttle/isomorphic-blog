@@ -32,11 +32,12 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {tagName}, location: {pathname},
             state: {
                 picture,
-                config: {info = {}, profile, fillCovers, icons, iconTarget, seoImage, copyright},
+                config: {info = {}, seo={}, profile, fillCovers, icons, iconTarget, seoImage, copyright},
                 base: {posts, showBack, links, texts, prev_next = []}
             }
-        } = this.props
-
+        } = this.props;
+        const {author={}} = seo;
+        const {name: author_name, image: author_image} = author;
         const prefix = 'Tag: ' + tagName + ' | ';
         const metas = {
             title: prefix + mainTitle,
@@ -74,8 +75,10 @@ export default class extends React.Component {
                         <div>
                             <Header active="0" links={links} texts={texts}/>
                             <div className="tab active">
-                                <Posts scroll={false} posts={posts}
-                                       hoverHandler={(a, k) => actions.setPicBgUrl(a || fillCovers[positiveHashCode(k) % fillCovers.length]) }/>
+                                <Posts scroll={false} posts={posts} fillCovers={fillCovers}
+                                       publisher={mainTitle} logo={info.favicon}
+                                       author_url={info.host+'/'} author_name={author_name} author_img={author_image}
+                                       hoverHandler={(a) => actions.setPicBgUrl(a) }/>
                                 <Pagination prev={prev_next[0]} next={prev_next[1]}/>
                                 <Footer icons={icons} method={iconTarget} copyright={copyright}/>
                             </div>
