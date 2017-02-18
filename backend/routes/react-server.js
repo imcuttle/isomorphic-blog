@@ -15,7 +15,7 @@ import DocumentMeta from 'react-document-meta'
 
 import {pathUpdateEntry, fetchConfig} from '../../frontend/src/reducers/actions'
 import {initState} from '../../frontend/src/reducers/appReducers'
-import {routerForSiteMap} from '../../frontend/src/router'
+import {routerForSiteMap, routes} from '../../frontend/src/router'
 import {configureStore} from '../../frontend/src/main'
 
 const server = express();
@@ -25,7 +25,7 @@ server.use(handleRender);
 // This is fired every time the server side receives a request
 function handleRender(req, res, next) {
     // console.log(req.url, req.originalUrl);
-    match({ routes: routerForSiteMap, location: req.url }, function(error, redirectLocation, renderProps) {
+    match({ routes: routes, location: req.url }, function(error, redirectLocation, renderProps) {
         if (error) {
             res.status(500).send(error.stack);
         } else if (redirectLocation) {
