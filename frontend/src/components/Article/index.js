@@ -55,7 +55,7 @@ class Article extends React.Component {
                     <figure className="absolute-bg mast__img" style={{backgroundImage: cover&&"url("+cover+")"}}></figure>
                     <div className="mast__container">
                         <span>
-                            <time itemProp="datePublished" dateTime={realDate} content={realDate && realDate.substr(0, 10)} >{date}</time>
+                            <time itemProp="datePublished" dateTime={realDate} content={realDate} >{date}</time>
                             <time itemProp="dateModified" dateTime={mDate} content={mDate} style={{display: 'none'}} >{mDate}</time>
                         </span>
                         <div itemType="//schema.org/Organization" itemScope style={{display: 'none'}} itemProp="publisher">
