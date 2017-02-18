@@ -33,6 +33,8 @@ const sendMailProm = ({name, mail, title, html}) => {
 
 async function parse_SendMail (content, hrefTitle) {
     let mailers = await readFilePromise(SPACE_PATH+'/mailer.json');
+    mailers = JSON.parse(mailers);
+    console.log(mailers);
     // mailers = [{name: 'xx', mail: 'moyuyc95@gmail.com'}, {name: 'xxxx', mail: 'moyuyc95@gmail.com'}]
     hrefTitle = hrefTitle.replace(/\.[^\.]*$/, '')
     const json = parseContent(content);
