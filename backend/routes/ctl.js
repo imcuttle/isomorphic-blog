@@ -42,7 +42,7 @@ const spawn_response = (res, cmd, args=[], cwd, notEnded, callback) => {
 
 ctl.all('/pull', (req, res) => {
     spawn_response(res, "git", ['reset', '--hard', 'origin/master'], null, true,
-        code => spawn_response(res, "git", ['pull', '-f', 'origin', 'master'])
+        code => spawn_response(res, "git", ['pull', 'origin', 'master'])
     )
 })
 
