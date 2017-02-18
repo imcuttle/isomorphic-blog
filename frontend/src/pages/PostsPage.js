@@ -80,7 +80,7 @@ export default class extends React.Component {
                             <Header active="0" links={links} texts={texts}/>
                             <div className="tab active">
                                 <Posts posts={posts} fillCovers={fillCovers}
-                                       publisher={title} logo={info.favicon}
+                                       publisher={title} logo={info.host+info.favicon}
                                        author_url={info.host+'/'} author_name={author_name} author_img={author_image}
                                        hoverHandler={(a) => {
                                     actions.setPicBgUrl(a)

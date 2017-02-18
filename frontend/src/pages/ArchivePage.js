@@ -91,7 +91,7 @@ export default class extends React.Component {
                     </section>
                     <ItemsBox
                         big={true} scroll={false} btnText="Read Post" items={items}
-                        publisher={title} author_img={author_image} logo={info.favicon}
+                        publisher={title} author_img={author_image} logo={info.host+info.favicon}
                         author_name={author_name} author_url={info.host+'/'}
                     />
                     <div className="archive-copyright" dangerouslySetInnerHTML={{__html: copyright || ''}}/>

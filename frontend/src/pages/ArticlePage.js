@@ -88,7 +88,7 @@ export default class extends React.Component {
                         {/*}*/}
                     {/*}} />*/}
                     <Article
-                        summary={summary} logo={info.favicon}
+                        summary={summary} logo={info.host+info.favicon}
                         publisher={mainTitle} author_img={author_image}
                         author_name={author_name} author_url={info.host+'/'}
                         title={title} date={date} showBack={showBack}

@@ -91,7 +91,11 @@ class ItemsBox extends React.Component {
                                 </div>
                                 <div itemType="//schema.org/Organization" itemScope style={{display: 'none'}} itemProp="publisher">
                                     <span itemProp="name">{publisher}</span>
-                                    <meta itemProp="logo" content={logo} />
+                                    <span itemProp="logo" itemType="//schema.org/imageObject" itemScope>
+                                        <meta itemProp="url" content={logo} />
+                                        {/*<meta itemProp="width" content="50" />*/}
+                                        {/*<meta itemProp="height" content="50" />*/}
+                                    </span>
                                 </div>
                                 <meta itemProp="description" content={item.summary+'...'}/>
                                 <div className="card__img">

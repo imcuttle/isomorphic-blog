@@ -36,7 +36,9 @@ class Post extends React.Component {
 
                     <div itemType="//schema.org/Organization" itemScope style={{display: 'none'}} itemProp="publisher">
                         <span itemProp="name">{publisher}</span>
-                        <meta itemProp="logo" content={logo} />
+                        <span itemProp="logo" itemType="//schema.org/imageObject" itemScope>
+                            <meta itemProp="url" content={logo} />
+                        </span>
                     </div>
                     <div itemType="//schema.org/Person" itemScope style={{display: 'none'}} itemProp="author">
                         <meta itemProp="name" content={author_name}/>

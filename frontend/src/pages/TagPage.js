@@ -76,7 +76,7 @@ export default class extends React.Component {
                             <Header active="0" links={links} texts={texts}/>
                             <div className="tab active">
                                 <Posts scroll={false} posts={posts} fillCovers={fillCovers}
-                                       publisher={mainTitle} logo={info.favicon}
+                                       publisher={mainTitle} logo={info.host+info.favicon}
                                        author_url={info.host+'/'} author_name={author_name} author_img={author_image}
                                        hoverHandler={(a) => actions.setPicBgUrl(a) }/>
                                 <Pagination prev={prev_next[0]} next={prev_next[1]}/>

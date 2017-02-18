@@ -193,7 +193,7 @@ export default class extends React.Component {
             <div key={url} className={"ds-share flat "+cls} data-thread-key={thread} data-title={share.title}
                 data-images={share.images} data-content={share.content} data-url={url} >
                 <div className="ds-share-inline">
-                    <ul  className="ds-share-icons-16" style={{height: 30, overflowY: 'hidden'}}>
+                    <ul  className="ds-share-icons-16" style={{height: 40, overflowY: 'hidden'}}>
                         <li data-toggle="ds-share-icons-more"><a className="ds-more" href="javascript:void(0);">分享到：</a></li>
                         <li><a className="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
                         <li><a className="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
