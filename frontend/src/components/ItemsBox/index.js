@@ -89,6 +89,7 @@ class ItemsBox extends React.Component {
                                     <img itemProp="url" src={item.picUrl} title={item.title} alt={item.title} />
                                     <span itemProp="width">500</span><span itemProp="height">500</span>
                                 </div>
+                                <meta itemProp="mainEntityOfPage" content={item.href}/>
                                 <div itemType="//schema.org/Organization" itemScope style={{display: 'none'}} itemProp="publisher">
                                     <span itemProp="name">{publisher}</span>
                                     <span itemProp="logo" itemType="//schema.org/imageObject" itemScope>

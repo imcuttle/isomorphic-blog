@@ -40,7 +40,7 @@ class Article extends React.Component {
     render() {
         const {
             title, showBack, date, realDate, tags, cover, content, profile, method, mDate,
-            publisher, author_img, author_name, author_url, summary, logo
+            publisher, author_img, author_name, author_url, summary, logo, hrefTitle
         } = this.props;
         return (
             <article ref="main" className="fadeIn animated" itemScope itemType="//schema.org/Article">
@@ -64,6 +64,7 @@ class Article extends React.Component {
                                 <meta itemProp="url" content={logo} />
                             </span>
                         </div>
+                        <meta itemProp="mainEntityOfPage" content={"/article/"+hrefTitle} />
                         <div itemType="//schema.org/Person" itemScope style={{display: 'none'}} itemProp="author">
                             <meta itemProp="name" content={author_name}/>
                             <meta itemProp="url" content={author_url}/>

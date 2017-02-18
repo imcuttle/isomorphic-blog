@@ -40,6 +40,7 @@ class Post extends React.Component {
                             <meta itemProp="url" content={logo} />
                         </span>
                     </div>
+                    <meta itemProp="mainEntityOfPage" content={"/article/"+hrefTitle}/>
                     <div itemType="//schema.org/Person" itemScope style={{display: 'none'}} itemProp="author">
                         <meta itemProp="name" content={author_name}/>
                         <meta itemProp="url" content={author_url}/>

@@ -94,7 +94,7 @@ export default class extends React.Component {
                         title={title} date={date} showBack={showBack}
                         tags={tags} content={content} realDate={real_date}
                         profile={profile} method={iconTarget}
-                        cover={currCover} mDate={m_date}
+                        cover={currCover} mDate={m_date} hrefTitle={hrefTitle}
                     />
                     {fetchedConfig && <Duoshuo {...duoshuo} url={(info.host || isBrowser && location.origin) + pathname}
                                                thread={hrefTitle}
