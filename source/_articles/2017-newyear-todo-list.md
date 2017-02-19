@@ -16,7 +16,7 @@ skip: false
 - [ ] 同时学习做饭，运动运动(可调剂) -> 3
 - [ ] Toy主题 DuoShuo评论加入(正在尝试)
 - [ ] Flex 学习 -> 3
-
+- [ ] Docker !!!
 ### 待
 
 - [ ] [Node cluster](https://segmentfault.com/a/1190000004621734)  -> 2
