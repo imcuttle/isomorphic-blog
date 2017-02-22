@@ -15,6 +15,45 @@ export const isArticlePath = pathname => /^\/?article\/.+$/.test(pathname)
 export const isArchivePath = pathname => /^\/?archive\/?.*$/.test(pathname)
 
 
+export const getVisibilityState = () => {
+    if (getVisibilityState.__VAL) {
+        return getVisibilityState.__VAL;
+    }
+    getVisibilityState.__VAL = (() => {
+        var prefixes = ['webkit', 'moz', 'ms', 'o'];
+        if ('visibilityState' in document) return 'visibilityState';
+        for (var i = 0; i < prefixes.length; i++) {
+            if ((prefixes[i] + 'VisibilityState') in document)
+                return prefixes[i] + 'VisibilityState';
+        }
+        // otherwise it's not supported
+        return null;
+    })();
+    return getVisibilityState.__VAL;
+}
+
+
+export const getHiddenProp = () => {
+    if (getHiddenProp.__VAL) {
+        return getHiddenProp.__VAL;
+    }
+    getHiddenProp.__VAL = (() => {
+        var prefixes = ['webkit','moz','ms','o'];
+
+        // if 'hidden' is natively supported just return it
+        if ('hidden' in document) return 'hidden';
+
+        // otherwise loop over all the known prefixes until we find one
+        for (var i = 0; i < prefixes.length; i++){
+            if ((prefixes[i] + 'Hidden') in document)
+                return prefixes[i] + 'Hidden';
+        }
+
+        return null;
+    })()
+    return getHiddenProp.__VAL;
+}
+
 export const redirectPath = "/posts/1"
 
 export const renderFrame = (childs) =>

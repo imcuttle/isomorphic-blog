@@ -6,7 +6,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import Loading from "./components/Loading";
 import IdJson from "./components/IdJson";
-import {loaded, isBrowser} from "./common/utils";
+import {loaded, isBrowser, getHiddenProp, getVisibilityState} from "./common/utils";
 
 
 class App extends React.Component {
@@ -45,7 +45,17 @@ class App extends React.Component {
             const {actions, location: {pathname}, params, state: {base: fetchedConfig}} = this.props;
             actions.fetchConfig().then(() => {
                 actions.pathUpdateEntry(pathname, params)
-            })
+            });
+            const icon = document.querySelector('link[rel="icon"]');
+
+            const visProp = getHiddenProp();
+            if (visProp) {
+                const evtName = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
+                document.addEventListener(evtName, function () {
+                    icon.href = "/"+document[getVisibilityState()]+".ico";
+                }, false);
+            }
+
         }
     }
 
