@@ -3,7 +3,7 @@ title: node.js 同步请求
 date: 2017-02-17 21:07:34
 categories:
 tags: [nodejs]
-cover: http://obu9je6ng.bkt.clouddn.com/Fj5uQumcJ7hDqA2uZWW6ZC55fonq?imageslim
+cover: http://imglf1.nosdn.127.net/img/d2puWmMwRURCSlpScWN4N2V4K1pZUFc4UXNOVlpZSG8wSldTOEhuT0VnaiszN1hBcklGZE53PT0.jpg?imageView&thumbnail=1000x0&type=jpg&quality=96&stripmeta=0&type=jpg
 keywords: [synchronous,nodejs,request]
 ---
 
