@@ -3,7 +3,7 @@ title: Progressive Web App
 date: 2017-02-10 19:35:48
 categories:
 tags: [转, web]
-cover: https://pic2.zhimg.com/v2-907d6e6909c8bd1a92fc265ba7c68d75_r.png
+cover: http://obu9je6ng.bkt.clouddn.com/Fj5uQumcJ7hDqA2uZWW6ZC55fonq?imageslim
 ---
 
 转自：[知乎](https://zhuanlan.zhihu.com/p/25167289?utm_source=wechat_timeline&utm_medium=social&from=timeline&isappinstalled=1)
