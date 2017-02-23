@@ -9,7 +9,7 @@ keywords: [synchronous,nodejs,request]
 
 
 node.js 以异步方式、事件队列为标准，基本每一套与网络、IO 相关的 API 都会设计成异步的。
-
+sync
 如，一段很平常的请求代码，用 node.js 只能用异步方式。
 
 ```javascript
