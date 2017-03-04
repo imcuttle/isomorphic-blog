@@ -22,7 +22,11 @@ const errorHandle = (err, req, res, next) => {
 }
 
 admin.all('/', (req, res) => {
-    res.render('admin', {title: '管理员', subtitle: 'For Better.'});
+    if (req.session.admin) {
+        res.redirect("/admin/dashboard");
+    } else {
+        res.render('admin', {title: '管理员', subtitle: 'For Better.'});
+    }
 })
 
 admin.use(redirectUnLogin)
