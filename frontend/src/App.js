@@ -6,7 +6,7 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import Loading from "./components/Loading";
 import IdJson from "./components/IdJson";
-import {loaded, isBrowser, getHiddenProp, getVisibilityState} from "./common/utils";
+import {loaded, magicLog, isBrowser, getHiddenProp, getVisibilityState} from "./common/utils";
 
 
 class App extends React.Component {
@@ -23,11 +23,14 @@ class App extends React.Component {
 
     componentWillReceiveProps(newProps) {
         if (newProps.location.pathname !== this.props.location.pathname) {
-            this.props.actions.pathUpdateEntry(newProps.location.pathname, newProps.params)
+            this.props.actions.pathUpdateEntry(newProps.location.pathname, newProps.params);
+            setTimeout(() => {console.clear();magicLog();}, 1000);
         }
     }
 
     componentDidMount() {
+        setTimeout(() => {console.clear();magicLog();}, 2000);
+
         const {actions, location: {pathname}, params, state: {base: fetchedConfig}} = this.props
         if (fetchedConfig) {
             loaded().then(() => this.setState({isFirst: false}));
