@@ -30,7 +30,7 @@ pageSize: 6
 summaryNumber: 100
 iconTarget: _blank
 icons:
-- key: handshake-o
+- key: group
   url: /subscribe
 - key: envelope-o
   url: mailto:moyuyc95@gmail.com
