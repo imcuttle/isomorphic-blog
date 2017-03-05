@@ -24,12 +24,12 @@ class App extends React.Component {
     componentWillReceiveProps(newProps) {
         if (newProps.location.pathname !== this.props.location.pathname) {
             this.props.actions.pathUpdateEntry(newProps.location.pathname, newProps.params);
-            setTimeout(() => {console.clear();magicLog();}, 1000);
+            setTimeout(() => {magicLog();}, 1000);
         }
     }
 
     componentDidMount() {
-        setTimeout(() => {console.clear();magicLog();}, 2000);
+        setTimeout(() => {magicLog();}, 2000);
 
         const {actions, location: {pathname}, params, state: {base: fetchedConfig}} = this.props
         if (fetchedConfig) {
