@@ -10,8 +10,6 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.resetComment = this.resetComment.bind(this)
-        this.renderShareHTML = this.renderShareHTML.bind(this)
-        this.renderShare = this.renderShare.bind(this)
     }
 
     componentWillMount() {
@@ -20,10 +18,16 @@ export default class extends React.Component {
 
 
     resetComment (props=this.props) {
-        const {url, identity, short} = props;
+        const {url, identity, title, short} = props;
+        window.disqus_config = function () {
+            this.page.title = title;
+            this.page.url = url || window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = identity; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
         DISQUS && DISQUS.reset({
             reload: true,
             config: function () {
+                this.page.title = title;
                 this.page.identifier = identity;
                 this.page.url = url || window.location.href;
             }
@@ -40,7 +44,7 @@ export default class extends React.Component {
             };
 
             var script = document.createElement('script')
-            script.src = `https//${short}.disqus.com/embed.js`;
+            script.src = `https://${short}.disqus.com/embed.js`;
             script.setAttribute('data-timestamp', +new Date());
             (document.head||document.body).appendChild(script);
             var self = this;
@@ -70,9 +74,9 @@ export default class extends React.Component {
     }
 
     componentDidUpdate(oldProps, oldState, oldContext) {
-        const {identity: oldIdentity} = oldProps
-        const {short, identity, force} = this.props
-        if (identity && identity !== oldIdentity) {
+        const {identity: oldIdentity, title: oldTitle} = oldProps
+        const {short, identity, title} = this.props
+        if ((identity && identity !== oldIdentity) || oldTitle !== title) {
             this.resetComment();
         }
     }

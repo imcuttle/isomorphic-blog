@@ -34,10 +34,10 @@ export default class extends React.Component {
                 config: {profile, seo = {}, fillCovers, icons, iconTarget, info = {}, seoImage, comment},
                 base: {posts, article = {}, nextArticle = {}, showBack, links, prev_next = [], fetchedConfig, fetching}
             }
-        } = this.props // title, cover, href
+        } = this.props; // title, cover, href
         const {author = {}} = seo;
         const {name: author_name, image: author_image} = author;
-        const {tags, content, cover, date, title, realDate, summary, keywords, mDate} = article
+        const {tags, content, cover, date, title, realDate, summary, keywords, mDate} = article;
         const {key: href, cover: nCover, title: nTitle} = nextArticle
         profile.icons = icons;
         const prefix = title + ' | ';
@@ -108,7 +108,7 @@ export default class extends React.Component {
                         profile={profile} method={iconTarget}
                         cover={currCover} mDate={m_date} hrefTitle={hrefTitle}
                     />
-                    {fetchedConfig && renderComment()}
+                    {fetchedConfig && !article.fetching && renderComment()}
                     {href &&
                     <ArtNext title={nTitle} href={"/article/" + href}
                              cover={nCover || fillCovers[positiveHashCode(nextArticle.key) % fillCovers.length]}

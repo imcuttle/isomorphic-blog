@@ -124,14 +124,19 @@ export const fetchTagPosts = (key, start, pageSize) =>
 
 export const fetchArticle = (key) =>
     (dispatch) =>
-    dispatch(setFetching(true)) &&
+    dispatch(setFetching(true)) && dispatch(setArticleFetching(true)) &&
     fetch("/api/article?" + stringify({key})).then(r => r.json())
         .then(json => {
-            if (dispatch(setFetching(false)) && checkJsonThenLog(json)) {
+            if (checkJsonThenLog(json)) {
                 json.result.curr && dispatch(setArticle(mapArticle(json.result.curr)));
-                json.result.next && dispatch(setNextArticle(mapNextArticle(json.result.next)))
+                json.result.next && dispatch(setNextArticle(mapNextArticle(json.result.next)));
+                dispatch(setFetching(false));
+                dispatch(setArticleFetching(false));
                 return json.result;
             }
+            dispatch(setArticleFetching(false));
+            dispatch(setFetching(false));
+            return false;
         })
 
 export const fetchTags = (start, pageSize) =>
@@ -185,6 +190,7 @@ const mapNextArticle = ({head: {realDate, cover, date, title}, key}) => ({key, c
 /* base start */
 export const setFetching = fetching => _type('SET_FETCHING', {fetching})
 export const setFetchedConfig = fetchedConfig => _type('SET_FETCHED_CONFIG', {fetchedConfig})
+export const setArticleFetching = fetching => _type('SET_ARTICLE_FETCHING', {fetching})
 export const setLinks = links => _type('SET_LINKS', {links})
 export const setLinksTexts = texts => _type('SET_LINKS_TEXTS', {texts})
 export const setPrevNext = prev_next => _type('SET_PREV_NEXT', {prev_next})
