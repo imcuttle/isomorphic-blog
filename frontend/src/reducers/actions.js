@@ -127,15 +127,13 @@ export const fetchArticle = (key) =>
     dispatch(setFetching(true)) && dispatch(setArticleFetching(true)) &&
     fetch("/api/article?" + stringify({key})).then(r => r.json())
         .then(json => {
-            if (checkJsonThenLog(json)) {
+            if (dispatch(setFetching(false)) && checkJsonThenLog(json)) {
                 json.result.curr && dispatch(setArticle(mapArticle(json.result.curr)));
                 json.result.next && dispatch(setNextArticle(mapNextArticle(json.result.next)));
-                dispatch(setFetching(false));
                 dispatch(setArticleFetching(false));
                 return json.result;
             }
             dispatch(setArticleFetching(false));
-            dispatch(setFetching(false));
             return false;
         })
 

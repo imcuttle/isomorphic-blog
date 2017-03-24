@@ -38,7 +38,7 @@ export default class extends React.Component {
         const {author = {}} = seo;
         const {name: author_name, image: author_image} = author;
         const {tags, content, cover, date, title, realDate, summary, keywords, mDate} = article;
-        const {key: href, cover: nCover, title: nTitle} = nextArticle
+        const {key: href, cover: nCover, title: nTitle} = nextArticle;
         profile.icons = icons;
         const prefix = title + ' | ';
         let real_date = realDate ? new Date(realDate).toISOString() : null;
