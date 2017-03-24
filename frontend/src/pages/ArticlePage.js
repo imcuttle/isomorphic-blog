@@ -7,9 +7,9 @@ import DocumentTitle from "react-document-title";
 import {isBrowser, positiveHashCode} from "../common/utils";
 import Article from "../components/Article";
 import ArtNext from "../components/ArtNext";
-import SeoImage from "../components/SeoImage";
-import Duoshuo from "../components/DuoshuoComment";
-import IdJson from "../components/IdJson";
+// import SeoImage from "../components/SeoImage";
+//
+// import IdJson from "../components/IdJson";
 import DocumentMeta from "react-document-meta";
 
 export default class extends React.Component {
@@ -31,11 +31,11 @@ export default class extends React.Component {
             actions, title: mainTitle, params: {hrefTitle},
             location: {pathname},
             state: {
-                config: {profile, seo={}, fillCovers, icons, iconTarget, info = {}, seoImage, duoshuo},
+                config: {profile, seo = {}, fillCovers, icons, iconTarget, info = {}, seoImage, comment},
                 base: {posts, article = {}, nextArticle = {}, showBack, links, prev_next = [], fetchedConfig, fetching}
             }
         } = this.props // title, cover, href
-        const {author={}} = seo;
+        const {author = {}} = seo;
         const {name: author_name, image: author_image} = author;
         const {tags, content, cover, date, title, realDate, summary, keywords, mDate} = article
         const {key: href, cover: nCover, title: nTitle} = nextArticle
@@ -71,34 +71,44 @@ export default class extends React.Component {
                 }
             }
         };
-        const currCover = cover || fillCovers[positiveHashCode(hrefTitle) % fillCovers.length]
+
+        const currCover = cover || fillCovers[positiveHashCode(hrefTitle) % fillCovers.length];
+
+
+        const renderComment = () => {
+            let Comment;
+            if (comment.enable === 'duoshuo') {
+                Comment = require('../components/DuoshuoComment').default;
+                return <Comment {...comment.duoshuo}
+                                url={(info.host || isBrowser && location.origin) + pathname}
+                                thread={hrefTitle}
+                                share={{title, images: currCover, content: summary + '...'}}/>
+            }
+            if (comment.enable === 'disqus') {
+                Comment = require('../components/DisqusComment').default;
+                return <Comment
+                    {...comment.disqus}
+                    url={(info.host || isBrowser && location.origin) + pathname}
+                    identity={hrefTitle}
+                    title={title}
+                />
+            }
+        }
+
         return (
             <DocumentTitle title={metas.title}>
                 <main>
                     <DocumentMeta {...metas} />
-                    {/*<SeoImage title={title} src={cover || seoImage}/>*/}
-                    {/*<IdJson json={{*/}
-                        {/*'@context': 'http://schema.org', '@type': 'Article',*/}
-                        {/*publisher: mainTitle,*/}
-                        {/*url: info.host + pathname, dateModified: m_date, datePublished: real_date,*/}
-                        {/*headline: title, description: summary,*/}
-                        {/*author: {*/}
-                            {/*'@type': 'Person', name: author_name, url: info.host+'/',*/}
-                            {/*image: {'@type': 'imageObject', url: author_image}*/}
-                        {/*}*/}
-                    {/*}} />*/}
                     <Article
-                        summary={summary} logo={info.host+info.favicon}
+                        summary={summary} logo={info.host + info.favicon}
                         publisher={mainTitle} author_img={author_image}
-                        author_name={author_name} author_url={info.host+'/'}
+                        author_name={author_name} author_url={info.host + '/'}
                         title={title} date={date} showBack={showBack}
                         tags={tags} content={content} realDate={real_date}
                         profile={profile} method={iconTarget}
                         cover={currCover} mDate={m_date} hrefTitle={hrefTitle}
                     />
-                    {fetchedConfig && <Duoshuo {...duoshuo} url={(info.host || isBrowser && location.origin) + pathname}
-                                               thread={hrefTitle}
-                                               share={{title, images: currCover, content: summary + '...'}}/>}
+                    {fetchedConfig && renderComment()}
                     {href &&
                     <ArtNext title={nTitle} href={"/article/" + href}
                              cover={nCover || fillCovers[positiveHashCode(nextArticle.key) % fillCovers.length]}
@@ -108,4 +118,6 @@ export default class extends React.Component {
             </DocumentTitle>
         )
     }
+
+
 }
