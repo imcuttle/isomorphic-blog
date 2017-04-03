@@ -30,7 +30,7 @@ const sendMailProm = ({name, mail, title, html}) => {
                 `Content-Type: text/html; charset="utf-8"\r\n\r\n` +
                 `${html}`
             ))
-        }, 1000);
+        }, 5000);
     })
 
 }
