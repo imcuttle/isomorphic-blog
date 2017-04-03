@@ -117,8 +117,8 @@ module.exports = {
 >
 </script>
 ```
-- `hrs-local` 该文件的绝对路径
-- `hrs-root` 需要监听的文件夹的路径（默认为`hrs-local`的文件夹路径，例中为：`/Users/moyu/fe-code/a/b`）
+    - `hrs-local` 该文件的绝对路径
+    - `hrs-root` 需要监听的文件夹的路径（默认为`hrs-local`的文件夹路径，例中为：`/Users/moyu/fe-code/a/b`）
 
 ## 安装使用
 
@@ -140,3 +140,4 @@ Options:
 ```
 
 最后，欢迎各位 [star](https://github.com/moyuyc/simple-hot-reload-server)！
+
