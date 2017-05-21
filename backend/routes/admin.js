@@ -40,7 +40,7 @@ const sendMailProm = ({name, mail, title, html}) => {
 
 }
 
-sendMailProm({name: "NAME", html: "<h1>MAIL</h1>", title: "TITLE", mail: "492899414@qq.com"}).then(console.log)
+// sendMailProm({name: "NAME", html: "<h1>MAIL</h1>", title: "TITLE", mail: "492899414@qq.com"}).then(console.log)
 
 
 async function parse_SendMail (content, hrefTitle) {
