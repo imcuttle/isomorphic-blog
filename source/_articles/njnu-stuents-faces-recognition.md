@@ -30,7 +30,6 @@ skip: false
 <img src="https://ooo.0o0.ooo/2017/01/22/5884d672c4710.jpg" alt="" width="550" height="609" />
 
 2. 使用主流 [Webpack](https://webpack.github.io/) 构建，进行前端模块自动化管理。
-
 <img src="https://ooo.0o0.ooo/2017/01/22/5884d5ba0680b.jpg" alt="" width="2598" height="1299" />
 
 
@@ -307,7 +306,7 @@ gp-njnu-photos-backend/
 └── server.js
 ```
 
-## 过程（Learning Process）
+## 过程（Learning Process） 
 
 ### 学生照片下载
 下载证件照就需要图片的 URL，在[利用Python爬取学校网站上的证件照](http://blog.chaiziyi.com.cn/2016/06/03/%E5%88%A9%E7%94%A8Python%E7%88%AC%E5%8F%96%E5%AD%A6%E6%A0%A1%E7%BD%91%E7%AB%99%E4%B8%8A%E7%9A%84%E8%AF%81%E4%BB%B6%E7%85%A7%EF%BC%88%E5%9B%9B%EF%BC%89/)一文中，说到了教务处的学生证 URL 规则是 `http://${hostname}/jwgl/photos/rx${year}/${studentno}.jpg` ，`hostname`就是教务系统的主机地址，`year`就是入年份，`studentno`是学生学号，比如某学生学号是`19140429`，其中学号的3-4位表示入学年份，表示学生是 2014 年入学，那么他的学生证 URL 就是 `http://223.2.10.123/jwgl/photos/rx2014/19140429`；  

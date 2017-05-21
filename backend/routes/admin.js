@@ -20,9 +20,14 @@ const sendMailProm = ({name, mail, title, html}) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(sendMail(
-                'smtp.qq.com',
-                '492899414@qq.com',
-                'jrpzcdbebynzcabf',
+                // 'smtp.qq.com',
+                'smtp.exmail.qq.com',
+                // '492899414@qq.com',
+                'me@moyuyc.xyz',
+                // 'jrpzcdbebynzcabf',
+
+                'syoH3XakrzEP7Tum',
+                // 'ymg6Xqv2VS2kWbCO',
                 mail,
                 `${mail_encode("From", "Moyu")} <moyuyc95@gmail.com>\r\n` +
                 `${mail_encode("Subject", `[墨鱼新的文章出炉啦!] ${title}`)}\r\n` +
@@ -34,6 +39,8 @@ const sendMailProm = ({name, mail, title, html}) => {
     })
 
 }
+
+sendMailProm({name: "NAME", html: "<h1>MAIL</h1>", title: "TITLE", mail: "492899414@qq.com"}).then(console.log)
 
 
 async function parse_SendMail (content, hrefTitle) {
