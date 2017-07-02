@@ -15,7 +15,7 @@ export const isArticlePath = pathname => /^\/?article\/.+$/.test(pathname)
 export const isArchivePath = pathname => /^\/?archive\/?.*$/.test(pathname)
 
 export const magicLog = (ops={}) => {
-    const {host="http://blog.moyuyc.xyz", clear=true} = ops;
+    const {host="http://maxyu.top", clear=true} = ops;
     const clr = "color: #222; color:#d32;";
     const fish = "🐠"; const downHand = "👇🏻";
     const rightHand = "👉🏻";

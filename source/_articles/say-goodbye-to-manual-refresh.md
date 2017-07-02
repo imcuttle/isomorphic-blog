@@ -56,7 +56,7 @@ keywords: [hot,reload,server,nodejs]
         访问：`http://localhost:8082/__hrs__/map`
 
 - 转发请求（可避免跨域）  
-访问：`http://localhost:8082/__hrs__/forward?url=http://blog.moyuyc.xyz/head.jpg`
+访问：`http://localhost:8082/__hrs__/forward?url=http://maxyu.top/head.jpg`
 
 - 配置文件  
 默认认为配置文件为：`hrs.config.js`  
