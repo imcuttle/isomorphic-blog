@@ -1,4 +1,4 @@
 User-agent: *
-Sitemap: http://blog.moyuyc.xyz/sitemap.xml
+Sitemap: http://maxyu.top/sitemap.xml
 Disallow: /api/*
 Disallow: /admin
