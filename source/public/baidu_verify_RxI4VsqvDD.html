@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" sizes="any" mask href="//www.baidu.com/img/baidu.svg">
+    <link rel="stylesheet" type="text/css" href="/res/css/plugins/top-tab.css" />
+<link rel="stylesheet" type="text/css" href="/res/css/plugins/footer.css" />
+<title>百度站长平台_让网站更具价值</title>
+    <script>
+        // 已经在DP注册的页面，没注册的扔到默认里
+        var pageNameArr = [
+            'site',
+            'prompt',
+            'mobiletools',
+            'tools',
+            'linksubmit',
+            'badlink',
+            'robots',
+            'pressure',
+            'crawltools',
+            'crawl',
+            'indexs',
+            'sitelink',
+            'itemannotator',
+            'schema',
+            'dataplug',
+            'keywords',
+            'inbound',
+            'safe',
+            'leakdetect',
+            'rewrite',
+            'guide',
+            'tongji',
+            'feedback',
+            'siteclose',
+            'dashboard',
+            'appattribute'
+        ];
+        var pageName = '';
+        if (window.location.pathname !== '/') {
+            if (window.location.pathname.match('/([^/]+)/') === null) {
+                pageName = window.location.pathname.match('/([^/]+)')[1];
+            }
+            else {
+                pageName = window.location.pathname.match('/([^/]+)/')[1];
+            }
+            var inArray = function (needle,array){
+                var len=array.length;
+                for(var i=0;i<len;i++){
+                    if(needle===array[i]){
+                        return true;
+                    }
+                }
+                return false;
+            };
+            if (!inArray(pageName, pageNameArr)) {
+                pageName = '675_1';
+            }
+        }
+        else {
+            pageName = '675_1';
+        }
+        window.alogObjectConfig = {
+            sample: '1',
+
+            product: '657',
+            page: pageName,
+            monkey_page: '',
+            speed_page: '',
+
+            speed: {
+                sample: '1'
+            },
+
+            monkey: {
+                sample: '1'
+            },
+
+            exception: {
+                sample: '1'
+            },
+
+            feature: {
+                sample: '1'
+            },
+
+            cus: {
+                sample: '1'
+            },
+
+            csp: {
+                sample: '',
+                'default-src': [
+                    {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                    {match: '*.baidu.com,*.bdstatic.com,*.baidustatic.com,*.baiduimg.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                    {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                    {match: '*', target: 'Accept,Warn'}
+                ]
+            }
+        };
+
+        void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+        void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+    </script>
+    
+    <meta name="description" content="全球最大的面向中文互联网管理者、移动开发者、创业者的搜索流量管理的官方平台。提供有助于搜索引擎收录的工具、SEO建议、API接口、多端适配服务的能力等。" />
+
+    
+        <link type="text/css" rel="stylesheet" href="/res/css/zz.css" />
+        <link type="text/css" rel="stylesheet" href="/static/css/layout.css?ver=5" />
+    
+
+    
+    
+        <script data-main="/res/js/main.js" src="/res/js/base/require.js?v=20141117"></script>
+    
+    
+</head>
+<script> alog('speed.set', 'ht', +new Date); </script>
+<body>
+
+    
+<div class="layout-head">
+    <div class="container layout-content">
+        <a href="/" class="head-logo"></a>
+        <ul class="menu-list">
+            <li><a class="menu-item yahei" href="/">首页</a></li>
+            <li><a class="menu-item yahei" href="/dashboard/index">工具</a></li>
+            <!-- <li><a class="menu-item yahei" href="/wiki/index">资讯</a></li> -->
+            <li><a class="menu-item yahei" href="/college/index">学院</a></li>
+            <li><a class="menu-item yahei" href="/vip/index">VIP俱乐部</a></li>
+            <li><a class="menu-item yahei" href="http://bbs.zhanzhang.baidu.com">站长社区</a></li>
+
+        </ul>
+
+                                    <a class="right-links non-login" data-id="zzLogin" href="https://passport.baidu.com/v2/?login&u=https%3A%2F%2Fzhanzhang.baidu.com%2F&tpl=zhanzhang">登录</a>
+                <a class="right-links" href="https://passport.baidu.com/v2/?reg&u=https%3A%2F%2Fzhanzhang.baidu.com%2F&tpl=zhanzhang&regType=1" target="_blank">注册</a>
+                    
+    </div>
+</div>
+
+<div class="layout-breadcrumb">
+  
+</div>
+<div class="layout-main">
+    
+        
+
+        	
+				
+			    
+    
+<div style="font-weight:bold;font-size:18px;padding:50px 0px;text-align:center">
+            您需要先<a href="https://passport.baidu.com/v2/?login&u=https%3A%2F%2Fzhanzhang.baidu.com%2Fsite%2Fverifyfile%3Fid%3D8813041&tpl=zhanzhang" data-id="zzLogin">登录</a>站长平台，才能访问此页面，或者
+        点击<a href="/">此处</a>返回首页
+</div>
+
+</div>
+
+
+<div class="layout-foot">
+        &copy; 2017 Baidu <a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a> <a target="_blank" href="http://www.miibeian.gov.cn">京ICP证030173号</a> <em id="footer-beian">&nbsp;&nbsp;&nbsp;&nbsp;</em>
+</div>
+<script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script>
+<script src="/static/js/jquery-1.7.2.min.js"></script>
+
+<script src="/static/js/jquery_ext.js?v=201300929"></script>
+<script src="/static/js/zhanzhang.js?v=20130607"></script>
+    <script type="text/javascript" src="https://passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=201707022022"></script>
+
+    <script src="https://passport.baidu.com/passApi/js/wrapper.js?cdnversion=1498998162"></script>
+<script type="text/javascript">
+    var url_sets = {
+        usermanage : "/user/index",
+        usersetting : "/usercfg/editaccount",
+        siteproperty : "/site/property"
+    }
+
+        var needContactInfo = false;
+        // 初始化用户设置
+    zhanzhang.index.init();
+    // 初始化登陆弹窗
+    var pageUrls = {
+        passdomain: "https://passport.baidu.com/",
+        passreg : "https://passport.baidu.com/v2/?reg&u=https%3A%2F%2Fzhanzhang.baidu.com%2F&tpl=zhanzhang&regType=1",
+        passlogout : "/auth/logout?u=https%3A%2F%2Fzhanzhang.baidu.com%2Fsite%2Fverifyfile%3Fid%3D8813041",
+        cas : {"loginurl":"https:\/\/cas.baidu.com\/?action=login","imageurl":"http:\/\/cas.baidu.com\/?action=image","aimappid":12,"appid":63,"fromu":"https:\/\/zhanzhang.baidu.com\/auth\/ucfromu","selfu":"https:\/\/zhanzhang.baidu.com\/auth\/ucselfu","retriveurl":"https:\/\/cas.baidu.com\/?controller=user&action=retrivepwd&appscope[]=6&appscope[]=12&appscope[]=7"}
+    }
+    
+    $('body').on('click', '[data-id="zzLogin"]', function (e) {
+        e.preventDefault();
+        require(['plugins/pop-login'],function(pl){
+            pl.init(pageUrls);
+        });
+    });
+
+    </script>
+
+
+<script type="text/javascript">
+    jQuery(function($){
+        if($.browser.msie && $.browser.version < 8){
+            $('<div class="mod-notice" style="margin:0 auto;line-height:18px;text-align:center;padding:10px;">您正在使用IE'+ $.browser.version +'浏览器，为保证您能正常使用站长平台所有功能，请更新到高版本浏览器</div>').prependTo("body");
+            if($.ext_cookie.get('hideCheckBrowser') != 1){
+                $.ext_dialog.open({
+                    title : "提示",
+                    width:530,
+                    haml : ["%div","您正在使用IE"+ $.browser.version +"浏览器，为保证您能正常使用站长平台所有功能，推荐使用下列浏览器访问：",["%a",{href:"http://www.microsoft.com/zh-cn/download/ie.aspx?q=internet+explorer",target:"_blank"},"IE8或IE8以上浏览器"],"、",["%a",{href:"http://www.google.com/intl/zh-CN/chrome/",target:"_blank"},"Chrome浏览器"],"、",["%a",{href:"http://www.firefox.com.cn/download/",target:"_blank"},"Firefox浏览器"]],
+                    buttons:{
+                        '确定':function(){
+                            $.ext_cookie.set('hideCheckBrowser',1,1,'/');
+                            //统计ie6、7的使用量
+                            $.get("/auth/monitorbrowserforie",function(){});
+                            $.ext_dialog.close();
+                        }
+                    },
+                    close:function(){
+                        $.ext_cookie.set('hideCheckBrowser',1,1,'/');
+                        //统计ie6、7的使用量
+                        $.get("/auth/monitorbrowserforie",function(){});
+                    }
+                });
+                $.ext_dialog.foot().css("textAlign","center");
+
+            }
+        }
+    });
+    // 全站弹窗提醒
+    require(['plugins/alarm'], function (alarm) {
+        alarm.init('1');
+    });
+</script>
+<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F031f28a54d603d47eb69f579fb3198a0' type='text/javascript'%3E%3C/script%3E"));</script>
+<script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>
+<script>alog('speed.set', 'drt', +new Date);</script>
+</body>
+</html>
